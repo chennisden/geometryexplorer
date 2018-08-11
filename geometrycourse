@@ -19,15 +19,6 @@
   font-size: 17px;
 }
 
-.topnav b {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
 .topnav a:hover {
   background-color: #ddd;
   color: black;
@@ -44,10 +35,10 @@ body {
 </head>
 <body>
 <div class="topnav">
-  <a class="active" href="https://www.geometryexplorer.xyz">Home</a>
-  <a href="/geometrycourse">Introduction to Geometry</a>
-  <a href="/handouts">Handouts</a>
   <a href="/blog">Blog</a>
+  <a href="/handouts">Handouts</a>
+  <a class="active" href="/geometrycourse">Introduction to Geometry</a>
+  <a href="https://www.geometryexplorer.xyz">Home</a>
 </div>
 <h1 style="text-align: center;">Geometry Explorer</h1>
 <p style="text-align: center;">I'm Dennis Chen. If you're enrolled in one of my classes, this is the go-to place for the material you need. If you aren't enrolled in any of my classes and just want to check out my content, that's fine too. I'll add more things and migrate all of my material from my old website to this new one soon -- for now, if you need anything on my older website, just go <a href="https://the-beauty-of-mathematics.webnode.com/">here</a>.</p>
