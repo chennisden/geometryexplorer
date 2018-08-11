@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<title>Geometry Explorer</title>
+<title>Geometry Explorer - Introduction to Geometry</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -26,23 +24,44 @@
   color: #3366BB;
 }
 body {
-    font-family: Garamond, Times, Palatino;
+    font-family: Lato, Times, Palatino;
 }
 .topnav-right {
   float: right;
 }
+body {background-color: #D2B48C;}
 </style>
 </head>
 <body>
 <div class="topnav">
 <a href="https://www.geometryexplorer.xyz">Geometry Explorer</a>
 <div class="topnav-right">
-  <a class="active" href="/geometrycourse">Introduction to Geometry</a>
+  <a class = "active" href="/geometrycourse">Introduction to Geometry</a>
   <a href="/handouts">Handouts</a>
   <a href="/blog">Blog</a>
 </div>
 </div>
-<h1 style="text-align: center;">Geometry Explorer</h1>
-<p style="text-align: center;">I'm Dennis Chen. If you're enrolled in one of my classes, this is the go-to place for the material you need. If you aren't enrolled in any of my classes and just want to check out my content, that's fine too. I'll add more things and migrate all of my material from my old website to this new one soon -- for now, if you need anything on my older website, just go <a href="https://the-beauty-of-mathematics.webnode.com/">here</a>.</p>
+<h1 style="text-align: center;">Introduction to Geometry</h1>
+<p style="text-align: center;">Synopsis: The Introduction to Geometry course covers a basic understanding of Euclidean Geometry. It includes triangle centers, trigonometry, circles, and analytic geometry.</p>
+<h1 style = "text-align: center;">Course material</h1>
 </body>
+<p style="text-align: center;">Syllabus</p>
+<p style="text-align: center;">Week 1 - Axioms and Notations | Handout | Problem Set | Reading List</p>
+<p style="text-align: center;">Week 2 - Area of a Triangle | Handout | Problem Set | Reading List</p>
+<p style="text-align: center;">Week 3 - Triangle Centers | Handout | Problem Set | Reading List</p>
+<p style="text-align: center;">Week 4 - Collinearity and Concurrency | Handout | Problem Set | Reading List</p>
+<p style="text-align: center;">Week 5 - Introduction to Trigonometry | Handout | Problem Set | Reading List</p>
+<p style="text-align: center;">Week 6 - Trigonometric Identities | Handout | Problem Set | Reading List</p>
+<p style="text-align: center;">Week 7 - Cartesian Coordinates | Handout | Problem Set | Reading List</p>
+<p style="text-align: center;">Week 8 - Complex Numbers | Handout | Problem Set | Reading List</p>
+<p style="text-align: center;">Week 9 - Circles | Handout | Problem Set | Reading List</p>
+<footer>
+  <br>
+  <br>
+  <center>
+  <p>Dennis Chen</p>
+  <p><a href="mailto:proofprogram@gmail.com">proofprogram@gmail.com</a>.</p>
+  <p>2018</p>
+  </center>
+</footer>
 </html>
