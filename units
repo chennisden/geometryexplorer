@@ -1,1 +1,40 @@
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
 
+<h1>Algebra</h1>
+
+<h2>Difficulty P</h2>
+
+<h2>Difficulty Q</h2>
+
+<h2>Difficulty R</h2>
+
+<h1>Combinatorics</h1>
+
+<h2>Difficulty P</h2>
+
+<h2>Difficulty Q</h2>
+
+<h2>Difficulty R</h2>
+
+<h1>Geometry</h1>
+
+<h2>Difficulty P</h2>
+
+<h2>Difficulty Q</h2>
+
+<h2>Difficulty R</h2>
+
+<h1>Number Theory</h1>
+
+<h2>Difficulty P</h2>
+
+<h2>Difficulty Q</h2>
+
+<h2>Difficulty R</h2>
+
+</body>
+</html>
