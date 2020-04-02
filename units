@@ -1,22 +1,39 @@
 <html>
 <head>
-<title>Page Title</title>
+<title>Unit Catalogue</title>
 </head>
 <body>
+<p>Return to MAST.</p>
 
 <h1>Algebra</h1>
 
 <h2>Difficulty P</h2>
 
+<p>Remainder Theorem (APT) - Some fun uses of a semi-obscure theorem. Never appears on the AIME and is pretty basic, but is good to know.</p>
+
+<p>Logarithms (APU) - Involves the manipulation of logarithms. There is no other topic that has consistently appeared on the AIME every year, and there are few easier topics. This is the easiest unit, but this is a must-take for all first-time students.</p>
+
 <h2>Difficulty Q</h2>
 
+<p>Telescoping (AQU) - The art of cancelling. Doesn't appear terribly often on the AIME, but frequently appears on college contests. If it appears on the AIME, it will probably be a late AIME question.</p>
+
+<p>Fake Algebra (AQU) - A geometric and trigonometric perspective on algebra problems that can take a geometric form. Requires knowledge of trigonometric identities.</p>
+
 <h2>Difficulty R</h2>
+
+<p>Recursions in the AIME (ARV) - A look into using recursions to characterize "How many ways can something be done with restrictions?" questions. The numbers are usually small, generalizable, and require a finishing step of some DP-Table bashing.</p>
+
+<p>Explicit Form of a Recursion (ART) - Finding the explicit form of a recursive relation.</p>
 
 <h1>Combinatorics</h1>
 
 <h2>Difficulty P</h2>
 
+<p>Introduction to Counting (CPV) - Very basic techniques used in mid-AMC and early AIME Counting and Probability problems.</p>
+
 <h2>Difficulty Q</h2>
+
+<p>States (CQU) - Problems where someone does something, and you want to analyze the structure of their actions. Think "probability of flipping heads twice in a row before flipping tails thrice in a row."</p>
 
 <h2>Difficulty R</h2>
 
@@ -26,11 +43,19 @@
 
 <h2>Difficulty Q</h2>
 
+<p>Slanted Coordinate Axes (GQT) - A look into using coordinate axes where the angle is not 90 degrees. Useful for parallelogram problems. There are usually two classes of problems that fall into this unit: the fairly easy problems that you know you can do but don't always see a direct way to do (or want to do), and the brutal problems turned into some relatively nice algebra. The second class of problem requires care.</p>
+
+<p>Transformations (GQT) - Analyzing a geometric configuration by moving parts of it around. Relatively obscure, but a direct application of it has appeared on the AMC recently.</p>
+
 <h2>Difficulty R</h2>
+
+<p>Radical Axes (GRU) - A different look at the Power of a Point function, and what happens when the power of a point is equal with respect to two circles. On the Olympiad side, but can be useful for late AIME problems.</p>
 
 <h1>Number Theory</h1>
 
 <h2>Difficulty P</h2>
+
+<p>Modular Arithmetic (NPU) - Fermat's Little Theorem, Euler's Totient Function, Wilson's Theorem, and a lot of "Find the remainder" style problems.</p>
 
 <h2>Difficulty Q</h2>
 
