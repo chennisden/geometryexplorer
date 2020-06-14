@@ -1,0 +1,219 @@
+% names package
+
+\ProvidesPackage{dennis}
+
+% Set booleans
+
+\newif\ifdennispoints\dennispointsfalse
+\newif\ifmast\mastfalse
+\newif\ifbook\bookfalse
+\newif\ifhint\hintfalse
+
+% Declare options
+
+\DeclareOption{mast}{\dennispointstrue\masttrue} % formatting for MAST Handouts, includes points & logo
+\DeclareOption{book}{\booktrue\hinttrue}
+
+\ProcessOptions\relax
+
+\ifdennispoints % Points setup
+\RequirePackage{fontawesome}
+\RequirePackage{xcolor}
+
+\definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+\definecolor{sangria}{rgb}{0.57, 0.0, 0.04}
+
+\newcounter{problem}\setcounter{problem}{0}
+% Problem number counter
+
+\newcommand{\prob}[3]{
+{\parindent=0pt
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\:#2}{ #3}}
+\vspace{0.2cm}
+}
+\newcommand{\req}[3]{
+{\parindent=0pt
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\:#2}}}{ #3}}
+\vspace{0.2cm}
+}
+% advances counter, takes in point value and problem statement as inputs
+% faPencil is kind of a big symbol
+
+\newcommand{\minpt}[1]{Minimum is {\color{sangria}[#1\,\faPencil]}. Problems with the {\color{sangria}\faDiamond} symbol are required.
+    \\
+}
+% Specifies minimum amount of points to complete a unit
+\fi
+
+\RequirePackage[letterpaper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm,includeheadfoot]{geometry} % geometry has to be BEFORE fancyhdr for margins to work!
+
+\ifmast % Logo setup
+\RequirePackage{fancyhdr}
+\pagestyle{fancyplain}
+\renewcommand{\headrulewidth}{0pt} % clear header
+\fancyhead{} % clear line
+
+\fancyfoot[L]{\raisebox{-6pt}[0pt][0pt]{\includegraphics[width=3cm]{MASTlogo.png}}}
+\fancyfoot[C]{} % clear page number
+\fancyfoot[R]{\thepage}
+\fi
+
+\ifhint % Scrambled hints setup
+\RequirePackage{etoolbox}
+\RequirePackage{tikz}
+\RequirePackage{ifthen}
+\RequirePackage{answers}
+% Setup counters
+\newcounter{hindex}\setcounter{hindex}{0}
+\newcounter{hintcounter}\setcounter{hintcounter}{0}
+\newcounter{sindex}\setcounter{sindex}{0}
+\newcounter{solcounter}\setcounter{solcounter}{0}
+% Define \addhint and \gethint
+% \addhint is used as \begin{addhint}{type in your hint}\end{addhint}
+% \gethint is not used manually.
+\newcommand\addhint[1]{%
+\stepcounter{hintcounter}%
+\ref{hint:\thehintcounter}%
+\expandafter\gdef\csname hintlist\thehintcounter\endcsname{#1}%
+}
+\newcommand\gethint[1]{%
+\item \csname hintlist#1\endcsname \label{hint:#1}
+}
+\newcommand\addsol[1]{%
+\stepcounter{solcounter}%
+\ref{sol:\thesolcounter}%
+\expandafter\gdef\csname sollist\thesolcounter\endcsname{#1}%
+}
+\newcommand\getsol[1]{%
+\item \csname sollist#1\endcsname \label{sol:#1}
+}
+% You put (typically) \begin{hint}All of your \begin{addhint}..\end{addhint} here\end{hint} so it looks like Hint: # # #
+\newenvironment{hint}{\mbox\bgroup\footnotesize\normalfont\textbf{Hints}:}{\hspace{-0.5ex}\egroup}
+\newenvironment{hintone}{\mbox\bgroup\footnotesize\normalfont\textbf{Hint}:}{\hspace{-0.5ex}\egroup}
+\newenvironment{solu}{\mbox\bgroup\footnotesize\normalfont\textbf{Solution}:}{\hspace{-0.5ex}\egroup}
+\RequirePackage{changepage}
+\fi
+
+% generic formatting
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{pifont}
+\RequirePackage[T1]{fontenc}
+
+% colors
+
+\usepackage{xcolor}
+
+\definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+\definecolor{sangria}{rgb}{0.57, 0.0, 0.04}
+
+% nuclear symbol for sections
+
+\usepackage{marvosym}
+\usepackage{titlesec}
+\titleformat{\section}
+{\normalfont\Large\bfseries}{{\color{sangria}\Radioactivity\,\thesection}}{0.8em}{}
+
+% subsections
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{{\color{sangria}\thesubsection}}{0.9em}{}
+
+%subsubsections (just in case!)
+
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries}{{\color{sangria}\thesubsubsection}}{0.9em}{}
+
+% more generic formatitng
+
+\RequirePackage{amsmath,amsthm,amssymb}
+\RequirePackage{comment}
+\RequirePackage{mathrsfs}
+\RequirePackage{asymptote}
+\RequirePackage{graphicx}
+\RequirePackage{pdfpages}
+\RequirePackage{enumitem}
+
+\raggedbottom
+
+% hyperref
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=black
+}
+
+% useful operators
+
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\pow}{\mathcal{P}}
+
+% arcs
+
+\RequirePackage{xwatermark}
+\RequirePackage{arcs}
+\RequirePackage{etoolbox}
+
+\makeatletter 
+\providecommand\@gobblethree[3]{}
+\patchcmd{\over@under@arc}
+ {\@gobbletwo}
+ {\@gobblethree}
+ {}{}
+\makeatother
+
+% theorems
+
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins}
+\tcbuselibrary{breakable}
+\tcbuselibrary{theorems}
+
+\theoremstyle{remark}
+\newtheorem{definition}{Definition}
+
+\ifbook
+
+\newtcbtheorem[number within=chapter]{defi}{Definition}{colback=yellow!5,colframe=orange!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem[number within=chapter]{theo}{Theorem}
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem[number within=chapter]{fact}{Fact}{colback=yellow!5,colframe=orange!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem{pro}{Proof}
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem[number within=chapter]{exam}{Example}
+{colback=white!5,colframe=red!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem{sol}{Solution}
+{colback=white!5,colframe=purple!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\else
+
+\newtcbtheorem{defi}{Definition}{colback=yellow!5,colframe=orange!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem{theo}{Theorem}
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem{fact}{Fact}{colback=yellow!5,colframe=orange!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem{pro}{Proof}
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem{exam}{Example}
+{colback=white!5,colframe=red!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\newtcbtheorem{sol}{Solution}
+{colback=white!5,colframe=purple!35!black,fonttitle=\bfseries, sharp corners}{th}
+
+\fi
+
+%custom bullet points
+
+\newcommand*{\Item}{\item[\ding{70}]}
