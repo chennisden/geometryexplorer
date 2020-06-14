@@ -16,12 +16,17 @@
 
 \ProcessOptions\relax
 
-\ifdennispoints % Points setup
-\RequirePackage{fontawesome}
+% colors, needed for pts and title
+
 \RequirePackage{xcolor}
 
 \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
 \definecolor{sangria}{rgb}{0.57, 0.0, 0.04}
+\definecolor{titlered}{rgb}{1.0, 0.0, 0.0}
+\definecolor{persianblue}{rgb}{0.11, 0.22, 0.73}
+
+\ifdennispoints % Points setup
+\RequirePackage{fontawesome}
 
 \newcounter{problem}\setcounter{problem}{0}
 % Problem number counter
@@ -53,13 +58,14 @@
 \renewcommand{\headrulewidth}{0pt} % clear header
 \fancyhead{} % clear line
 
-\fancyfoot[L]{\raisebox{-6pt}[0pt][0pt]{\includegraphics[width=3cm]{MASTlogo.png}}}
+\fancyfoot[L]{\raisebox{-6pt}[0pt][0pt]{\includegraphics[width=3cm]{MASTlogo.png}}} % logo!
 \fancyfoot[C]{} % clear page number
 \fancyfoot[R]{\thepage}
 \fi
 
+\RequirePackage{etoolbox} % needed for hints and also title
+
 \ifhint % Scrambled hints setup
-\RequirePackage{etoolbox}
 \RequirePackage{tikz}
 \RequirePackage{ifthen}
 \RequirePackage{answers}
@@ -100,12 +106,11 @@
 \RequirePackage{pifont}
 \RequirePackage[T1]{fontenc}
 
-% colors
+% title formatting
 
-\usepackage{xcolor}
-
-\definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
-\definecolor{sangria}{rgb}{0.57, 0.0, 0.04}
+\patchcmd{\@maketitle}{\@title}{\color{titlered}\bfseries\@title{}}{}{}
+\patchcmd{\@maketitle}{\@author}{\textit{\@author}}{}{}
+\patchcmd{\@maketitle}{\@date}{\color{persianblue}{\@date}}{}{}
 
 % nuclear symbol for sections
 
@@ -156,7 +161,6 @@
 
 \RequirePackage{xwatermark}
 \RequirePackage{arcs}
-\RequirePackage{etoolbox}
 
 \makeatletter 
 \providecommand\@gobblethree[3]{}
