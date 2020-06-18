@@ -1,0 +1,242 @@
+\ProvidesPackage{team}
+\RequirePackage[inline]{asymptote}
+
+%booleans and options
+
+\newif\ifsyllabus\syllabusfalse % diff formatting for syllabus/handouts
+
+\DeclareOption{syllabus}{\syllabustrue} % is this the syllabus?
+
+\ProcessOptions\relax %process all of the options
+
+%document formatting (geometry)
+\RequirePackage[letterpaper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm,includeheadfoot]{geometry} % geometry has to be BEFORE fancyhdr for margins to work!
+
+%colors
+
+\RequirePackage[dvipsnames]{xcolor}
+\definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+\definecolor{sangria}{rgb}{0.57, 0.0, 0.04}
+
+\colorlet{LightRubineRed}{RubineRed!70!}
+\definecolor{oucrimsonred}{rgb}{0.6, 0.0, 0.0} % syllabus section
+\definecolor{darkred}{rgb}{0.9, 0.00, 0.0}
+
+
+\definecolor{thmblue}{rgb}{0.88, 0.95, 0.98}
+\definecolor{darkblue}{RGB}{36,57,108}
+
+\definecolor{thmgreen}{RGB}{207,241,208}
+\definecolor{darkgreen}{RGB}{30,70,30}
+
+\definecolor{thmred}{RGB}{240, 200, 200}
+\definecolor{labelred}{RGB}{120, 30, 20}
+
+\definecolor{proofbrown}{RGB}{100,40,40}
+
+% Palette colors
+
+\definecolor{darkbrwn}{HTML}{621708}
+\definecolor{amber}{HTML}{941b0c}
+\definecolor{burntorange}{HTML}{bc3908}
+%hyperref
+
+\RequirePackage{hyperref}
+
+\RequirePackage{amsmath,amssymb}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=cyan,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+%title formatting (default is ew)
+\RequirePackage{etoolbox}
+\patchcmd{\@maketitle}{\@title}{\color{Red}\bfseries\@title{}}{}{}
+\patchcmd{\@maketitle}{\@author}{\textit{\@author}}{}{}
+
+\RequirePackage{titlesec}
+
+\newcommand{\prelude}{\section*{Amuse-Bouche}} % i don't trust @haethan2016 not to be an idiot
+
+\ifsyllabus %subsection formatting & date link
+\newcounter{lesson}
+\titleformat{\section}{\normalfont\Large\bfseries}{\color{LightRubineRed}{§\,\thesection}}{1em}{\color{LightRubineRed}}[\color{LightRubineRed}\rule{\linewidth}{0.6mm}]
+\titleformat{\subsection}{\normalfont\Large\bfseries}{\color{darkred}{Lesson \thelesson:}}{0.6em}{\refstepcounter{lesson}\color{darkred}}[\color{darkred}]
+\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz}{\@date}}{}{}
+\else
+\titleformat{\section}{\normalfont\Large\bfseries}{\color{amber}{§\,\thesection}}{1em}{\color{amber}}[\color{amber}\rule{\linewidth}{0.6mm}]
+\titleformat{\subsection}{\normalfont\large\bfseries}{\color{amber}{§\,\thesubsection}}{1em}{\color{amber}}[\color{amber}]
+\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz/pdfs/amc/syllabus.pdf}{\@date}}{}{}
+\fi
+
+% custom theo environments
+
+\RequirePackage{amsthm}
+
+\newtheoremstyle{theo}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{darkblue}\sffamily\bfseries}%                            % Theorem head font
+  {}%                                    % Punctuation after theorem head
+  {1.5mm}%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{def}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{darkgreen}\sffamily\bfseries}%                            % Theorem head font
+  {}%                                    % Punctuation after theorem head
+  {1.5mm}%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{dennisexample}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{labelred}\sffamily\bfseries}%                            % Theorem head font
+  {}%                                    % Punctuation after theorem head
+  {1.5mm}%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%
+
+\newtheoremstyle{dennisproof}%                % Name
+  {}%                                     % Space above
+  {}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{proofbrown}\sffamily\bfseries}%                            % Theorem head font
+  {:}%                                    % Punctuation after theorem head
+  {1.5mm}%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}%
+
+\newtheoremstyle{denniswalk}%                % Name
+  {}%                                     % Space above
+  {}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{proofbrown}\sffamily\bfseries}%                            % Theorem head font
+  {:}%                                    % Punctuation after theorem head
+  {0mm}%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}%
+
+\RequirePackage{mdframed}
+\RequirePackage{marvosym}
+
+\theoremstyle{theo} % I hate italics.
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{theorem}{Theorem}
+
+%Hopefully I didn't mess anything up
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{identity}{Identity}
+
+%%end of what I added
+
+\theoremstyle{def}
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmgreen,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{fact}{Fact}
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmgreen,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{definition}{Definition}
+
+\theoremstyle{dennisexample}
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmred,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{example}{Example}
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmred,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{exercise}{Exercise}
+
+\theoremstyle{dennisproof}
+
+\newtheorem*{pro}{Proof}
+
+\def\endpro{$\blacksquare$\hfill\break}
+
+\newtheorem*{sol}{Solution}
+
+\def\endsol{$\blacksquare$}
+
+\theoremstyle{denniswalk}
+
+%%added walk for walkthroughs 
+\newtheorem*{walk}{Walkthrough} % always use the enumerate environment during walkthroughs
+
+\def\walk{{\color{proofbrown}\sffamily\bfseries Walkthrough:} $\phantom{}$}
+
+\newcommand{\warning}[1]{{\color{oucrimsonred}\Radioactivity\,\textbf{Warning:} #1}}
+
+% points - imported from dennis.sty
+
+\RequirePackage{fontawesome}
+
+\newcounter{problem}\setcounter{problem}{0} % Problem number counter
+
+\newcommand{\prob}[3]{
+{\parindent=0pt
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\:#2}{ #3}}
+\vspace{0.2cm}
+}
+\newcommand{\req}[3]{
+{\parindent=0pt
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\:#2}}}{ #3}}
+\vspace{0.2cm}
+}
+% advances counter, takes in point value and problem statement as inputs
+% faPencil is kind of a big symbol
+
+\newcommand{\minpt}[1]{Minimum is {\color{sangria}[#1\,\faPencil]}. Problems with the {\color{sangria}\faDiamond} symbol are required.
+    \\
+}
+% Specifies minimum amount of points to complete a unit
+
+\newcommand*{\Item}{\item[\ding{70}]} % custom item lawl
