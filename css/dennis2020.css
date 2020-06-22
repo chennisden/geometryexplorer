@@ -38,4 +38,14 @@ body {
   transition: max-height 0.2s ease-out;
   background-color: #fff2f2;
 }
+table {
+  border-collapse: collapse;
+  width: 70%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 body{background-color: #e6ffe6};
