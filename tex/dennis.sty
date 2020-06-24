@@ -45,13 +45,12 @@
 
 \newcommand{\prob}[3]{
 {\parindent=0pt
-\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\if\relax\detokenize{#2}\relax\else\,(#2)\fi}
-{ #3}}
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\if\relax\detokenize{#2}\relax\else\,(#2)\fi}{\:#3}}
 \vspace{0.2cm}
 }
 \newcommand{\req}[3]{
 {\parindent=0pt
-\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\if\relax\detokenize{#2}\relax\else\,(#2)\fi}}}{ #3}}
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\if\relax\detokenize{#2}\relax\else\,(#2)\fi}}}{\:#3}}
 \vspace{0.2cm}
 }
 % advances counter, takes in point value and problem statement as inputs
@@ -336,11 +335,11 @@ leftline=false]{exam}{Example}
 
 \newtheorem*{pro}{Proof}
 
-\def\endpro{$\blacksquare$}
+\def\endpro{\hfill$\blacksquare$}
 
 \newtheorem*{sol}{Solution}
 
-\def\endsol{$\blacksquare$}
+\def\endsol{\hfill$\blacksquare$}
 
 %custom bullet points
 
