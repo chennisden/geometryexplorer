@@ -41,17 +41,17 @@
 \ifdennispoints % Points setup
 \RequirePackage{fontawesome}
 
-\newcounter{problem}\setcounter{problem}{0}
-% Problem number counter
+\newcounter{problem}\setcounter{problem}{0} % Problem number counter
 
 \newcommand{\prob}[3]{
 {\parindent=0pt
-\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\:#2}{ #3}}
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\if\relax\detokenize{#2}\relax\else\,(#2)\fi}
+{ #3}}
 \vspace{0.2cm}
 }
 \newcommand{\req}[3]{
 {\parindent=0pt
-\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\:#2}}}{ #3}}
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\if\relax\detokenize{#2}\relax\else\,(#2)\fi}}}{ #3}}
 \vspace{0.2cm}
 }
 % advances counter, takes in point value and problem statement as inputs
