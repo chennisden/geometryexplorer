@@ -32,6 +32,9 @@
 \definecolor{thmred}{RGB}{240, 200, 200}
 \definecolor{labelred}{RGB}{120, 30, 20}
 
+\definecolor{thmyellow}{HTML}{faf5cd}
+\definecolor{labelyellow}{HTML}{999400}
+
 \definecolor{proofbrown}{RGB}{100,40,40}
 
 % Palette colors
@@ -102,10 +105,21 @@
   {2pt}%                                     % Space below
   {}%                                     % Body font
   {}%                                     % Indent amount
+  {\color{labelyellow}\sffamily\bfseries}%                            % Theorem head font
+  {}%                                    % Punctuation after theorem head
+  {1.5mm}%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%
+
+\newtheoremstyle{dennisexercise}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
   {\color{labelred}\sffamily\bfseries}%                            % Theorem head font
   {}%                                    % Punctuation after theorem head
   {1.5mm}%                                    % Space after theorem head, ' ', or \newline
   {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%
+\makeatother
 
 \newtheoremstyle{dennisproof}%                % Name
   {}%                                     % Space above
@@ -151,6 +165,14 @@ bottomline=false,
 rightline=false,
 leftline=false]{identity}{Identity}
 
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{corollary}{Corollary}
 %%end of what I added
 
 \theoremstyle{def}
@@ -176,9 +198,8 @@ rightline=false,
 leftline=false]{definition}{Definition}
 
 \theoremstyle{dennisexample}
-
 \newmdtheoremenv[% settings
-backgroundcolor=thmred,
+backgroundcolor=thmyellow,
 nobreak=true,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
@@ -187,21 +208,30 @@ bottomline=false,
 rightline=false,
 leftline=false]{example}{Example}
 
+\theoremstyle{dennisexercise}
 \newmdtheoremenv[% settings
-backgroundcolor=thmred,
 nobreak=true,
-innerleftmargin=5pt,
-innerrightmargin=5pt,
+innerleftmargin=0pt,
+innerrightmargin=0pt,
 topline=false,
 bottomline=false,
 rightline=false,
-leftline=false]{exercise}{Exercise}
+leftline=false]{primitiveexercise}{Exercise}
+\newcommand{\exerciseskip}{0.4cm}
+\newenvironment{exercisebox}{\begin{mdframed}[backgroundcolor=thmred,topline=false,bottomline=false,leftline=false,rightline=false,
+    innertopmargin=3pt,
+    innerbottommargin=2pt,
+    innerrightmargin=5pt,
+    innerleftmargin=5pt]\vspace{\exerciseskip}}{\end{mdframed}}
+\newenvironment{exercise}[1][]{%
+\vspace{-\exerciseskip}\begin{primitiveexercise}[#1]
+}{\end{primitiveexercise}}
 
 \theoremstyle{dennisproof}
 
 \newtheorem*{pro}{Proof}
 
-\def\endpro{$\blacksquare$\hfill\break}
+\def\endpro{\hfill$\blacksquare$}
 
 \newtheorem*{sol}{Solution}
 
@@ -224,12 +254,12 @@ leftline=false]{exercise}{Exercise}
 
 \newcommand{\prob}[3]{
 {\parindent=0pt
-\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\:#2}{ #3}}
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\if\relax\detokenize{#2}\relax\else\hspace{3pt}(#2)\fi}{\hspace{3pt}#3}}
 \vspace{0.2cm}
 }
 \newcommand{\req}[3]{
 {\parindent=0pt
-\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\:#2}}}{ #3}}
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\if\relax\detokenize{#2}\relax\else\hspace{3pt}(#2)\fi}}}{\hspace{3pt}#3}}
 \vspace{0.2cm}
 }
 % advances counter, takes in point value and problem statement as inputs
@@ -242,3 +272,5 @@ leftline=false]{exercise}{Exercise}
 
 \RequirePackage{pifont}
 \newcommand*{\Item}{\item[\ding{70}]} % custom item lawl
+
+\newcommand{\password}[1]{{\color{red}\fontfamily{lmss}\selectfont#1}}
