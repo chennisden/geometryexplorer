@@ -1,6 +1,7 @@
 \ProvidesPackage{team}
 \RequirePackage[inline]{asymptote}
 
+% \usepackage{cmbright}
 %booleans and options
 
 \newif\ifsyllabus\syllabusfalse % diff formatting for syllabus/handouts
@@ -57,25 +58,37 @@
 
 %title formatting (default is ew)
 \RequirePackage{etoolbox}
-\patchcmd{\@maketitle}{\@title}{\color{Red}\bfseries\@title{}}{}{}
-\patchcmd{\@maketitle}{\@author}{\textit{\@author}}{}{}
+\patchcmd{\@maketitle}{\@title}{\sffamily\color{Red}\bfseries\@title{}}{}{}
+\patchcmd{\@maketitle}{\@author}{\sffamily\textit{\@author}}{}{}
 
 \RequirePackage{titlesec}
 
 \newcommand{\prelude}{\section*{Amuse-Bouche}} % i don't trust @haethan2016 not to be an idiot
 \newcommand{\further}{\pagebreak\section{Further Reading}} % change name/make unnumbered at will
-
+\definecolor{SectColor}{RGB}{70,35,10} % in case i need this
+\newcommand{\sectioncolor}{sangria}
 \ifsyllabus %subsection formatting & date link
 \newcounter{lesson}
-\titleformat{\section}{\normalfont\Large\bfseries}{\color{LightRubineRed}{§\,\thesection}}{1em}{\color{LightRubineRed}}[\color{LightRubineRed}\rule{\linewidth}{0.6mm}]
-\titleformat{\subsection}{\normalfont\Large\bfseries}{\color{darkred}{Lesson \thelesson:}}{0.6em}{\refstepcounter{lesson}\color{darkred}}[\color{darkred}]
-\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz}{\@date}}{}{}
+
+\titleformat{\section}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}\rule{\linewidth}{0.6mm}]
+\titleformat{\subsection}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{Lesson \thelesson:}}{0.6em}{\refstepcounter{lesson}\color{\sectioncolor}}[\color{\sectioncolor}]
+\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz}{\sffamily\@date}}{}{}
 \else
-\titleformat{\section}{\normalfont\Large\bfseries}{\color{amber}{§\,\thesection}}{1em}{\color{amber}}[\color{amber}\rule{\linewidth}{0.6mm}]
-\titleformat{\subsection}{\normalfont\large\bfseries}{\color{amber}{§\,\thesubsection}}{1em}{\color{amber}}[\color{amber}]
-\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz/pdfs/amc/syllabus.pdf}{\@date}}{}{}
+\titleformat{\section}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}\rule{\linewidth}{0.6mm}]
+\titleformat{\subsection}{\normalfont\large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
+\titleformat{\subsubsection}{\normalfont\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
+\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz/pdfs/amc/syllabus.pdf}{\sffamily\@date}}{}{}
 \fi
 
+%\newcounter{lesson}
+%\titleformat{\section}{\normalfont\Large\bfseries}{\color{LightRubineRed}{§\,\thesection}}{1em}{\color{LightRubineRed}}[\color{LightRubineRed}\rule{\linewidth}{0.6mm}]
+%\titleformat{\subsection}{\normalfont\Large\bfseries}{\color{darkred}{Lesson \thelesson:}}{0.6em}{\refstepcounter{lesson}\color{darkred}}[\color{darkred}]
+%\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz}{\@date}}{}{}
+%\else
+%\titleformat{\section}{\normalfont\Large\bfseries}{\color{amber}{§\,\thesection}}{1em}{\color{amber}}[\color{amber}\rule{\linewidth}{0.6mm}]
+%\titleformat{\subsection}{\normalfont\large\bfseries}{\color{amber}{§\,\thesubsection}}{1em}{\color{amber}}[\color{amber}]
+%\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz/pdfs/amc/syllabus.pdf}{\@date}}{}{}
+%\fi
 % custom theo environments
 
 \RequirePackage{amsthm}
@@ -105,7 +118,7 @@
   {2pt}%                                     % Space below
   {}%                                     % Body font
   {}%                                     % Indent amount
-  {\color{labelyellow}\sffamily\bfseries}%                            % Theorem head font
+  {\color{MidnightBlue}\sffamily\bfseries}%                            % Theorem head font
   {}%                                    % Punctuation after theorem head
   {1.5mm}%                                    % Space after theorem head, ' ', or \newline
   {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%
@@ -199,7 +212,7 @@ leftline=false]{definition}{Definition}
 
 \theoremstyle{dennisexample}
 \newmdtheoremenv[% settings
-backgroundcolor=thmyellow,
+backgroundcolor=Cyan!20,
 nobreak=true,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
