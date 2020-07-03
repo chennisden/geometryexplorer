@@ -1,0 +1,27 @@
+<link href='https://fonts.googleapis.com/css?family=Quattrocento Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+h1 {
+font-family: 'Quattrocento Sans';
+color: #1d3557;
+margin-left: 5px;
+}
+h2 {
+font-family: 'Quattrocento Sans';
+color: #9e2a2b;
+margin-left: 5px;
+}
+p {
+font-family: 'Lato';
+margin-left: 5px;
+}
+
+.content {
+  background-color: #ffffe6;
+  width: 800px;
+  border: 1px solid #000000;
+  padding: 20px;
+  margin: auto;
+}
+body {
+background-color: #e6ffe6;
+}
