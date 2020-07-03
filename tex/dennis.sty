@@ -1,28 +1,31 @@
-\ProvidesPackage{team}
-\RequirePackage[inline]{asymptote}
+% names package
 
-% \usepackage{cmbright}
-%booleans and options
+\ProvidesPackage{dennis}
 
-\newif\ifsyllabus\syllabusfalse % diff formatting for syllabus/handouts
+% Set booleans
 
-\DeclareOption{syllabus}{\syllabustrue} % is this the syllabus?
+\newif\ifdennispoints\dennispointsfalse
+\newif\ifmast\mastfalse
+\newif\ifbook\bookfalse
+\newif\ifhint\hintfalse
 
-\ProcessOptions\relax %process all of the options
+% Declare options
 
-%document formatting (geometry)
-\RequirePackage[letterpaper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm,includeheadfoot]{geometry} % geometry has to be BEFORE fancyhdr for margins to work!
+\DeclareOption{mast}{\dennispointstrue\masttrue} % formatting for MAST Handouts, includes points & logo
+\DeclareOption{book}{\booktrue\hinttrue}
 
-%colors
+\ProcessOptions\relax
 
-\RequirePackage[dvipsnames]{xcolor}
+% colors, needed for pts and title
+
+\RequirePackage{xcolor}
+
 \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
 \definecolor{sangria}{rgb}{0.57, 0.0, 0.04}
+\definecolor{titlered}{rgb}{1.0, 0.0, 0.0}
+\definecolor{persianblue}{rgb}{0.11, 0.22, 0.73}
 
-\colorlet{LightRubineRed}{RubineRed!70!}
-\definecolor{oucrimsonred}{rgb}{0.6, 0.0, 0.0} % syllabus section
-\definecolor{darkred}{rgb}{0.9, 0.00, 0.0}
-
+% theorem colors
 
 \definecolor{thmblue}{rgb}{0.88, 0.95, 0.98}
 \definecolor{darkblue}{RGB}{36,57,108}
@@ -31,69 +34,159 @@
 \definecolor{darkgreen}{RGB}{30,70,30}
 
 \definecolor{thmred}{RGB}{240, 200, 200}
-\definecolor{labelred}{RGB}{120, 30, 20}
-
-\definecolor{thmyellow}{HTML}{faf5cd}
-\definecolor{labelyellow}{HTML}{999400}
+\definecolor{darkred}{RGB}{120, 30, 20}
 
 \definecolor{proofbrown}{RGB}{100,40,40}
 
-% Palette colors
+\ifdennispoints % Points setup
+\RequirePackage{fontawesome}
 
-\definecolor{darkbrwn}{HTML}{621708}
-\definecolor{amber}{HTML}{941b0c}
-\definecolor{burntorange}{HTML}{bc3908}
-%hyperref
+\newcounter{problem}\setcounter{problem}{0} % Problem number counter
 
-\RequirePackage{hyperref}
-
-\RequirePackage{amsmath,amssymb}
-
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=blue,
+\newcommand{\prob}[3]{
+{\parindent=0pt
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\if\relax\detokenize{#2}\relax\else\hspace{3pt}(#2)\fi}{\hspace{3.5pt}#3}}
+\vspace{0.2cm}
 }
+\newcommand{\req}[3]{
+{\parindent=0pt
+\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\if\relax\detokenize{#2}\relax\else\hspace{3.5pt}(#2)\fi}}}{\hspace{3pt}#3}}
+\vspace{0.2cm}
+}
+% advances counter, takes in point value and problem statement as inputs
+% faPencil is kind of a big symbol
 
-%title formatting (default is ew)
-\RequirePackage{etoolbox}
-\patchcmd{\@maketitle}{\@title}{\sffamily\color{Red}\bfseries\@title{}}{}{}
-\patchcmd{\@maketitle}{\@author}{\sffamily\textit{\@author}}{}{}
-
-\RequirePackage{titlesec}
-
-\newcommand{\prelude}{\section*{Amuse-Bouche}} % i don't trust @haethan2016 not to be an idiot
-\newcommand{\further}{\pagebreak\section{Further Reading}} % change name/make unnumbered at will
-\definecolor{SectColor}{RGB}{70,35,10} % in case i need this
-\newcommand{\sectioncolor}{sangria}
-\ifsyllabus %subsection formatting & date link
-\newcounter{lesson}
-
-\titleformat{\section}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}\rule{\linewidth}{0.6mm}]
-\titleformat{\subsection}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{Lesson \thelesson:}}{0.6em}{\refstepcounter{lesson}\color{\sectioncolor}}[\color{\sectioncolor}]
-\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz}{\sffamily\@date}}{}{}
-\else
-\titleformat{\section}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}\rule{\linewidth}{0.6mm}]
-\titleformat{\subsection}{\normalfont\large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
-\titleformat{\subsubsection}{\normalfont\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
-\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz/pdfs/amc/syllabus.pdf}{\sffamily\@date}}{}{}
+\newcommand{\minpt}[1]{Minimum is {\color{sangria}[#1\,\faPencil]}. Problems with the {\color{sangria}\faDiamond} symbol are required.
+    \\
+}
+% Specifies minimum amount of points to complete a unit
 \fi
 
-%\newcounter{lesson}
-%\titleformat{\section}{\normalfont\Large\bfseries}{\color{LightRubineRed}{§\,\thesection}}{1em}{\color{LightRubineRed}}[\color{LightRubineRed}\rule{\linewidth}{0.6mm}]
-%\titleformat{\subsection}{\normalfont\Large\bfseries}{\color{darkred}{Lesson \thelesson:}}{0.6em}{\refstepcounter{lesson}\color{darkred}}[\color{darkred}]
-%\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz}{\@date}}{}{}
-%\else
-%\titleformat{\section}{\normalfont\Large\bfseries}{\color{amber}{§\,\thesection}}{1em}{\color{amber}}[\color{amber}\rule{\linewidth}{0.6mm}]
-%\titleformat{\subsection}{\normalfont\large\bfseries}{\color{amber}{§\,\thesubsection}}{1em}{\color{amber}}[\color{amber}]
-%\patchcmd{\@maketitle}{\@date}{\href{http://geometryexplorer.xyz/pdfs/amc/syllabus.pdf}{\@date}}{}{}
-%\fi
-% custom theo environments
+\RequirePackage[letterpaper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm,includeheadfoot]{geometry} % geometry has to be BEFORE fancyhdr for margins to work!
+
+\ifmast % Logo setup
+\RequirePackage{fancyhdr}
+\pagestyle{fancyplain}
+\renewcommand{\headrulewidth}{0pt} % clear header
+\fancyhead{} % clear line
+
+\fancyfoot[L]{\raisebox{-6pt}[0pt][0pt]{\includegraphics[width=3cm]{MASTlogo.png}}} % logo!
+\fancyfoot[C]{} % clear page number
+\fancyfoot[R]{\thepage}
+\fi
+
+\RequirePackage{etoolbox} % needed for hints and also title
+
+\ifhint % Scrambled hints setup
+\RequirePackage{tikz}
+\RequirePackage{ifthen}
+\RequirePackage{answers}
+% Setup counters
+\newcounter{hindex}\setcounter{hindex}{0}
+\newcounter{hintcounter}\setcounter{hintcounter}{0}
+\newcounter{sindex}\setcounter{sindex}{0}
+\newcounter{solcounter}\setcounter{solcounter}{0}
+% Define \addhint and \gethint
+% \addhint is used as \begin{addhint}{type in your hint}\end{addhint}
+% \gethint is not used manually.
+\newcommand\addhint[1]{%
+\stepcounter{hintcounter}%
+\ref{hint:\thehintcounter}%
+\expandafter\gdef\csname hintlist\thehintcounter\endcsname{#1}%
+}
+\newcommand\gethint[1]{%
+\item \csname hintlist#1\endcsname \label{hint:#1}
+}
+\newcommand\addsol[1]{%
+\stepcounter{solcounter}%
+\ref{sol:\thesolcounter}%
+\expandafter\gdef\csname sollist\thesolcounter\endcsname{#1}%
+}
+\newcommand\getsol[1]{%
+\item \csname sollist#1\endcsname \label{sol:#1}
+}
+% You put (typically) \begin{hint}All of your \begin{addhint}..\end{addhint} here\end{hint} so it looks like Hint: # # #
+\newenvironment{hint}{\mbox\bgroup\footnotesize\normalfont\textbf{Hints}:}{\hspace{-0.5ex}\egroup}
+\newenvironment{hintone}{\mbox\bgroup\footnotesize\normalfont\textbf{Hint}:}{\hspace{-0.5ex}\egroup}
+\newenvironment{solu}{\mbox\bgroup\footnotesize\normalfont\textbf{Solution}:}{\hspace{-0.5ex}\egroup}
+\RequirePackage{changepage}
+\fi
+
+% generic formatting
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{pifont}
+\RequirePackage[T1]{fontenc}
+
+% title formatting
+
+\patchcmd{\@maketitle}{\@title}{\color{titlered}\bfseries\@title{}}{}{}
+\patchcmd{\@maketitle}{\@author}{\textit{\@author}}{}{}
+\patchcmd{\@maketitle}{\@date}{\color{persianblue}{\@date}}{}{}
+
+% nuclear symbol for sections
+
+\usepackage{marvosym}
+\usepackage{titlesec}
+\titleformat{\section}
+{\normalfont\Large\bfseries}{{\color{sangria}\Radioactivity\,\thesection}}{0.8em}{}
+
+% subsections
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{{\color{sangria}\thesubsection}}{0.9em}{}
+
+%subsubsections (just in case!)
+
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries}{{\color{sangria}\thesubsubsection}}{0.9em}{}
+
+% more generic formatitng
+
+\RequirePackage{amsmath,amsthm,amssymb}
+\RequirePackage{comment}
+\RequirePackage{mathrsfs}
+\RequirePackage{asymptote}
+\RequirePackage{graphicx}
+\RequirePackage{pdfpages}
+\RequirePackage{enumitem}
+
+\raggedbottom
+
+% hyperref
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=black
+}
+
+% useful operators
+
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\pow}{\mathcal{P}}
+
+% arcs
+
+\RequirePackage{xwatermark}
+\RequirePackage{arcs}
+
+\makeatletter 
+\providecommand\@gobblethree[3]{}
+\patchcmd{\over@under@arc}
+ {\@gobbletwo}
+ {\@gobblethree}
+ {}{}
+\makeatother
+
+% theorem styles
 
 \RequirePackage{amsthm}
 
-\newtheoremstyle{theo}%                % Name
+\newtheoremstyle{dennistheo}%                % Name
   {0pt}%                                     % Space above
   {2pt}%                                     % Space below
   {}%                                     % Body font
@@ -118,21 +211,10 @@
   {2pt}%                                     % Space below
   {}%                                     % Body font
   {}%                                     % Indent amount
-  {\color{MidnightBlue}\sffamily\bfseries}%                            % Theorem head font
+  {\color{darkred}\sffamily\bfseries}%                            % Theorem head font
   {}%                                    % Punctuation after theorem head
   {1.5mm}%                                    % Space after theorem head, ' ', or \newline
   {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%
-
-\newtheoremstyle{dennisexercise}%                % Name
-  {0pt}%                                     % Space above
-  {2pt}%                                     % Space below
-  {}%                                     % Body font
-  {}%                                     % Indent amount
-  {\color{labelred}\sffamily\bfseries}%                            % Theorem head font
-  {}%                                    % Punctuation after theorem head
-  {1.5mm}%                                    % Space after theorem head, ' ', or \newline
-  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%
-\makeatother
 
 \newtheoremstyle{dennisproof}%                % Name
   {}%                                     % Space above
@@ -144,49 +226,75 @@
   {1.5mm}%                                    % Space after theorem head, ' ', or \newline
   {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}%
 
-\newtheoremstyle{denniswalk}%                % Name
-  {}%                                     % Space above
-  {}%                                     % Space below
-  {}%                                     % Body font
-  {}%                                     % Indent amount
-  {\color{proofbrown}\sffamily\bfseries}%                            % Theorem head font
-  {:}%                                    % Punctuation after theorem head
-  {0mm}%                                    % Space after theorem head, ' ', or \newline
-  {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}%
+% theorems
 
 \RequirePackage{mdframed}
-\RequirePackage{marvosym}
 
-\theoremstyle{theo} % I hate italics.
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins}
+\tcbuselibrary{breakable}
+\tcbuselibrary{theorems}
+
+\ifbook
+
+\theoremstyle{dennistheo}
 
 \newmdtheoremenv[% settings
 backgroundcolor=thmblue,
+nobreak=true,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
 topline=false,
 bottomline=false,
 rightline=false,
-leftline=false]{theorem}{Theorem}
+leftline=false]{theo}{Theorem}[chapter]
 
-%Hopefully I didn't mess anything up
+\theoremstyle{def}
+
 \newmdtheoremenv[% settings
-backgroundcolor=thmblue,
+backgroundcolor=thmgreen,
+nobreak=true,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
 topline=false,
 bottomline=false,
 rightline=false,
-leftline=false]{identity}{Identity}
+leftline=false]{fact}{Fact}[chapter]
 
 \newmdtheoremenv[% settings
-backgroundcolor=thmblue,
+backgroundcolor=thmgreen,
+nobreak=true,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
 topline=false,
 bottomline=false,
 rightline=false,
-leftline=false]{corollary}{Corollary}
-%%end of what I added
+leftline=false]{defi}{Definition}[chapter]
+
+\theoremstyle{dennisexample}
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmred,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{exam}{Example}[chapter]
+
+\else
+
+\theoremstyle{dennistheo}
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{theo}{Theorem}
 
 \theoremstyle{def}
 
@@ -208,37 +316,20 @@ innerrightmargin=5pt,
 topline=false,
 bottomline=false,
 rightline=false,
-leftline=false]{definition}{Definition}
+leftline=false]{defi}{Definition}
 
 \theoremstyle{dennisexample}
+
 \newmdtheoremenv[% settings
-backgroundcolor=Cyan!20,
+backgroundcolor=thmred,
 nobreak=true,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
 topline=false,
 bottomline=false,
 rightline=false,
-leftline=false]{example}{Example}
-
-\theoremstyle{dennisexercise}
-\newmdtheoremenv[% settings
-nobreak=true,
-innerleftmargin=0pt,
-innerrightmargin=0pt,
-topline=false,
-bottomline=false,
-rightline=false,
-leftline=false]{primitiveexercise}{Exercise}
-\newcommand{\exerciseskip}{0.4cm}
-\newenvironment{exercisebox}{\begin{mdframed}[backgroundcolor=thmred,topline=false,bottomline=false,leftline=false,rightline=false,
-    innertopmargin=3pt,
-    innerbottommargin=2pt,
-    innerrightmargin=5pt,
-    innerleftmargin=5pt]\vspace{\exerciseskip}}{\end{mdframed}}
-\newenvironment{exercise}[1][]{%
-\vspace{-\exerciseskip}\begin{primitiveexercise}[#1]
-}{\end{primitiveexercise}}
+leftline=false]{exam}{Example}
+\fi
 
 \theoremstyle{dennisproof}
 
@@ -248,42 +339,8 @@ leftline=false]{primitiveexercise}{Exercise}
 
 \newtheorem*{sol}{Solution}
 
-\def\endsol{$\blacksquare$}
+\def\endsol{\hfill$\blacksquare$}
 
-\theoremstyle{denniswalk}
+%custom bullet points
 
-%%added walk for walkthroughs 
-\newtheorem*{walk}{Walkthrough} % always use the enumerate environment during walkthroughs
-
-\def\walk{{\color{proofbrown}\sffamily\bfseries Walkthrough:} $\phantom{}$}
-
-\newcommand{\warning}[1]{{\color{oucrimsonred}\Radioactivity\,\textbf{Warning:} #1}}
-
-% points - imported from dennis.sty
-
-\RequirePackage{fontawesome}
-
-\newcounter{problem}\setcounter{problem}{0} % Problem number counter
-
-\newcommand{\prob}[3]{
-{\parindent=0pt
-\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\if\relax\detokenize{#2}\relax\else\hspace{3pt}(#2)\fi}{\hspace{3.5pt}#3}}
-\vspace{0.2cm}
-}
-\newcommand{\req}[3]{
-{\parindent=0pt
-\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\if\relax\detokenize{#2}\relax\else\hspace{3pt}(#2)\fi}}}{\hspace{3.5pt}#3}}
-\vspace{0.2cm}
-}
-% advances counter, takes in point value and problem statement as inputs
-% faPencil is kind of a big symbol
-
-\newcommand{\minpt}[1]{Minimum is {\color{sangria}[#1\,\faPencil]}. Problems with the {\color{sangria}\faDiamond} symbol are required.
-    \\
-}
-% Specifies minimum amount of points to complete a unit
-
-\RequirePackage{pifont}
-\newcommand*{\Item}{\item[\ding{70}]} % custom item lawl
-
-\newcommand{\password}[1]{{\color{red}\fontfamily{lmss}\selectfont#1}}
+\newcommand*{\Item}{\item[\ding{70}]}
