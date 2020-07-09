@@ -77,6 +77,18 @@
 
 \RequirePackage{etoolbox} % needed for hints and also title
 
+%terrible hack for title - but fine
+
+\ifbook
+\patchcmd{\@maketitle}{\@title}{\sffamily\bfseries\@title{}}{}{}
+\patchcmd{\@maketitle}{\@author}{\sffamily\textit{\@author}}{}{}
+\patchcmd{\@maketitle}{\@date}{\sffamily\@date}{}{}
+\else
+\patchcmd{\@maketitle}{\@title}{\sffamily\color{titlered}\bfseries\@title{}}{}{}
+\patchcmd{\@maketitle}{\@author}{\sffamily\textit{\@author}}{}{}
+\patchcmd{\@maketitle}{\@date}{\sffamily\color{persianblue}{\@date}}{}{}
+\fi
+
 \ifhint % Scrambled hints setup
 \RequirePackage{tikz}
 \RequirePackage{ifthen}
@@ -117,28 +129,6 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{pifont}
 \RequirePackage[T1]{fontenc}
-
-% title formatting
-
-\patchcmd{\@maketitle}{\@title}{\color{titlered}\bfseries\@title{}}{}{}
-\patchcmd{\@maketitle}{\@author}{\textit{\@author}}{}{}
-\patchcmd{\@maketitle}{\@date}{\color{persianblue}{\@date}}{}{}
-
-% nuclear symbol for sections
-
-\usepackage{marvosym}
-\usepackage{titlesec}
-\titleformat{\section}
-{\normalfont\Large\bfseries}{{\color{sangria}\Radioactivity\,\thesection}}{0.8em}{}
-
-% subsections
-\titleformat{\subsection}
-{\normalfont\large\bfseries}{{\color{sangria}\thesubsection}}{0.9em}{}
-
-%subsubsections (just in case!)
-
-\titleformat{\subsubsection}
-{\normalfont\normalsize\bfseries}{{\color{sangria}\thesubsubsection}}{0.9em}{}
 
 % more generic formatitng
 
@@ -235,7 +225,26 @@
 \tcbuselibrary{breakable}
 \tcbuselibrary{theorems}
 
+\RequirePackage{titlesec}
+
 \ifbook
+
+% nuclear symbol for sections; book only
+
+\usepackage{marvosym}
+\titleformat{\section}
+{\normalfont\Large\bfseries}{{\color{sangria}\Radioactivity\,\thesection}}{0.8em}{}
+
+% subsections
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{{\color{sangria}\thesubsection}}{0.9em}{}
+
+%subsubsections (just in case!)
+
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries}{{\color{sangria}\thesubsubsection}}{0.9em}{}
+
+% theorem numberings different
 
 \theoremstyle{dennistheo}
 
@@ -283,6 +292,16 @@ rightline=false,
 leftline=false]{exam}{Example}[chapter]
 
 \else
+
+%titling & sectioning from team.sty
+
+\newcommand{\sectioncolor}{sangria} % in case I need to change this for any reason
+
+\titleformat{\section}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}\rule{\linewidth}{0.6mm}]
+\titleformat{\subsection}{\normalfont\large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
+\titleformat{\subsubsection}{\normalfont\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
+
+% theorem numbers same
 
 \theoremstyle{dennistheo}
 
