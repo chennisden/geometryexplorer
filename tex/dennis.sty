@@ -157,7 +157,10 @@
 
 \DeclareMathOperator{\cis}{cis}
 \DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ord}{ord}
 \newcommand{\pow}{\mathcal{P}}
+\newcommand{\cyc}{\sum\limits_{\text{cyc}}}
+\newcommand{\sym}{\sum\limits_{\text{sym}}}
 
 % arcs
 
@@ -229,20 +232,31 @@
 
 \ifbook
 
-% nuclear symbol for sections; book only
+% nuclear symbol for chapters and sections; book only
 
 \usepackage{marvosym}
+\usepackage{Alegreya} %chapter/part font
+\usepackage{tocloft} % change TOC font
+
+\renewcommand\rmdefault{lmr}
+\renewcommand{\cftchapfont}{}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsubsecfont}{}
+
+\titleformat{\chapter}[display]
+{\AlegreyaOsF\huge}{\chaptertitlename\ \thechapter}{20pt}{\Huge}[\titlerule]
+
 \titleformat{\section}
-{\normalfont\Large\bfseries}{{\color{sangria}\Radioactivity\,\thesection}}{0.8em}{}
+{\sffamily\Large\bfseries}{{\color{sangria}\Radioactivity\,\thesection}}{0.8em}{}
 
 % subsections
 \titleformat{\subsection}
-{\normalfont\large\bfseries}{{\color{sangria}\thesubsection}}{0.9em}{}
+{\sffamily\large\bfseries}{{\color{sangria}\thesubsection}}{0.9em}{}
 
 %subsubsections (just in case!)
 
 \titleformat{\subsubsection}
-{\normalfont\normalsize\bfseries}{{\color{sangria}\thesubsubsection}}{0.9em}{}
+{\sffamily\normalsize\bfseries}{{\color{sangria}\thesubsubsection}}{0.9em}{}
 
 % theorem numberings different
 
