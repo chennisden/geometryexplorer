@@ -232,6 +232,19 @@
 
 \ifbook
 
+% quotes at start of chapters
+\RequirePackage{changepage}
+\newcommand{\chapterquote}[2]{
+\begin{adjustwidth}{10pt}{10pt}
+{\Alegreya#1
+\begin{flushright}
+\textsl{#2}
+\\
+\end{flushright}}
+\end{adjustwidth}
+
+}
+
 % nuclear symbol for chapters and sections; book only
 
 \usepackage{marvosym}
