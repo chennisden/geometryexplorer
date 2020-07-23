@@ -12,7 +12,7 @@
 % Declare options
 
 \DeclareOption{mast}{\dennispointstrue\masttrue} % formatting for MAST Handouts, includes points & logo
-\DeclareOption{book}{\booktrue\hinttrue}
+\DeclareOption{book}{\booktrue\hinttrue\mastfalse}
 
 \ProcessOptions\relax
 
@@ -37,6 +37,7 @@
 \definecolor{darkred}{RGB}{120, 30, 20}
 
 \definecolor{proofbrown}{RGB}{100,40,40}
+\definecolor{proofbckg}{HTML}{fffdf5}
 
 \ifdennispoints % Points setup
 \RequirePackage{fontawesome}
@@ -153,6 +154,17 @@
     urlcolor=black
 }
 
+% toc looks bad with hyperref
+
+\newcommand{\toc}{
+{\hypersetup{
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black}
+\tableofcontents}
+}
+
 % useful operators
 
 \DeclareMathOperator{\cis}{cis}
@@ -231,6 +243,8 @@
 \RequirePackage{titlesec}
 
 \ifbook
+
+\renewcommand\thepart{\Alph{part}} % make parts A,B,C,...
 
 % quotes at start of chapters
 \RequirePackage{changepage}
@@ -379,13 +393,41 @@ leftline=false]{exam}{Example}
 
 \theoremstyle{dennisproof}
 
-\newtheorem*{pro}{\noindent\rule{\linewidth}{0.3mm} Proof}
+\newmdtheoremenv[% settings
+backgroundcolor=proofbckg,
+linecolor=proofbrown,
+linewidth=1.2pt,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=-5pt,
+skipabove=-5pt,
+topline=true,
+bottomline=true,
+rightline=false,
+leftline=false]{pro}{Proof}
 
-\def\endpro{\hfill$\blacksquare$ {\color{proofbrown}\rule{\linewidth}{0.3mm}}}
+\renewcommand{\thepro}{\relax\hspace{-2.5pt}}
 
-\newtheorem*{sol}{\rule{\linewidth}{0.3mm} Solution}
+\def\endpro{\hfill$\blacksquare$}
 
-\def\endsol{\hfill$\blacksquare$ {\color{proofbrown}\rule{\linewidth}{0.3mm}}}
+\newmdtheoremenv[% settings
+backgroundcolor=proofbckg,
+linecolor=proofbrown,
+linewidth=1.2pt,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=-5pt,
+skipabove=-5pt,
+topline=true,
+bottomline=true,
+rightline=false,
+leftline=false]{sol}{Solution}
+
+\renewcommand{\thesol}{\relax\hspace{-2.5pt}}
+
+\def\endsol{\hfill$\blacksquare$}
 
 %custom bullet points
 
