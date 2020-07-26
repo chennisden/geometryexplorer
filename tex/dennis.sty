@@ -16,6 +16,14 @@
 
 \ProcessOptions\relax
 
+% asy options
+\RequirePackage{asymptote}
+\begin{asydef}
+size(6cm);
+import olympiad;
+import cse5;
+\end{asydef}
+
 % colors, needed for pts and title
 
 \RequirePackage{xcolor}
@@ -125,7 +133,7 @@
 \RequirePackage{changepage}
 \fi
 
-% generic formatting
+% font formatting
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{pifont}
@@ -136,7 +144,6 @@
 \RequirePackage{amsmath,amsthm,amssymb}
 \RequirePackage{comment}
 \RequirePackage{mathrsfs}
-\RequirePackage{asymptote}
 \RequirePackage{graphicx}
 \RequirePackage{pdfpages}
 \RequirePackage{enumitem}
@@ -250,7 +257,7 @@
 \RequirePackage{changepage}
 \newcommand{\chapterquote}[2]{
 \begin{adjustwidth}{10pt}{10pt}
-{\Alegreya#1
+{\alegreyafont#1
 \begin{flushright}
 \textsl{#2}
 \\
@@ -262,16 +269,23 @@
 % nuclear symbol for chapters and sections; book only
 
 \usepackage{marvosym}
-\usepackage{Alegreya} %chapter/part font
-\usepackage{tocloft} % change TOC font
 
-\renewcommand\rmdefault{lmr}
-\renewcommand{\cftchapfont}{}
-\renewcommand{\cftsecfont}{}
-\renewcommand{\cftsubsecfont}{}
+\usepackage{titlesec} % completely redefine subsection/section/etc
+
+\DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
+
+\newsavebox\CBox % lighter bold
+\def\lightBold#1{\sbox\CBox{#1}\resizebox{\wd\CBox}{\ht\CBox}{\textbf{#1}}}
+
+\titleformat{\part}[display]
+            {\alegreyafont\bfseries\huge\filcenter}
+            {\partname\ \thepart}
+            {20pt}
+            {\Huge}
+\titlespacing*{\part}{0pt}{*36}{*1}
 
 \titleformat{\chapter}[display]
-{\AlegreyaOsF\huge}{\chaptertitlename\ \thechapter}{20pt}{\Huge}[\titlerule]
+{\alegreyafont\huge}{\chaptertitlename\ \thechapter}{20pt}{\Huge}[\titlerule]
 
 \titleformat{\section}
 {\sffamily\Large\bfseries}{{\color{sangria}\Radioactivity\,\thesection}}{0.8em}{}
