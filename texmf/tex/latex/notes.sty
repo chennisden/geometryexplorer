@@ -1,5 +1,18 @@
 \ProvidesPackage{notes} % this is to be used IN CONJUNCTION with dennis.sty, and MUST be loaded after
 
+% mathcal and mathBB
+
+\newcommand{\mbR}{\mathbb{R}} % real numbers
+\newcommand{\mbZ}{\mathbb{Z}} % integers
+\newcommand{\mbN}{\mathbb{N}} % natural numbers
+\newcommand{\mbNp}{\mathbb{N}^{+}} % positive natural numbers
+\newcommand{\mbNn}{\mathbb{N}^{0}} % non-negative natural numbers
+\newcommand{\mbC}{\mathbb{C}} % complex numbers
+
 % Abstract Algebra, Michael Artin
 
 \newcommand{\nzr}{\mathbb{R}^{\times}} % non-zero reals - must be done in math mode
+\newcommand{\gl}[2]{\text{GL}_{#1}(#2)} % general linear groups
+\newcommand{\im}{\text{im }\phi} % image
+\newcommand{\imN}{\text{im }} % image text, naked
+\newcommand{\ke}{\text{ker }\phi} % kernel. note that \ker is already defined for naked ker text.
