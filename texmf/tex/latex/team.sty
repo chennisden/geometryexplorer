@@ -1,5 +1,13 @@
 \ProvidesPackage{team}
+
+% just good packages
+
 \RequirePackage[inline]{asymptote}
+\RequirePackage{amsmath,amssymb}
+
+%macros i guess
+
+\DeclareMathOperator{\lcm}{lcm} % this needs amsmath apparently
 
 % \usepackage{cmbright}
 %booleans and options
@@ -43,11 +51,12 @@
 \definecolor{darkbrwn}{HTML}{621708}
 \definecolor{amber}{HTML}{941b0c}
 \definecolor{burntorange}{HTML}{bc3908}
+
+\RequirePackage{tikz}
+
 %hyperref
 
 \RequirePackage{hyperref}
-
-\RequirePackage{amsmath,amssymb}
 
 \hypersetup{
     colorlinks=true,
