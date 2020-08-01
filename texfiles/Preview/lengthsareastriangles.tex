@@ -1,0 +1,1184 @@
+\chapterquote{Again, you can’t connect the dots looking forward; you can only connect them looking backward. So you have to trust that the dots will somehow connect in your future. You have to trust in something — your gut, destiny, life, karma, whatever. This approach has never let me down, and it has made all the difference in my life.}{Steve Jobs}
+
+\section{Lengths}
+There are a couple of important lengths in a triangle. These are the lengths of cevians, the inradius/exradius, and the circumradius.
+
+\subsection{Law of Cosines and Stewart's}
+We discuss how to find the third side of a triangle given two sides and an included angle, and use this to find a general formula for the length of a cevian.
+
+\begin{theo}[Law of Cosines]
+Given $\triangle ABC,$ $a^2+b^2-2ab\cos C=c^2.$
+\end{theo}
+
+\begin{pro}
+Let the foot of the altitude from $A$ to $BC$ be $H.$ Then note that $A=b\sin C,$ $CH=b\cos C,$ and $BH=|a-b\cos C|.$ (The absolute value is because $\angle B$ can either be acute or obtuse.) Then note by the Pythagorean Theorem, $(b\sin C)^2+(a-b\cos C)^2=a^2+b^2-2ab\cos C=c^2.$
+\begin{center}
+    \begin{asy}
+    size(4cm);
+    dot((-3,0));
+    dot((1,0));
+    dot((0,3));
+    dot((0,0));
+    draw((-3,0)--(1,0)--(0,3)--cycle);
+    draw((0,3)--(0,0));
+    
+    label("$C$",(-3,0),SW);
+    label("$B$",(1,0),SE);
+    label("$A$",(0,3),N);
+    label("$H$",(0,0),S);
+    \end{asy}
+\end{center}
+\end{pro}
+
+\begin{theo}[Stewart's Theorem]
+Consider $\triangle ABC$ with cevian $AD,$ and denote $BD=m,$ $CD=n,$ and $AD=d.$ Then $man+dad=bmb+cnc.$
+\end{theo}
+
+\begin{pro}
+We use the Law of Cosines. Note that
+\[\cos \angle ADB=\frac{d^2+m^2-c^2}{2dm}=-\frac{d^2+n^2-b^2}{2dn}=-\cos \angle ADC.\]
+Multiplying both sides by $2dmn$ yields
+\[c^2n-d^2n-m^2n=-bm^2+d^2m+mn^2\]
+\[b^2m+c^2n=mn(m+n)+d^2(m+n)\]
+\[bmb+cnc=man+dad.\]
+\begin{center}
+    \begin{asy}
+    size(4cm);
+    dot((-3,0));
+    dot((1,0));
+    dot((0,3));
+    draw((-3,0)--(1,0)--(0,3)--cycle);
+    draw((0,3)--(-1,0));
+    
+    label("$C$",(-3,0),SW);
+    label("$B$",(1,0),SE);
+    label("$A$",(0,3),N);
+    label("$D$",(-1,0),S);
+    \end{asy}
+\end{center}
+\end{pro}
+
+Here are two corollaries that will save you a lot of time in computational contests.
+
+\begin{fact}[Length of Angle Bisector]
+In $\triangle ABC$ with angle bisector $AD,$ denote $BD=x$ and $CD=y.$ Then
+\[AD=\sqrt{bc-xy}.\]
+\end{fact}
+
+\begin{fact}[Length of Median]
+In $\triangle ABC$ with median $AD,$
+\[AD=\frac{\sqrt{2b^2+2c^2-a^2}}{2}.\]
+\end{fact}
+
+\subsection{Law of Sines and the Circumradius}
+The Law of Sines is a good way to length chase with a lot of angles.
+
+\begin{theo}[Law of Sines]
+In $\triangle ABC$ with circumradius $R,$
+\[\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R.\]
+\end{theo}
+
+\begin{pro}
+We only need to prove that $\frac{a}{\sin A}=2R,$ and the rest will follow.
+
+Let the line through $B$ perpendicular to $BC$ intersect $(ABC)$ again at $A'.$ Then note that $A'C=2R$ by Thale's. By the Inscribed Angle Theorem, $\sin \angle CA'B=\sin A,$ so $\frac{a}{\sin A}=\frac{a}{\sin \angle CA'B}=\frac{a}{\frac{a}{2R}}=2R.$
+\begin{center}
+    \begin{asy}
+    import olympiad;
+size(4cm);
+pair A=(-1,5), B=(-4,-1), C=(4,-1), X, O;
+O = circumcenter(A,B,C);
+X = (2O-C);
+
+draw(C--A--B--C);
+draw(C--X--B);
+draw(circumcircle(A,B,C));
+
+label("$A$",A,(-1,1));label("$B$",B,(-1,-1));label("$C$",C,(1,-1));label("$A'$",X,(-1,1));label("$O$",O,(1,1));
+
+dot(A^^B^^C^^X^^O);
+    \end{asy}
+\end{center}
+\end{pro}
+
+Other texts will call this the Extended Law of Sines. But the Extended Law of Sines has a better proof than the "normal" Law of Sines, and redundancy is bad.
+
+The Law of Sines gives us the Angle Bisector Theorem.
+
+\begin{theo}[Angle Bisector Theorem]
+Let $D$ be the point on $BC$ such that $\angle BAD=\angle DAC.$ Then $\frac{AB}{BD}=\frac{AC}{CD}.$
+\end{theo}
+
+\begin{pro}
+By the Law of Sines, $\frac{\sin\angle ADB}{\sin\angle BAD}=\frac{AB}{BD}$ and $\frac{\sin\angle ADC}{\sin\angle CAD}=\frac{AC}{CD}.$ But note that $\angle BAD=\angle ADC$ and $\angle BAD+\angle CAD=180^{\circ},$ so $\frac{AB}{BD}=\frac{AC}{CD}.$
+\begin{center}
+    \begin{asy}
+    import markers;
+import olympiad;
+size(4cm);
+real a,b,c,d;
+pair A=(1,9), B=(-11,0), C=(4,0), D; b = abs(C-A); c = abs(B-A); D = (b*B+c*C)/(b+c);
+draw(A--B--C--A--D);
+label("$A$",A,(1,1));label("$B$",B,(-1,-1));label("$C$",C,(1,-1));label("$D$",D,(0,-1)); dot(A^^B^^C^^D);
+markangle(radius=15,n=1,B,A,D,marker(markinterval(stickframe(n=1,2mm),true)));
+markangle(radius=15,n=1,D,A,C,marker(markinterval(stickframe(n=1,2mm),true)));
+\end{asy}
+\end{center}
+\end{pro}
+
+In fact, the Angle Bisector Theorem can be generalized in what is known as the ratio lemma.
+
+\begin{theo}[Ratio Lemma]
+Consider $\triangle ABC$ with point $P$ on $BC.$ Then $\frac{BP}{CP}=\frac{c\sin \angle BAP}{b\sin \angle CAP}.$
+\end{theo}
+
+The proof is pretty much identical to the proof for Angle Bisector Theorem.
+
+\begin{pro}
+By the Law of Sines, $BP=\frac{c\sin\angle BAP}{\sin\angle APB}$ and $CP=\frac{b\sin\angle CAP}{\sin\angle APC}.$ Since $\sin\angle APB=\sin\angle APC,$
+\[\frac{BP}{CP}=\frac{c\sin \angle BAP}{b\sin \angle CAP}.\]
+\end{pro}
+
+Note that this remains true even if $P$ is on the \textit{extension} of $BC.$
+
+\subsection{The Incircle, Excircle, and Tangent Chasing}
+We provide formulas for the inradius, exradii, and take a look at some uses of the Two Tangent Theorem. Recall that the Two Tangent Theorem states that if the tangents from $P$ to $\omega$ intersect $\omega$ at $A,B,$ then $PA=PB.$
+
+\begin{theo}[$rs$]
+In $\triangle ABC$ with inradius $r,$
+\[[ABC]=rs.\]
+\end{theo}
+
+\begin{pro}
+Note that $[ABC]=r\cdot\frac{a+b+c}{2}=rs.$
+
+\begin{center}
+\begin{asy}
+import olympiad;
+size(4cm);
+pair A = dir(110);
+	pair B = dir(210);
+	pair C = dir(330);
+	pair I = incenter(A, B, C);
+	draw(A--B--C--cycle);
+	draw(A--I--B);
+	draw(I--C);
+	draw(circle(I,length(I-foot(I,B,C))));
+	dot("$A$", A, dir(A));
+	dot("$B$", B, dir(190));
+	dot("$C$", C, dir(-10));
+	dot("$I$", I, dir(270));
+\end{asy}
+\end{center}
+\end{pro}
+
+A useful fact of the incircle is that the length of the tangents from $A$ is $s-a.$ Similar results hold for the $B,C$ tangents to the incircle.
+
+\begin{fact}[Tangents to Incircle]
+Let the incircle of $\triangle ABC$ be tangent to $BC,CA,AB$ at $D,E,F.$ Then
+\[AE=AF=s-a\]
+\[BF=BD=s-b\]
+\[CD=CE=s-c.\]
+\end{fact}
+
+\begin{pro}
+Note that by the Two Tangent Theorem, $AE=AF=x,$ $BF=BD=y,$ and $CD=CE=z.$ Also note that
+\[BD+CD=y+z=a\]
+\[CE+EA=z+x=b\]
+\[AF+FB=x+y=c.\]
+Adding these equations gives $2x+2y+2z=a+b+c=2s,$ implying $x+y+z=s.$ Thus
+\[x=AE=AF=s-a\]
+\[y=BF=BD=s-b\]
+\[z=CD=CE=s-c,\]
+as desired.
+\begin{center}
+\begin{asy}
+import olympiad;
+size(4cm);
+pair A = dir(110);
+	pair B = dir(210);
+	pair C = dir(330);
+	pair I = incenter(A, B, C);
+    pair D,E,F;
+    D=foot(I,B,C);
+    E=foot(I,C,A);
+    F=foot(I,A,B);
+	draw(A--B--C--cycle);
+	draw(circle(I,length(I-foot(I,B,C))));
+	dot("$A$", A, dir(A));
+	dot("$B$", B, dir(190));
+	dot("$C$", C, dir(-10));
+    dot("$D$", D, dir(-90));
+    dot("$E$", E, dir(40));
+    dot("$F$", F, dir(155));
+\end{asy}
+\end{center}
+\end{pro}
+
+\begin{theo}[$r_a(s-a)$]
+In $\triangle ABC$ with $A$ exradius $r_a,$
+\[[ABC]=r_a(s-a).\]
+\end{theo}
+
+\begin{pro}
+Let $AB,AC$ be tangent to the $A$ excircle at $P,Q,$ respectively, and let $BC$ be tangent to the $A$ excircle at $D.$ Then note that by the Two Tangent Theorem, $PB=BD$ and $DC=CQ.$ Thus $[ABC]=[API_A]+[AQI_A]-2[BI_AC]=r_a\cdot \frac{s+s-2a}{2}=r_a(s-a).$
+\end{pro}
+\begin{center}
+    \begin{asy}
+    import olympiad;
+    pair excenter(pair X, pair Y, pair Z){
+pair A, C;
+A=X+expi((angle(X-Y)+angle(Z-X))/2);
+C=Z+expi((angle(Z-Y)+angle(X-Z))/2);
+return extension(A,X,C,Z);
+}
+    size(4cm);
+    pair A = dir(110);
+	pair B = dir(210);
+	pair C = dir(330);
+	real a,b,c;
+    a=abs(B-C); b = abs(C-A); c = abs(B-A);
+	pair I = incenter(A, B, C);
+	pair exa=excenter(C,A,B);
+	draw(A--B--C--cycle);
+	pair L = dir(270);
+	pair I_A = 2*L-I;
+	pair D=foot(I_A,B,C);
+    pair P=foot(I_A,A,B);
+    pair Q=foot(I_A,A,C);
+    draw(B--P);
+	draw(C--Q);
+    dot("$A$", A, dir(A));
+	dot("$B$", B, dir(190));
+	dot("$C$", C, dir(0));
+	dot("$I_A$", I_A, dir(I_A));
+	dot("$D$",D,dir(270));
+	draw(circle(exa,length(exa-foot(exa,B,C))));
+    dot("$P$",P,dir(190));
+    dot("$Q$",Q,dir(350));
+    draw(P--I_A--Q,dotted);
+    draw(A--I_A,dotted);
+    \end{asy}
+\end{center}
+
+The proof also implies the following corollary.
+
+\begin{fact}[Tangents to Excircle]
+Let the $A$ excircle of $\triangle ABC$ be tangent to $BC$ at $D$. Then $BD=s-c$ and $CD=s-b.$
+
+Analogous equations hold for the $B$ and $C$ excircles.
+\end{fact}
+
+\begin{pro}
+Let the $A$ excircle be tangent to line $AB$ at $P$ and line $AC$ at $Q.$ Note that $AP=AB+BP=c+BD$ and $AQ=AC+CQ=b+CD$ by the Two Tangent Theorem. Applying the Two Tangent Theorem again gives $AP=AQ,$ or $c+BD=b+CD.$ Also note that $AP+AQ=b+c+BD+DC=2s,$ so $AP=AQ=s$ and $s=c+BD=b+CD.$ Thus $BD=s-c$ and $CD=s-b.$
+\begin{center}
+\begin{asy}
+import olympiad;
+    pair excenter(pair X, pair Y, pair Z){
+pair A, C;
+A=X+expi((angle(X-Y)+angle(Z-X))/2);
+C=Z+expi((angle(Z-Y)+angle(X-Z))/2);
+return extension(A,X,C,Z);
+}
+    size(4cm);
+    pair A = dir(110);
+	pair B = dir(210);
+	pair C = dir(330);
+	real a,b,c;
+    a=abs(B-C); b = abs(C-A); c = abs(B-A);
+	pair I = incenter(A, B, C);
+	pair exa=excenter(C,A,B);
+	draw(A--B--C--cycle);
+	pair L = dir(270);
+	pair I_A = 2*L-I;
+	pair D=foot(I_A,B,C);
+    pair P=foot(I_A,A,B);
+    pair Q=foot(I_A,A,C);
+    draw(B--P);
+	draw(C--Q);
+    dot("$A$", A, dir(A));
+	dot("$B$", B, dir(190));
+	dot("$C$", C, dir(0));
+	dot("$D$",D,dir(270));
+	draw(circle(exa,length(exa-foot(exa,B,C))));
+    dot("$P$",P,dir(190));
+    dot("$Q$",Q,dir(350));
+\end{asy}
+\end{center}
+\end{pro}
+
+Keep these area and length conditions in mind when you see incircles and excircles.
+
+\subsection{Concurrency with Cevians}
+We discuss Ceva's Theorem, Menelaus Theorem, and mass points, three ways to look at concurrent cevians. Very rarely do problems involving concurrency with cevians appear on higher level contests, but they're fairly common in the AMC 8 and MATHCOUNTS. This is also a good tool to have for when you need it.
+
+\begin{theo}[Ceva's Theorem]
+In $\triangle ABC$ with cevians $AD,BE,CF,$ they concur if and only if $\frac{AF}{FB}\cdot\frac{BD}{DC}\cdot\frac{CE}{EA}=1.$
+\end{theo}
+
+\begin{pro}
+Let the point of concurrency be $P.$ Note that $\frac{[ABD]}{[ADC]}=\frac{[PBD]}{[PDC]}=\frac{BD}{DC},$ so $\frac{[BPA]}{[APC]}=\frac{BD}{DC}.$ Thus,
+\[\frac{CE}{EA}\cdot\frac{AF}{FB}\cdot\frac{BD}{DC}=\frac{[CPB]}{[BPA]}\cdot\frac{[APC]}{[CPB]}\cdot\frac{[BPA]}{[APC]}=1.\]
+\begin{center}
+    \begin{asy}
+    size(4cm);
+pen rvwvcq = rgb(0.08235294117647059,0.396078431372549,0.7529411764705882); pen dtsfsf = rgb(0.8274509803921568,0.1843137254901961,0.1843137254901961); 
+
+draw((0,0)--(1.62,0), rvwvcq); 
+draw((1.62,0)--(4,0), dtsfsf); 
+draw((2.9622788457580373,1.7295352570699383)--(4,0), rvwvcq); 
+draw((2.9622788457580373,1.7295352570699383)--(1.84,3.6), dtsfsf); 
+draw((1.84,3.6)--(0.7107411428354, 1.390580496852), rvwvcq); 
+draw((0.7107411428354, 1.390580496852)--(0,0), dtsfsf); 
+
+draw((1.84,3.6)--(1.62,0));
+draw((0,0)--(2.9622788457580373,1.7295352570699383));
+draw((4,0)--(0.7107411428354, 1.390580496852));
+
+dot((1.679940099448, 0.9808379909682));
+label("$P$",(1.679940099448, 0.9808379909682),N+0.5E);
+
+dot((1.84,3.6)); 
+label("$A$", (1.84,3.6), N); 
+dot((0,0)); 
+label("$B$", (0,0), SW); 
+dot((4,0)); 
+label("$C$", (4,0), SE); 
+dot((1.62,0)); 
+label("$D$", (1.62, 0), S); 
+dot((2.9622788457580373,1.7295352570699383)); 
+label("$E$", (2.9622788457580373,1.7295352570699383), NE); 
+dot((0.7107411428354, 1.390580496852)); 
+label("$F$", (0.7107411428354, 1.390580496852), NW); 
+    \end{asy}
+\end{center}
+\end{pro}
+
+A good way to remember what goes in the numerator and denominator is by looking at the colors and thinking about them alternating.
+
+We present an example of what not to do.
+
+\begin{exam}[Order Mixed Up]
+Consider $\triangle ABC$ with $D,E,F$ on $BC,CA,AB$ respectively, such that $BD=4,$ $DC=6,$ $AE=6,$ $EC=4,$ and $AF=BF=5.$ Are $AD,$ $BE,$ and $CF$ concurrent?
+\end{exam}
+
+\begin{sol}[(Bogus)]
+Yes. Note that $\frac{4}{6}\cdot\frac{6}{4}\cdot\frac{5}{5}=1.$
+\begin{center}
+\begin{asy}
+size(4cm);
+pen rvwvcq = rgb(0.08235294117647059,0.396078431372549,0.7529411764705882); pen dtsfsf = rgb(0.8274509803921568,0.1843137254901961,0.1843137254901961); 
+
+draw((0,0)--(1.62,0), rvwvcq); 
+draw((1.62,0)--(4,0), dtsfsf); 
+draw((2.9622788457580373,1.7295352570699383)--(4,0), dtsfsf); 
+draw((2.9622788457580373,1.7295352570699383)--(1.84,3.6), rvwvcq); 
+draw((1.84,3.6)--(0.92,1.8), rvwvcq); 
+draw((0.92,1.8)--(0,0), dtsfsf); 
+
+dot((1.84,3.6)); 
+label("$A$", (1.84,3.6), N); 
+dot((0,0)); 
+label("$B$", (0,0), SW); 
+dot((4,0)); 
+label("$C$", (4,0), SE); 
+dot((1.62,0)); 
+label("$D$", (1.62, 0), S); 
+dot((2.9622788457580373,1.7295352570699383)); 
+label("$E$", (2.9622788457580373,1.7295352570699383), NE); 
+dot((0.92,1.8)); 
+label("$F$", (0.92,1.8), NW); 
+\end{asy}
+\end{center}
+\end{sol}
+
+This is not right, as the order of the lengths is messed up (intentionally) in the problem statement. (Also note the colors are messed up.) We now present the correct solution.
+
+\begin{sol}[(Correct)]
+No. Note that $\frac{BD}{DC}\cdot\frac{CE}{EA}\cdot\frac{AF}{FB}=\frac{4}{6}\cdot\frac{4}{6}\cdot\frac{5}{5}=\frac{4}{9},$ which is not $1.$
+\begin{center}
+\begin{asy}
+size(4cm);
+pen rvwvcq = rgb(0.08235294117647059,0.396078431372549,0.7529411764705882); pen dtsfsf = rgb(0.8274509803921568,0.1843137254901961,0.1843137254901961); 
+
+draw((0,0)--(1.62,0), rvwvcq); 
+draw((1.62,0)--(4,0), dtsfsf); 
+draw((2.9622788457580373,1.7295352570699383)--(4,0), rvwvcq); 
+draw((2.9622788457580373,1.7295352570699383)--(1.84,3.6), dtsfsf); 
+draw((1.84,3.6)--(0.92,1.8), rvwvcq); 
+draw((0.92,1.8)--(0,0), dtsfsf); 
+
+dot((1.84,3.6)); 
+label("$A$", (1.84,3.6), N); 
+dot((0,0)); 
+label("$B$", (0,0), SW); 
+dot((4,0)); 
+label("$C$", (4,0), SE); 
+dot((1.62,0)); 
+label("$D$", (1.62, 0), S); 
+dot((2.9622788457580373,1.7295352570699383)); 
+label("$E$", (2.9622788457580373,1.7295352570699383), NE); 
+dot((0.92,1.8)); 
+label("$F$", (0.92,1.8), NW); 
+\end{asy}
+\end{center}
+\end{sol}
+
+There is also a trigonometric version of this theorem. Its proof is left as an exercise for the more experienced reader If you are encountering this for the first time, following the hints as a walkthrough is recommended.
+\begin{theo}[Trigonometric Ceva]
+Let $D,$ $E,$ and $F$ be points on sides $BC,$ $CA,$ and $AB$ of $\triangle ABC.$ Then $AD,$ $BE,$ and $CF$ concur if and only if
+\[\frac{\sin\angle CAD}{\sin\angle DAB}\cdot \frac{\sin\angle ABE}{\sin\angle EBC}\cdot \frac{\sin\angle BCF}{\sin\angle FCE}=1.\]
+\begin{hint}
+\begin{addhint}
+{How can we relate lengths with angles?}
+\end{addhint}
+\begin{addhint}
+{We can use the Law of Sines to relate lengths with angles.}
+\end{addhint}
+\begin{addhint}
+{The Ratio Lemma will help you explicitly solve it.}
+\end{addhint}
+\begin{addhint}
+{Find $\frac{\sin CAD}{\sin DAB}.$}
+\end{addhint}
+\begin{addhint}
+{By the Law of Sines, $\frac{AB}{\sin \angle ADB}=\frac{BD}{\sin DAB}$ and $\frac{AC}{\sin \angle ADC}=\frac{DC}{\sin \angle CAD}.$}
+\end{addhint}
+\begin{addhint}
+{This implies $\frac{AB}{BD \sin \angle ADB}=\frac{AC}{DC\sin \angle CAD},$ or $\frac{AB}{CA}=\frac{BD\sin \angle ADB}{DC\sin \angle CAD}.$}
+\end{addhint}
+\begin{addhint}
+{Multiply $\frac{AB}{CA}=\frac{BD\sin \angle ADB}{DC\sin \angle CAD}$ with symmetric expressions and finish with Ceva.}
+\end{addhint}
+\end{hint}
+\end{theo}
+
+Here is a harder example that relies on the trigonometric form of Ceva.
+
+\begin{exam}[Swiss Math Olympiad 2008/8]
+Let $ABCDEF$ be a convex hexagon inscribed in a circle. Prove that the diagonals $AD, BE$ and $CF$ intersect at one point if and only if \[\frac{AB}{BC} \cdot \frac{CD}{DE}\cdot \frac{EF}{FA}=1.\]
+\end{exam}
+
+\begin{sol}
+Using Ceva's on $\triangle ACE,$ gives us that $AD,$ $BE,$ and $CF$ concur if and only if
+\[\frac{\sin\angle AEB}{\sin\angle BEC}\cdot \frac{\sin\angle CAD}{\sin\angle DAE}\cdot \frac{\sin\angle ECF}{\sin\angle FCA}=1.\]
+But note that by the Law of Sines,
+\[\frac{\sin\angle AEB}{\sin\angle BEC}=\frac{\frac{AB}{2R}}{\frac{BC}{2R}}=\frac{AB}{BC},\]
+where $R$ is the circumradius of $(ABCDEF),$ so this is equivalent to
+\[\frac{AB}{BC}\cdot \frac{CD}{DE}\cdot \frac{EF}{FA} =1.\]
+\end{sol}
+
+\begin{theo}[Menelaus]
+Consider $\triangle ABC$ with $D,E,F$ on lines $BC,CA,AB,$ respectively. Then $D,E,F$ are collinear if $\frac{DB}{BF}\cdot\frac{FA}{AE}\cdot\frac{EC}{CD}=1.$
+\end{theo}
+
+This looks very similar to Ceva - in fact, the letters just switched. Instead of the line segments cycling through $D,E,F,$ they now cycle through $A,B,C.$
+
+\begin{pro}
+Draw a line through $A$ parallel to $DE$ and let it intersect $BC$ at $P.$ Then note that $\triangle ABP\sim\triangle FBD$ and $\triangle ECD\sim \triangle ACP,$ so
+\[\frac{AF}{FB}=\frac{PD}{DB}\]
+\[\frac{EC}{EA}=\frac{DC}{DP}\]
+Multiplying the two together yields
+\[\frac{AF}{FB}\cdot\frac{BD}{DC}=\frac{EA}{CE},\]
+which implies that
+\[\frac{AF}{FB}\cdot\frac{BD}{DC}\cdot\frac{CE}{EA}=1,\]
+as desired.
+\begin{center}
+\begin{asy}
+import olympiad;
+size(4cm);
+    pair A=(7,6), B=(0,0), C=(10,0), P=(4,0), Q=(6,8), R, K=(5.5,0);
+    draw(A--K, dashed);
+draw((0,0)--(10,0)--(7,6)--(0,0));
+draw((7,6)--(6,8)--(4,0));
+R=intersectionpoint(A--B,Q--P);
+dot(A^^B^^C^^P^^Q^^R^^K);
+label("A",A,(1,1));label("B",B,(-1,0));label("C",C,(1,0));label("D",P,(0,-1));label("E",Q,(1,0));label("F",R,(-1,1));
+label("P",K,(0,-1));
+\end{asy}
+\end{center}
+\end{pro}
+
+The converse states that $\frac{DB}{BF}\cdot\frac{FA}{AE}\cdot\frac{EC}{CD}=-1,$ \textit{where all lengths are directed.} (The directed lengths are necessary. In the original theorem, fixing $D,E$ leaves two possible locations for $F,$ only one of which actually lies on $DE.$)
+
+\begin{theo}[Mass Points]
+Consider segment $XY$ with $P$ on $XY.$ Then assign \textit{masses} $\diamond X,\diamond Y$ to points $X,Y$ such that $\frac{XP}{YP}=\frac{\diamond Y}{\diamond X}.$
+
+\begin{center}
+    \begin{asy}
+    size(4cm);
+    draw((0,0)--(3,0));
+    dot("$X$",(0,0),S);
+    dot("$P$",(1,0),S);
+    dot("$Y$",(3,0),S);
+    \end{asy}
+\end{center}
+
+Now consider cevians $AD,BE,CF$ of $\triangle ABC$ that concur at some point $P.$ Then $\frac{AP}{PD}=\frac{\diamond B+\diamond C}{\diamond A}.$
+
+This means that for $P$ on $XY,$ we can define $\diamond P=\diamond X+\diamond Y.$
+
+\begin{center}
+    \begin{asy}
+    size(4cm);
+draw((0,0)--(1.62,0)); 
+draw((1.62,0)--(4,0)); 
+draw((2.9622788457580373,1.7295352570699383)--(4,0)); 
+draw((2.9622788457580373,1.7295352570699383)--(1.84,3.6)); 
+draw((1.84,3.6)--(0.7107411428354, 1.390580496852)); 
+draw((0.7107411428354, 1.390580496852)--(0,0)); 
+
+draw((1.84,3.6)--(1.62,0));
+draw((0,0)--(2.9622788457580373,1.7295352570699383));
+draw((4,0)--(0.7107411428354, 1.390580496852));
+
+dot((1.679940099448, 0.9808379909682));
+label("$P$",(1.679940099448, 0.9808379909682),N+0.5E);
+
+dot((1.84,3.6)); 
+label("$A$", (1.84,3.6), N); 
+dot((0,0)); 
+label("$B$", (0,0), SW); 
+dot((4,0)); 
+label("$C$", (4,0), SE); 
+dot((1.62,0)); 
+label("$D$", (1.62, 0), S); 
+dot((2.9622788457580373,1.7295352570699383)); 
+label("$E$", (2.9622788457580373,1.7295352570699383), NE); 
+dot((0.7107411428354, 1.390580496852)); 
+label("$F$", (0.7107411428354, 1.390580496852), NW); 
+    \end{asy}
+\end{center}
+\end{theo}
+
+This is a direct application of Ceva's and Menelaus. This is somewhat abstract without an example, so we present the centroid as an example.
+
+\begin{exam}[Centroid]
+Assign masses to $\triangle ABC$, its midpoints, and its centroid.
+\end{exam}
+
+\begin{sol}
+Note $\diamond A=\diamond B=\diamond C.$ Without loss of generality, let $\diamond A=1.$
+
+Then note that since $\diamond X+\diamond Y=\diamond P$ for $P$ on segment $XY,$ $\diamond D=\diamond B+\diamond C=2.$ Similarly, $\diamond E=\diamond F=2,$ and $\diamond G=\diamond A+\diamond D=1+2=3.$
+\begin{center}
+    \begin{asy}
+import olympiad;
+size(4cm);
+pair A=dir(-20), B=dir(110), C=dir(200), D, E, F, G;
+D=(B+C)/2;
+E=(C+A)/2;
+F=(A+B)/2;
+G=(A+B+C)/3;
+draw(A--B--C--A);
+draw(A--D);
+draw(B--E);
+draw(C--F);
+dot(A^^B^^C^^D^^E^^F^^G);
+label("1",A,dir(-20));
+label("1",C,dir(200));
+label("1",B,dir(90));
+label("2",D,dir(140));
+label("2",E,dir(-80));
+label("2",F,dir(40));
+label("3",G,1.3dir(63));
+\end{asy}
+\end{center}
+\end{sol}
+
+\begin{theo}[Mass Points with Transversals]
+Consider $\triangle ABC$ with points $D,E,F$ on sides $BC,CA,AB,$ and let $AD$ intersect $FE$ at $P.$ Then $\diamond A=\diamond B\cdot\frac{BF}{FA}+\diamond C\cdot\frac{CE}{EA}.$
+
+This is equivalent to
+\[\frac{AP}{PD}=\frac{\diamond B+\diamond C}{\diamond B\cdot\frac{BF}{FA}+\diamond C\cdot\frac{CE}{EA}}=\frac{BC}{CD\cdot\frac{BF}{FA}+BD\cdot\frac{CE}{EA}}.\]
+
+\begin{center}
+    \begin{asy}
+    import olympiad;
+    size(4cm);
+    pair A=(1.84,3.6);
+    pair D=(1.62,0);
+    pair E=(2.9622788457580373,1.7295352570699383);
+    pair F=(0.7107411428354, 1.390580496852),P;
+    P=extension(A,D,E,F);
+    
+draw((0,0)--(1.62,0)); 
+draw((1.62,0)--(4,0)); 
+draw((2.9622788457580373,1.7295352570699383)--(4,0)); 
+draw((2.9622788457580373,1.7295352570699383)--(1.84,3.6)); 
+draw((1.84,3.6)--(0.7107411428354, 1.390580496852)); 
+draw((0.7107411428354, 1.390580496852)--(0,0)); 
+
+draw((1.84,3.6)--(1.62,0));
+draw((0.7107411428354, 1.390580496852)--(2.9622788457580373,1.7295352570699383));
+
+dot(A^^D^^E^^F^^P);
+label("$A$", A, N); 
+dot((0,0)); 
+label("$B$", (0,0), SW); 
+dot((4,0)); 
+label("$C$", (4,0), SE); 
+label("$D$", D, S); 
+label("$E$", E, NE); 
+label("$F$", F, NW); 
+label("P",P,NE);
+    \end{asy}
+\end{center}
+\end{theo}
+
+The classic analogy is having $A_1$ on $AB$ and $A_2$ on $AC,$ and adding $\diamond A_1+\diamond A_2$ where the masses are taken with respect to $AB$ and $AC$ individually.
+
+You can prove this with Law of Cosines. We present the outline of the proof (the actual algebraic manipulations are very long; this is just a demonstration that it can be proven true).
+
+\begin{pro}
+There is exactly one value of $AP$ such that
+\[FP+PE=FE,\]
+where
+\[FP=\sqrt{AF^2+AP^2-2\cdot AF\cdot AP\cos\angle BAD}\]
+\[PE=\sqrt{AE^2+AP^2-2\cdot AE\cdot AP\cos\angle CAD}\]
+\[FE=\sqrt{AE^2+AF^2-2\cdot AE\cdot AF\cos\angle BAC},\]
+and all you have to do is verify
+\[AG=\frac{BC\cdot GD}{CD\cdot\frac{BF}{FA}+BD\cdot\frac{CE}{EA}}\]
+indeed works.
+\end{pro}
+
+As an example, we use a midsegment and a median.
+
+\begin{exam}[Midsegment]
+Assign masses to $\triangle ABC,$ $A$-midsegment $EF,$ median $AD,$ and the point $P$ that lies on $AD$ and $EF.$
+\end{exam}
+
+\begin{sol}
+Note $\diamond A=\diamond B\cdot \frac{BF}{FA}+\diamond C\cdot\frac{CE}{EA}=\diamond B+\diamond C.$ Without loss of generality, let $\diamond B=\diamond C=1.$ Then $\diamond A=2.$
+
+Also note that $\diamond D=\diamond B+\diamond C=2$ and $\diamond P=\diamond A+\diamond D=4.$
+\begin{center}
+    \begin{asy}
+import olympiad;
+size(4cm);
+pair A=dir(-20), B=dir(110), C=dir(200), D, E, F, P;
+D=(B+C)/2;
+E=(C+A)/2;
+F=(A+B)/2;
+P=(A+2B+C)/4;
+draw(A--B--C--A);
+draw(B--E);
+draw(D--F);
+dot(A^^B^^C^^D^^E^^F^^P);
+label("1",A,dir(-20));
+label("1",C,dir(200));
+label("2",B,dir(90));
+label("2",D,dir(140));
+label("2",E,dir(-80));
+label("2",F,dir(40));
+label("4",P,1.3dir(63));
+\end{asy}
+\end{center}
+\end{sol}
+
+\section{Areas}
+There are a variety of methods to find area. For harder problems, computing the area in two different ways can give useful information about the configuration.
+
+\begin{theo}[$\frac{bh}{2}$]
+The area of a triangle is $\frac{bh}{2}.$
+\end{theo}
+
+\begin{pro}
+The area of each right triangle is half of the area of the rectangle it is in.
+\begin{center}
+    \begin{asy}
+    size(3cm);
+    draw((0,0)--(4,0)--(4,3)--(0,3)--cycle);
+    draw((0,0)--(1,3)--(4,0));
+    draw((1,3)--(1,0));
+    \end{asy}
+\end{center}
+\end{pro}
+
+\begin{theo}[$rs$]
+The area of a triangle is $rs,$ where $r$ is the inradius and $s$ is the semiperimeter.
+\end{theo}
+
+We have already proved this in Length Chasing - but we mention this theorem again because it is useful for area too.
+
+\begin{theo}[$\frac{1}{2}ab\sin C$]
+The area of a triangle is $\frac{1}{2}ab\sin C,$ where $a,b$ are side lengths and $C$ is the included angle.
+\end{theo}
+
+\begin{pro}
+Drop an altitude from $B$ to $AC$ and let it have length $h.$ Then note $\frac{1}{2}\cdot a\sin C\cdot b=\frac{1}{2}\cdot hb=\frac{bh}{2}.$
+\begin{center}
+    \begin{asy}
+    size(4cm);
+    draw((0,0)--(1,3)--(4,0)--cycle);
+    draw((1,3)--(1,0));
+    
+    dot((0,0));
+    label("$C$",(0,0),SW);
+    
+    dot((1,0));
+    label("$H$",(1,0),S);
+    
+    dot((4,0));
+    label("$A$",(4,0),SE);
+    
+    dot((1,3));
+    label("$B$",(1,3),N);
+    \end{asy}
+\end{center}
+\end{pro}
+
+We present a useful corollary of this theorem.
+
+\begin{fact}[$\frac{[PAB]}{[PXY]}=\frac{PA\cdot PB}{PX\cdot PY}$]
+Let $P,A,X$ be on $\ell_1$ and $P,B,Y$ be on $\ell_2.$ Then $\frac{[PAB]}{[PXY]}=\frac{PA\cdot PB}{PX\cdot PY}.$
+\end{fact}
+
+\begin{pro}
+Note $\frac{[PAB]}{[PXY]}=\frac{\frac{1}{2}\cdot PA\cdot PB\cdot \sin\theta}{\frac{1}{2}\cdot PX\cdot PY\cdot \sin\theta}=\frac{PA\cdot PB}{PX\cdot PY},$ where $\theta=\angle APB.$
+
+This works for all configurations since $\sin\theta=\sin(180-\theta).$
+\end{pro}
+
+\begin{theo}[$\frac{abc}{4R}$]
+In $\triangle ABC$ with side lengths $a,b,c$ and circumradius $R,$
+\[[ABC]=\frac{abc}{4R}.\]
+\end{theo}
+
+\begin{pro}
+Note that $[ABC]=\frac{1}{2}ab\sin C=\frac{1}{2}ab\cdot\frac{c}{2R}=\frac{abc}{4R}.$
+\end{pro}
+
+Heron's Formula can find the area of a triangle with \textit{only} the side lengths.
+
+\begin{theo}[Heron's Formula]
+In $\triangle ABC$ with sidelengths $a,b,c$ such that $s=\frac{a+b+c}{2},$
+\[[ABC]=\sqrt{s(s-a)(s-b)(s-c)}.\]
+\end{theo}
+
+\begin{pro}
+Since $\cos C=\frac{a^2+b^2-c^2}{2ab},$ the Pythagorean Identity gives us \[\sin C=\sqrt{\frac{4a^2b^2-(a^2+b^2-c^2)^2}{4a^2b^2}}=\sqrt{\frac{(a+b+c)(-a+b+c)(a-b+c)(a+b-c)}{4a^2b^2}}.\] So \[\frac{1}{2}ab\sin C=\sqrt{\left(\frac{a+b+c}{2}\right)\left(\frac{-a+b+c}{2}\right)\left(\frac{a-b+c}{2}\right)\left(\frac{a+b-c}{2}\right)}=\sqrt{s(s-a)(s-b)(s-c)}.\]
+\end{pro}
+
+Heron's Formula has a reputation for being notoriously tricky to prove, but the proof isn't too bad if you consider what we're actually doing.
+\begin{enumerate}
+	\item Use the Law of Cosines to find $\cos C.$
+	
+	\item Use the Pythagorean Identity to find $\sin C.$
+	
+	\item Use $\frac{1}{2}ab\sin C$ to find $[ABC].$
+	
+	\item Clean the expression up.
+\end{enumerate}
+
+\begin{fact}[Heron's with Altitudes]
+If $x,y,z$ are the lengths of the altitudes of $\triangle ABC,$
+\[\frac{1}{[ABC]}=\sqrt{\left(\frac{1}{x}+\frac{1}{y}+\frac{1}{z}\right)\left(-\frac{1}{x}+\frac{1}{y}+\frac{1}{z}\right)\left(\frac{1}{x}-\frac{1}{y}+\frac{1}{z}\right)\left(\frac{1}{x}+\frac{1}{y}-\frac{1}{z}\right)}.\]
+\begin{hint}
+\begin{addhint}
+{Note $x=\frac{[ABC]}{2a}.$}
+\end{addhint}
+\end{hint}
+\end{fact}
+
+\section{Summary}
+
+\subsection{Theory}
+
+\begin{enumerate}
+    \item Law of Cosines
+    
+    \begin{itemize}
+    
+    \Item $a^2+b^2-2ab\cos C=c^2.$
+    
+    \end{itemize}
+    
+    \item Stewart's Theorem
+    
+    \begin{itemize}
+    
+    \Item $man+dad=bmb+cnc.$
+    
+    \Item $\sqrt{bc-xy}$ gives the length of angle bisector $AD.$
+    
+    \Item $\frac{\sqrt{2b^2+2c^2-a^2}}{2}$ gives the length of median $AD.$
+    
+    \end{itemize}
+    
+    \item Law of Sines
+    
+    \begin{itemize}
+    
+    \Item $\frac{a}{\sin A}=2R.$
+
+    \end{itemize}
+
+    \item Angle Bisector Theorem and Ratio Lemma
+    
+    \begin{itemize}
+    
+    \Item If $AD$ bisects $\angle BAC,$ then $\frac{AB}{BD}=\frac{AC}{CD}.$
+    
+    \Item Generally,  $\frac{BP}{CP}=\frac{c\sin \angle BAP}{b\sin \angle CAP}.$
+
+    \end{itemize}
+    
+    \item Tangents
+    
+    \begin{itemize}
+    
+    \Item Two Tangent Theorem
+    
+    \Item The tangent is perpendicular to the radius.
+    
+    \Item $[ABC]=rs.$
+    
+    \Item $[ABC]=r_a(s-a).$
+
+    \Item Lengths of tangents to the incircle from the vertices are $s-a,s-b,s-c.$
+    
+    \Item Lengths of tangents to the excircles from the vertices are also $s-a,s-b,s-c$ (but in a different order).
+    
+    \end{itemize}
+    
+    \item Concurrency and Collinearity
+    
+    \begin{itemize}
+    
+        \Item Ceva's states $\frac{AF}{FB}\cdot\frac{BE}{EC}\cdot\frac{CD}{DA}=1.$
+    
+        \Item Menelaus states $\frac{DB}{BF}\cdot\frac{FA}{AE}\cdot\frac{EC}{CD}=1.$
+
+    \end{itemize}
+
+    \item Mass Points
+    
+    \begin{itemize}
+        \Item $\frac{XP}{YP}=\frac{\diamond Y}{\diamond X}.$
+    
+    \Item $\diamond X+\diamond Y=\diamond P.$
+    \end{itemize}
+    
+    \item Area
+    
+    \begin{itemize}
+        \Item $\frac{bh}{2}$
+    
+    \Item $rs$
+    
+    \Item $\frac{1}{2}ab\sin C$
+    
+    \Item $\frac{abc}{4R}$
+    
+    \Item Heron's ($\sqrt{s(s-a)(s-b)(s-c)}$)
+    \end{itemize}
+
+\end{enumerate}
+
+\subsection{Tips and Strategies}
+
+\begin{enumerate}
+    \item Use the Law of Sines and Law of Cosines when convenient angles exist.
+    
+    \begin{itemize}
+    
+    \Item These can be supplementary, congruent, special, etc.
+    
+    \Item Use Stewart's when angles are not explicitly present but you need to find a cevian's length anyway.
+    
+    \end{itemize}
+    
+    \item If you have tangents, do length chasing. You will need it.
+    
+    \item $\frac{1}{2}ab\sin C$ gives ratios of areas. (In general, whenever angles are the same or supplementary, use $\frac{1}{2}ab\sin C$ to get information.)
+    
+    \item Use two methods to calculate area.
+    
+    \begin{itemize}
+    
+    \Item This can give you information about a problem; after all, area doesn't change. So now you can set two seemingly unrelated things equal.
+    
+    \end{itemize}
+\end{enumerate}
+
+\pagebreak
+
+\section{Exercises}
+
+\subsection{Check-ins}
+
+\begin{enumerate}
+
+    \item Find the inradius of the triangles with the following lengths:
+    
+    \begin{enumerate}
+        \item $3,4,5$
+        
+        \item $5,12,13$
+        
+        \item $13,14,15$
+        
+        \item $5,7,8$
+    \end{enumerate}
+
+    (These are arranged by difficulty. All of these are good to know.)
+    
+    \item Prove that in a right triangle with legs of length $a,b$ and hypotenuse with length $c,$ $r=\frac{a+b-c}{2}.$
+
+    \item In $\triangle ABC,$ $AB=5,$ $BC=12,$ and $CA=13.$ Points $D,E$ are on $BC$ such that $BD=DC$ and $\angle BAE=\angle CAE.$ Find $[ADE].$
+    \begin{hint}
+    \begin{addhint}
+    {We know the height. What else do we need?}
+    \end{addhint}
+    \end{hint}
+    \begin{solu}
+    \begin{addsol}
+    {Note that $BD=6$ and $BE=\frac{5}{5+13}\cdot 12=\frac{10}{3},$ so $DE=6-\frac{10}{3}=\frac{8}{3}.$ Thus $[ADE]=\frac{1}{2}\cdot 5\cdot \frac{8}{3}=\frac{20}{3}.$}
+    \end{addsol}
+    \end{solu}
+
+    \item (Gergonne Point) Let the incircle of $\triangle ABC$ be tangent to $BC,CA,AB$ at $D,E,F,$ respectively. Prove that $AD,BE,CF$ concur.
+    \begin{hint}
+    \begin{addhint}
+    {Two Tangent Theorem.}
+    \end{addhint}
+    \end{hint}
+    
+    \item (Nagel Point) Let the $A$ excircle of $\triangle ABC$ be tangent to $BC$ at $D,$ and define $E,F$ similarly. Prove that $AD,BE,CF$ concur.
+    \begin{hint}
+    \begin{addhint}
+    {Two Tangent Theorem.}
+    \end{addhint}
+    \end{hint}
+
+    \item (AMC 8 2019/24) In triangle $ABC$, point $D$ divides side $\overline{AC}$ so that $AD:DC=1:2$. Let $E$ be the midpoint of $\overline{BD}$ and let $F$ be the point of intersection of line $BC$ and line $AE$. Given that the area of $\triangle ABC$ is $360$, what is the area of $\triangle EBF$?
+\begin{center}
+\begin{asy}
+import olympiad;
+size(5cm);
+pair A,B,C,DD,EE,FF;
+B = (0,0); C = (3,0); 
+A = (1.2,1.7);
+DD = (2/3)*A+(1/3)*C;
+EE = (B+DD)/2;
+FF = intersectionpoint(B--C,A--A+2*(EE-A));
+draw(A--B--C--cycle);
+draw(A--FF); 
+draw(B--DD);dot(A); 
+label("$A$",A,N);
+dot(B); 
+label("$B$",B,SW);dot(C); 
+label("$C$",C,SE);
+dot(DD); 
+label("$D$",DD,NE);
+dot(EE); 
+label("$E$",EE,NW);
+dot(FF); 
+label("$F$",FF,S);
+\end{asy}
+\end{center}
+
+\item Consider $\triangle ABC$ where $X,Y$ are on $BC,CA$ such that $\frac{BX}{CX}=\frac{1}{4},\frac{CY}{YA}=\frac{2}{3}.$ If $AX,BY$ intersect at $Z,$ find $\frac{AZ}{ZX}.$
+
+\item Given $\triangle ABC$ with $E,F$ on line segments $AC,AB$ such that $AE:EC=BF:FA=1:3$ and median $AD$ that intersects $EF$ at $G,$ $AG:GD.$
+
+\item A triangle has side lengths $4,8,x$ and area $3\sqrt{15}.$ Find $x.$
+
+\item Find the sum of the altitudes of a triangle with side lengths $5,7,8.$
+
+\item Let $\angle BAC=30^{\circ}$ and let $P$ be the midpoint of $AC.$ If $\angle BPC=45^{\circ},$ what is $\angle ABC?$
+\begin{hint}
+\begin{addhint}
+{Drop an altitude from $B$ to $CA.$}
+\end{addhint}
+\end{hint}
+
+\item Given $\triangle ABC,$ find $\sin A\sin B\sin C$ in terms of $[ABC]$ and $abc.$
+
+\item Let $P$ be a point inside $\triangle ABC,$ and let $AP,BP,CP$ intersect $BC,CA,AB$ at $D,E,F.$ Let $(DEF)$ intersect $BC,CA,AB$ again at $X,Y,Z.$ Prove that $AX,BY,CZ$ concur.
+\begin{hint}
+\begin{addhint}
+{Use the Power of a Point and Ceva's to relate lengths.}
+\end{addhint}
+\end{hint}
+\begin{solu}
+\begin{addsol}
+{Note that $ZB\cdot FB=BX\cdot BD,$ or $\frac{ZB}{BX}=\frac{FB}{BD}.$ Cyclically multiplying finishes.}
+\end{addsol}
+\end{solu}
+\end{enumerate}
+
+\subsection{Problems}
+
+\begin{enumerate}
+
+    \item Consider $\triangle ABC$ with $AB=7,BC=8,AC=6.$ Let AD be the angle bisector of $\angle BAC$ and let $E$ be the midpoint of $AC.$ If $BE$ and $AD$ intersect at $G,$ find $AG.$
+
+    \item Find the maximum area of a triangle with two of its sides having lengths $10,11.$
+
+    \item Consider trapezoid $ABCD$ with bases $AB$ and $CD.$ If $AC$ and $BD$ intersect at $P,$ prove the sum of the areas of $\triangle ABP$ and $\triangle CDP$ is at least half the area of trapezoid $ABCD.$
+    
+    \item Consider rectangle $ABCD$ such that $AB=2$ and $BC=1.$ Let $X,Y$ trisect $AB.$ Then let $DX$ and $DY$ intersect $AC$ at $P$ and $Q,$ respectively. What is the area of quadrilateral $XYQP?$
+
+    \item (Autumn Mock AMC 10) Equilateral triangle ABC has side length $6$. Points $D, E, F$ lie within the lines $AB, BC$ and $AC$ such that $BD=2AD$, $BE=2CE$, and $AF=2CF$. Let $N$ be the numerical value of the area of triangle $DEF$. Find $N^2$.
+    
+    \item Consider $\triangle ABC$ such that $AB=8,$ $BC=5,$ and $CA=7.$ Let $AB$ and $CA$ be tangent to the incircle at $T_C,$ $T_B,$ respectively. Find $[AT_BT_C].$
+    \begin{hint}
+    \begin{addhint}
+    {Find $\frac{[AT_BT_C]}{[ABC]}.$}
+    \end{addhint}
+    \end{hint}
+    
+    \item Consider $\triangle ABC$ with an area of $60,$ inradius of $3,$ and circumradius of $\frac{17}{2}.$ Find the side lengths of the triangle.
+    
+    \item (AIME I 2019/2) In $\triangle PQR$, $PR=15$, $QR=20$, and $PQ=25$. Points $A$ and $B$ lie on $\overline{PQ}$, points $C$ and $D$ lie on $\overline{QR}$, and points $E$ and $F$ lie on $\overline{PR}$, with $PA=QB=QC=RD=RE=PF=5$. Find the area of hexagon $ABCDEF$.
+    
+    \item (PUMaC 2016) Let $ABCD$ be a cyclic quadrilateral with circumcircle $\omega$ and let $AC$ and $BD$ intersect at $X$. Let the line through $A$ parallel to $BD$ intersect line $CD$ at $E$ and $\omega$ at $Y \ne A$. If $AB = 10, AD = 24, XA = 17$, and $XB = 21$, then the area of $\triangle DEY$ can be written in simplest form as $\frac{m}{n}.$ Find $m + n$.
+    
+    \item (AIME I 2001/4) In triangle $ABC$, angles $A$ and $B$ measure $60$ degrees and $45$ degrees, respectively. The bisector of angle $A$ intersects $\overline{BC}$ at $T$, and $AT=24$. The area of triangle $ABC$ can be written in the form $a+b\sqrt{c}$, where $a$, $b$, and $c$ are positive integers, and $c$ is not divisible by the square of any prime. Find $a+b+c$.
+\end{enumerate}
+
+\subsection{Challenges}
+
+\begin{enumerate}
+
+    \item (CIME 2020) An excircle of a triangle is a circle tangent to one of the sides of the triangle and the extensions of the other two sides. Let $ABC$ be a triangle with $\angle ACB=90^\circ$ and let $r_A$, $r_B$, $r_C$ denote the radii of the excircles opposite to $A$, $B$, $C$, respectively. If $r_A=9$ and $r_B=11$, then $r_C$ can be expressed in the form $m+\sqrt{n}$, where $m$ and $n$ are positive integers and $n$ is not divisible by the square of any prime. Find $m+n$.
+    
+    \item Consider ABC with $\angle A=45^{\circ},\angle B=60^{\circ},$ and with circumcenter $O.$ If $BO$ intersects $CA$ at $E$ and $CO$ intersects $AB$ at $F,$ find $\frac{[AFE]}{[ABC]}.$
+    
+    \item (AIME 1989/15) Point $P$ is inside $\triangle ABC$. Line segments $APD$, $BPE$, and $CPF$ are drawn with $D$ on $BC$, $E$ on $AC$, and $F$ on $AB$ (see the figure at right). Given that $AP=6$, $BP=9$, $PD=6$, $PE=3$, and $CF=20$, find the area of $\triangle ABC$.
+
+    \begin{center}
+        \begin{asy}
+        import olympiad;
+        size(4cm);
+pair A=origin, B=(7,0), C=(3.2,15), D=midpoint(B--C), F=(3,0), P=intersectionpoint(C--F, A--D), ex=B+40*dir(B--P), E=intersectionpoint(B--ex, A--C);
+draw(A--B--C--A--D^^C--F^^B--E);
+pair point=P;
+label("$A$", A, dir(point--A));
+label("$B$", B, dir(point--B));
+label("$C$", C, dir(point--C));
+label("$D$", D, dir(point--D));
+label("$E$", E, dir(point--E));
+label("$F$", F, dir(point--F));
+label("$P$", P, dir(0));
+        \end{asy}
+    \end{center}
+    
+    \item (AIME II 2019/11) Triangle $ABC$ has side lengths $AB=7, BC=8,$ and $CA=9.$ Circle $\omega_1$ passes through $B$ and is tangent to line $AC$ at $A.$ Circle $\omega_2$ passes through $C$ and is tangent to line $AB$ at $A.$ Let $K$ be the intersection of circles $\omega_1$ and $\omega_2$ not equal to $A.$ Then $AK=\tfrac mn,$ where $m$ and $n$ are relatively prime positive integers. Find $m+n.$
+    \begin{hint}
+    \begin{addhint}
+    {Use the tangent angle condition to angle chase.}
+    \end{addhint}
+    \end{hint}
+    
+    \item (AIME II 2016/10) Triangle $ABC$ is inscribed in circle $\omega$. Points $P$ and $Q$ are on side $\overline{AB}$ with $AP<AQ$. Rays $CP$ and $CQ$ meet $\omega$ again at $S$ and $T$ (other than $C$), respectively. If $AP=4,PQ=3,QB=6,BT=5,$ and $AS=7$, then $ST=\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.
+    
+    \item (AIME II 2005/14) In triangle $ABC, AB=13, BC=15,$ and $CA = 14.$ Point $D$ is on $\overline{BC}$ with $CD=6.$ Point $E$ is on $\overline{BC}$ such that $\angle BAE\cong \angle CAD.$ Given that $BE=\frac pq$ where $p$ and $q$ are relatively prime positive integers, find $q.$
+    
+    \item (AIME I 2019/11) In $\triangle ABC$, the sides have integers lengths and $AB=AC$. Circle $\omega$ has its center at the incenter of $\triangle ABC$. An excircle of $\triangle ABC$ is a circle in the exterior of $\triangle ABC$ that is tangent to one side of the triangle and tangent to the extensions of the other two sides. Suppose that the excircle tangent to $\overline{BC}$ is internally tangent to $\omega$, and the other two excircles are both externally tangent to $\omega$. Find the minimum possible value of the perimeter of $\triangle ABC$.
+
+    \item (ART 2019/6) Consider unit circle $O$ with diameter $AB.$ Let $T$ be on the circle such that $TA<TB.$ Let the tangent line through $T$ intersect $AB$ at $X$ and intersect the tangent line through $B$ at $Y.$ Let $M$ be the midpoint of $YB,$ and let $XM$ intersect circle $O$ at $P$ and $Q.$ If $XP=MQ,$ find $AT.$
+    \begin{hint}
+    \begin{addhint}
+    {What does $XP=MQ$ really mean?}
+    \end{addhint}
+    \begin{addhint}
+    {How can you find the proportions of the lengths with the knowledge that $OX=OM?$}
+    \end{addhint}
+    \begin{addhint}
+    {Reflect $Y$ about $XB$ to get $Y'.$}
+    \end{addhint}
+    \begin{addhint}
+    {Find the area of $\triangle XYY'$ in two ways.}
+    \end{addhint}
+    \end{hint}
+    \begin{solu}
+    \begin{addsol}
+    {Let $O$ be the center of the circle. Notice that this implies that $OM=OX.$ We claim that if $BM=x,$ then $XT=x$ as well.
+    
+    By the Pythagorean Theorem, $OM=\sqrt{x^2+1}.$ Since $OM=OX,$ $AX=\sqrt{x^2+1}-1.$ Then by Power of a Point, $XT=\sqrt{XA\cdot XB}=(\sqrt{x^2+1}-1)(\sqrt{x^2+1}+1)=x,$ as desired.
+    
+    %\begin{asy}
+    %size(6cm);
+%label("$B$", (0,0), SW);
+%label("$O$", (1,0), S);
+%label("$A$", (2,0), SE);
+%label("$X$", (2.5,0), SE);
+%label("$M$", (0,sqrt(5)/2), W);
+%label("$Y$", (0,sqrt(5)), NW);
+%label("$T$", (5/3,sqrt(5)/3), NE);
+%dot((0,0));
+%dot((1,0));
+%dot((2,0));
+%dot((2.5,0));
+%dot((0,sqrt(5)/2));
+%dot((5/3,sqrt(5)/3));
+%dot((0,sqrt(5)));
+%draw((0,0)--(2.5,0)--(0,sqrt(5))--cycle);
+%draw(circle((1,0),1));
+%    \end{asy}
+
+Also, by the Pythagorean Theorem, $BX=\sqrt{5}x.$
+
+We have is a semicircle with a known radius inscribed within a right triangle. Knowing the proportions of the triangle motivates reflecting about $BX$ to use $[ABC]=rs.$
+
+Let the reflection of $Y$ about $BX$ be $Y'$ Then notice $[YXY']=2\sqrt{5}x^2,$ by $\frac{bh}{2}.$ But also notice by $[ABC]=rs,$ $[YXY']=5x.$ Since the area of a triangle is the same no matter how it is computed, $2\sqrt{5}x^2=5x,$ implying $x=\frac{\sqrt{5}}{2}.$
+
+%\begin{asy}
+%size(4cm);
+%label("$B$", (0,0), W);
+%label("$O$", (1,0), S);
+%label("$X$", (2.5,0), SE);
+%label("$Y$", (0,sqrt(5)), NW);
+%label("$Y'$", (0,-sqrt(5)), SW);
+%dot((0,0));
+%dot((1,0));
+%dot((2.5,0));
+%dot((0,sqrt(5)));
+%dot((0,-sqrt(5)));
+%draw((0,-sqrt(5))--(2.5,0)--(0,sqrt(5))--cycle);
+%draw((0,0)--(2.5,0));
+%draw(circle((1,0),1));
+%\end{asy}
+
+Drop an altitude from $T$ to $BX,$ and let the foot be $T'.$ Notice that $\triangle YBX\sim \triangle TT'X$ with a ratio of $3:1.$ Thus $TT'=\frac{\sqrt{5}}{3}$ and $TX=\frac{5}{6}.$ Then notice $T'A=T'X-AX.$ Since $BX=\frac{5}{2}$ and $BA=2,$ $AX=\frac{1}{2}.$ Thus $T'A=\frac{5}{6}-\frac{1}{2}=\frac{1}{3}.$ By the Pythagorean Theorem, $TA=\sqrt{(\frac{1}{3})^2+(\frac{\sqrt{5}}{3})^2}=\sqrt{\frac{6}{9}}=\frac{\sqrt{6}}{3},$ which is our answer.
+
+%\begin{asy}
+%size(6cm);
+%label("$B$", (0,0), SW);
+%label("$O$", (1,0), S);
+%label("$A$", (2,0), SE);
+%label("$X$", (2.5,0), SE);
+%label("$Y$", (0,sqrt(5)), NW);
+%label("$T$", (5/3,sqrt(5)/3), NE);
+%label("$T'$", (5/3,0), NE);
+%dot((0,0));
+%dot((1,0));
+%dot((2,0));
+%dot((2.5,0));
+%dot((5/3,sqrt(5)/3));
+%dot((5/3,0));
+%dot((0,sqrt(5)));
+%draw((0,0)--(2.5,0)--(0,sqrt(5))--cycle);
+%draw((5/3,sqrt(5)/3)--(5/3,0));
+%draw(circle((1,0),1));
+%\end{asy}
+}
+    \end{addsol}
+    \end{solu}
+    
+    \item (AIME I 2020/13) Point $D$ lies on side $BC$ of $\triangle ABC$ so that $\overline{AD}$ bisects $\angle BAC$. The perpendicular bisector of $\overline{AD}$ intersects the bisectors of $\angle ABC$ and $\angle ACB$ in points $E$ and $F$, respectively. Given that $AB=4$, $BC=5$, $CA=6$, the area of $\triangle AEF$ can be written as $\tfrac{m\sqrt n}p$, where $m$ and $p$ are relatively prime positive integers, and $n$ is a positive integer not divisible by the square of any prime. Find $m+n+p$.
+    
+    \item (USAMO 1999/6) Let $ABCD$ be an isosceles trapezoid with $AB \parallel CD$. The inscribed circle $\omega$ of triangle $BCD$ meets $CD$ at $E$. Let $F$ be a point on the (internal) angle bisector of $\angle DAC$ such that $EF \perp CD$. Let the circumscribed circle of triangle $ACF$ meet line $CD$ at $C$ and $G$. Prove that the triangle $AFG$ is isosceles.
+    \begin{hint}
+    \begin{addhint}
+    {$F$ is a \textit{specific} point.}
+    \end{addhint}
+    \end{hint}
+    
+    \item (ISL 2003/G1) Let $ABCD$ be a cyclic quadrilateral. Let $P$, $Q$, $R$ be the feet of the perpendiculars from $D$ to the lines $BC$, $CA$, $AB$, respectively. Show that $PQ=QR$ if and only if the bisectors of $\angle ABC$ and $\angle ADC$ are concurrent with $AC$.
+    
+    \item (CIME 2019) Let $\triangle ABC$ be a triangle with circumcenter $O$ and incenter $I$ such that the lengths of the three segments $AB,$ $BC$ and $CA$ form an increasing arithmetic progression in this order$.$ If $AO=60$ and $AI=58,$ then the distance from $A$ to $BC$ can be expressed as $\tfrac mn,$ where $m$ and $n$ are relatively prime positive integers$.$ Find $m+n.$
+\end{enumerate}
