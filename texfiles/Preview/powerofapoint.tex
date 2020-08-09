@@ -273,6 +273,17 @@ path segP_B = P--B; draw(segP_B, c000000);
 pair A = intersectionpoints(segP_B, circO_D)[0]; dot(A, c000000); label("$A$", A, dir(315.0));
 \end{asy}
 
+\item Prove that if $\triangle ABC$ has a right angle at $C$ and the foot of the altitude from $C$ to $AB$ is $P,$ then
+\[PC^2=PA\cdot PB.\]
+\begin{hint}
+\begin{addhint}
+{Draw the circumcircle of $\triangle ABC.$}
+\end{addhint}
+\begin{addhint}
+{Reflect $C$ about $AB.$}
+\end{addhint}
+\end{hint}
+
 \item Let $\triangle ABC$ have a right angle at $C$ and let $P$ be the foot of the altitude from $C$ to $AB.$ If the foot of the altitude from $P$ to $AC$ is $X$ and the foot from $P$ to $BC$ is $Y,$ then prove that $AXYB$ is cyclic.
 \end{enumerate}
 
@@ -347,4 +358,6 @@ clip((0.0, 13.0)--(0.0, 20.0)--(10.0, 20.0)--(10.0, 13.0)--cycle);
 Now note $EF\cdot ED=EH\cdot EA,$ or $EF\cdot \frac{36}{5}=3\cdot \frac{48}{5}.$ So $EF=4$ and $DF=\frac{16}{5},$ so the answer is $21.$}
 \end{addsol}
 \end{solu}
+
+\item (AIME I 2019/6) In convex quadrilateral $KLMN$ side $\overline{MN}$ is perpendicular to diagonal $\overline{KM}$, side $\overline{KL}$ is perpendicular to diagonal $\overline{LN}$, $MN = 65$, and $KL = 28$. The line through $L$ perpendicular to side $\overline{KN}$ intersects diagonal $\overline{KM}$ at $O$ with $KO = 8$. Find $MO$.
 \end{enumerate}

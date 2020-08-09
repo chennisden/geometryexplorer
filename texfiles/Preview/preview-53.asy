@@ -13,7 +13,7 @@ import olympiad;
 import cse5;
 import geometry;
 
-size(5cm);
-draw((0,0)--(4,0)--(4,1)--(0,1)--cycle);
-draw((1,-1)--(2,-1)--(2,2)--(1,2)--cycle);
-draw((3,0)--(3,1));
+size(3cm);
+draw((0,0)--(4,0)--(4,3)--(0,3)--cycle);
+draw((0,0)--(1,3)--(4,0));
+draw((1,3)--(1,0));

@@ -14,11 +14,10 @@ import cse5;
 import geometry;
 
 size(4cm);
-draw(circle((0,0), 1));
-dot((0,-1));
-dot((0,0));
-draw((-2,-1)--(2,-1));
-draw((0,-1)--(0,0));
-
-label("$P$",(0,-1),S);
-label("$O$",(0,0),N);
+dot("$A$",(0,0),SW);
+dot("$B$",(3,0),SE);
+dot("$C$",(1,2),N);
+dot("$A'$",(0,2),N);
+dot("$B'$",(3,2),N);
+draw((0,0)--(3,0)--(1,2)--cycle);
+draw((0,2)--(3,2));

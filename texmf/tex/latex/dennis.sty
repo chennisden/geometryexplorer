@@ -52,6 +52,8 @@ import geometry;
 \definecolor{proofbrown}{RGB}{100,40,40}
 \definecolor{proofbckg}{HTML}{fffdf5}
 
+\definecolor{solcolor}{RGB}{0,25,0}
+
 \ifdennispoints % Points setup
 \RequirePackage{fontawesome}
 
@@ -151,6 +153,7 @@ import geometry;
 \RequirePackage{graphicx}
 \RequirePackage{pdfpages}
 \RequirePackage{enumitem}
+\RequirePackage{changepage}
 
 \raggedbottom
 
@@ -257,8 +260,7 @@ import geometry;
 
 \renewcommand\thepart{\Alph{part}} % make parts A,B,C,...
 
-% quotes at start of chapters
-\RequirePackage{changepage}
+% quotes at start of chapters, NEEDS CHANGEPAGE
 \newcommand{\chapterquote}[2]{
 \begin{adjustwidth}{10pt}{10pt}
 {\alegreyafont#1
@@ -425,27 +427,33 @@ bottomline=true,
 rightline=false,
 leftline=false]{pro}{Proof}
 
-\renewcommand{\thepro}{\relax\hspace{-2.5pt}}
+\renewcommand{\thepro}{\unskip}
 
 \def\endpro{\hfill$\blacksquare$}
 
-\newmdtheoremenv[% settings
-backgroundcolor=proofbckg,
-linecolor=proofbrown,
-linewidth=1.2pt,
-nobreak=true,
-innerleftmargin=5pt,
-innerrightmargin=5pt,
-innertopmargin=-5pt,
-skipabove=-5pt,
-topline=true,
-bottomline=true,
-rightline=false,
-leftline=false]{sol}{Solution}
+%\newmdtheoremenv[% settings
+%backgroundcolor=proofbckg,
+%linecolor=proofbrown,
+%linewidth=1.2pt,
+%nobreak=true,
+%innerleftmargin=5pt,
+%innerrightmargin=5pt,
+%innertopmargin=-5pt,
+%skipabove=-5pt,
+%topline=true,
+%bottomline=true,
+%rightline=false,
+%leftline=false]{sol}{Solution}
+%
+%\renewcommand{\thesol}{\relax\hspace{-2.5pt}}
+%
+%\def\endsol{\hfill$\blacksquare$}
 
-\renewcommand{\thesol}{\relax\hspace{-2.5pt}}
-
-\def\endsol{\hfill$\blacksquare$}
+\newenvironment{sol}[1][\unskip]
+{
+\begin{adjustwidth}{\parindent}{\parindent}
+\textbf{\sffamily {\color{darkmidnightblue}Solution #1:}}
+}{\hfill$\blacksquare$\end{adjustwidth}}
 
 %custom bullet points
 

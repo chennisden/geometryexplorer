@@ -15,13 +15,22 @@ import geometry;
 
 size(4cm);
 draw(circle((0,0), 1));
-dot((0,-1));
-dot((0.8,-0.6));
-dot((0,1));
-draw((0.8,-0.6)--(0,-1));
-draw((-2,-1)--(2,-1));
-draw((0,-1)--(0,1));
+draw((-sqrt(2)/2,-sqrt(2)/2)--(0,1));
+draw((-sqrt(2)/2,-sqrt(2)/2)--(0,0));
+draw((0,1)--(0,-1));
+draw((0,1)--((sqrt(6)+sqrt(2))/4,(-sqrt(6)+sqrt(2))/4));
+draw((0,0)--((sqrt(6)+sqrt(2))/4,(-sqrt(6)+sqrt(2))/4));
 
-label("$B$",(0,-1),S);
-label("$B'$",(0,1),N);
-label("$A$",(0.8,-0.6),NW);
+draw(arc((0,0),0.2,225,270));
+draw(arc((0,1),0.2,247.5,270));
+
+dot((0,0));
+label("$O$", (0,0), NE);
+dot((-sqrt(2)/2,-sqrt(2)/2));
+label("$A$", (-sqrt(2)/2,-sqrt(2)/2), SW);
+dot(((sqrt(6)+sqrt(2))/4,(-sqrt(6)+sqrt(2))/4));
+label("$B$", ((sqrt(6)+sqrt(2))/4,(-sqrt(6)+sqrt(2))/4), SE);
+dot((0,1));
+label("$C$", (0,1), N);
+dot((0,-1));
+label("$D$", (0,-1), S);

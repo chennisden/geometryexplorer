@@ -13,18 +13,36 @@ import olympiad;
 import cse5;
 import geometry;
 
-size(4cm);
-draw(circle((0,0), 1));
-draw((-1.5137699061468413,-0.5200439036267299)--(0.5006080051165431,0.8656740871790233));
-draw((-1.5137699061468413,-0.5200439036267299)--(0.8698306996792652,-0.49335033586233623));
+size(6cm);
+//import geometry;
 
-dot((-1.5137699061468413,-0.5200439036267299));
-label("$C$", (-1.5137699061468413,-0.5200439036267299), NW);
-dot((0.5006080051165431,0.8656740871790233));
-label("$A$", (0.5006080051165431,0.8656740871790233), NE);
-dot((0.8698306996792652,-0.49335033586233623));
-label("$B$", (0.8698306996792652,-0.49335033586233623), NW);
-dot((-0.98744289059587,-0.15797638371501177));
-label("$D$", (-0.98744289059587,-0.15797638371501177), NW);
-dot((-0.858564029240042,-0.5127063562070442));
-label("$E$", (-0.858564029240042,-0.5127063562070442), NE);
+point A=(0.5,3);
+point B=(0,0);
+point C=(4,0);
+point D=(B+C)/2.5;
+
+circle O1=circle(A,B,D);
+circle O2=circle(A,C,D);
+circle cABC=circle(A,B,C);
+
+point E_=intersectionpoints(O1, line(A,C))[0];
+point F=intersectionpoints(O2, line(A,B))[0];
+point P=intersectionpoints(cABC, line(A,D))[0];
+point Q=reflect(B,C)*P ;
+point M=(P+Q)/2 ;
+
+draw(A--B--C-- cycle );
+draw(O1 ^^ O2 ^^ cABC);
+draw(B--Q--C,blue);
+draw(B--P--C);
+draw(F--Q--E_, blue);
+//draw(A--P ^^ P--Q , gray);
+
+dot("$A$", A, N+W);
+dot("$B$", B, S+W);
+dot("$C$", C, E+S);
+dot("$D$", D, 2*S+W);
+dot("$E$", E_, E+N);
+dot("$F$", F, W);
+dot("$P$", P, S);
+dot("$Q$", Q, N);

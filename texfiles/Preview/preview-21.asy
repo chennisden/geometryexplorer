@@ -13,15 +13,17 @@ import olympiad;
 import cse5;
 import geometry;
 
-import olympiad;
 size(4cm);
-pair A=(0,0),B=dir(0),C=dir(36),D=dir(72),E=(2cos(0.4pi),0);
-dot(A^^B^^C^^D^^E);
-draw(A--B--C--cycle);
-draw(A--D--E);
-draw(D--C,dotted);
-label("A",A,dir(-90));
-label("B",B,dir(-90));
-label("C",C,dir(40));
-label("D",D,dir(90));
-label("E",E,dir(-90));
+
+pair A=(0,3), B=(6,3), C=(6,0), D=(0,0);
+pair M=(0.80385,3);
+
+draw(A--B--C--D--cycle);
+draw(M--C);
+draw(M--D);
+
+dot("$A$",A,NW);
+dot("$B$",B,NE);
+dot("$C$",C,SE);
+dot("$D$",D,SW);
+dot("$M$",M,N);

@@ -13,17 +13,15 @@ import olympiad;
 import cse5;
 import geometry;
 
-import olympiad;
 size(4cm);
-pair A = dir(110);
-pair B = dir(210);
-pair C = dir(330);
-pair I = incenter(A, B, C);
-draw(A--B--C--cycle);
-draw(A--I--B);
-draw(I--C);
-draw(circle(I,length(I-foot(I,B,C))));
-dot("$A$", A, dir(A));
-dot("$B$", B, dir(190));
-dot("$C$", C, dir(-10));
-dot("$I$", I, dir(270));
+dot((-3,0));
+dot((1,0));
+dot((0,3));
+dot((0,0));
+draw((-3,0)--(1,0)--(0,3)--cycle);
+draw((0,3)--(0,0));
+
+label("$C$",(-3,0),SW);
+label("$B$",(1,0),SE);
+label("$A$",(0,3),N);
+label("$H$",(0,0),S);

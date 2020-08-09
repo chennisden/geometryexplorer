@@ -141,6 +141,28 @@ By the Law of Sines, $BP=\frac{c\sin\angle BAP}{\sin\angle APB}$ and $CP=\frac{b
 
 Note that this remains true even if $P$ is on the \textit{extension} of $BC.$
 
+Here's a classic example that cleverly utilizes the Law of Sines.
+
+\begin{exam}
+Show that $\triangle ABC$ is similar to the triangle with side lengths $\sin A,\sin B,\sin C.$
+\end{exam}
+
+\begin{sol}
+Note that $\sin A=\frac{a}{2R},$ so the similarity factor is $2R.$
+\end{sol}
+
+We'll utilize this concept further in the next example.
+
+\begin{exam}
+Consider $\triangle ABC$ with side lengths $AB=13,$ $BC=5,$ and $CA=12.$ Find the area of the triangle with side lengths $\sin A,$ $\sin B,$ and $\sin C.$
+\end{exam}
+
+\begin{sol}
+Note that $[ABC]=60$ and the triangle with lengths $\sin A,$ $\sin B,$ and $\sin C$ is similar to $\triangle ABC$ with a scale factor of $13.$ Thus the desired area is $\frac{60}{13^2}=\frac{60}{169}.$
+\end{sol}
+
+It's possible to just directly use the values of $\sin A,$ $\sin B,$ and $\sin C,$ but this will not work for general triangles.
+
 \subsection{The Incircle, Excircle, and Tangent Chasing}
 We provide formulas for the inradius, exradii, and take a look at some uses of the Two Tangent Theorem. Recall that the Two Tangent Theorem states that if the tangents from $P$ to $\omega$ intersect $\omega$ at $A,B,$ then $PA=PB.$
 
@@ -460,7 +482,7 @@ Let $ABCDEF$ be a convex hexagon inscribed in a circle. Prove that the diagonals
 \end{exam}
 
 \begin{sol}
-Using Ceva's on $\triangle ACE,$ gives us that $AD,$ $BE,$ and $CF$ concur if and only if
+Using Ceva's on $\triangle ACE$ gives us that $AD,$ $BE,$ and $CF$ concur if and only if
 \[\frac{\sin\angle AEB}{\sin\angle BEC}\cdot \frac{\sin\angle CAD}{\sin\angle DAE}\cdot \frac{\sin\angle ECF}{\sin\angle FCA}=1.\]
 But note that by the Law of Sines,
 \[\frac{\sin\angle AEB}{\sin\angle BEC}=\frac{\frac{AB}{2R}}{\frac{BC}{2R}}=\frac{AB}{BC},\]

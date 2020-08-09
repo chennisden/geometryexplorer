@@ -13,16 +13,14 @@ import olympiad;
 import cse5;
 import geometry;
 
-size(3.5cm);
-dot((0,0));
-dot((-1,0));
-dot((1,0));
-dot((-0.3,0.6));
-draw(arc((0,0),0.2,0,180));
-draw((-1,0)--(1,0));
-draw((0,0)--(-0.3,0.6));
-
-label("$A$",(-1,0),S);
-label("$B$",(0,0),S);
-label("$C$",(1,0),S);
-label("$P$",(-0.3,0.6),NW);
+import olympiad;
+size(4cm);
+draw((-4,0)--(4,0)--(0,12)--cycle);
+draw((-2,6)--(4,0));
+draw((2,6)--(-4,0));
+label("M", (-4,0), W);
+label("C", (4,0), E);
+label("A", (0, 12), N);
+label("V", (2, 6), NE);
+label("U", (-2, 6), NW);
+label("P", (0, 3.6), S);

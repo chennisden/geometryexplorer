@@ -362,6 +362,25 @@ The area of the base is $\pi r^2,$ and the lateral surface area can be found by 
 
 The surface area of an oblique cone is surprisingly hard to find.
 
+\begin{exam}
+A three-quarter sector of a circle of radius $4$ inches along with its interior is the 2-D net that forms the lateral surface area of a right circular cone by taping together along the two radii shown. What is the volume of the cone in cubic inches?
+\begin{center}
+\begin{asy}
+size(4cm);
+draw(Arc((0,0), 3, 0, 270));
+draw((0,-3)--(0,0)--(3,0));
+
+label("$4$", (1.5,0), S);
+\end{asy}
+\end{center}
+\end{exam}
+
+\begin{sol}
+Note that the radius of the circle will become the slant height of the cone, and the circumference of the sector will become the circumference of the base of the cone.
+
+This implies that the slant height is $4$ and that the circumference of the base of the cone is $6\pi,$ or that the radius of the circle is $3.$ Thus the height of the cone is $\sqrt{7},$ and the volume of the cone is $\frac{3\sqrt{7}}{3}=\sqrt{7}.$
+\end{sol}
+
 \section{Spheres}
 
 Spheres are the $3$ dimensional version of circles.
@@ -483,7 +502,7 @@ Here are some examples of miscellaneous techniques that can help solve 3D geomet
 The Pythagorean Theorem still holds in 3 dimensions, and can be generalized to a 3 dimensional version by applying the two dimensional version twice.
 
 \begin{exam}
-Consider unit cube $ABCDEFGH,$ where $ABCD$ and $EFGH$ are opposite faces and $AG,BH,CE,DF$ are space diagonals. Find the area of triangle $AFH.$
+Consider unit cube $ABCDEFGH,$ where $ABCD$ and $EFGH$ are opposite faces and $AG,$ $BH,$ $CE,$ $DF$ are space diagonals. Find the area of triangle $AFH.$
 \end{exam}
 
 \begin{sol}
@@ -491,7 +510,7 @@ Note that $AF=FH=HA=\sqrt{2}$ by the Pythagorean Theorem, so the area is $\frac{
 \end{sol}
 
 \subsection{Tangent Spheres}
-For problems with tangent spheres, remember the following fact.
+For problems with tangent spheres, remember the following fact. The essential idea is \textbf{just considering the centers of the spheres}.
 \begin{fact}[Tangency Point is Collinear with Centers]
 If two spheres with centers $O_1,O_2$ are tangent at $T,$ then $O_1,O_2,T$ are collinear.
 \end{fact}
@@ -654,9 +673,9 @@ label("$P$", P, dir((4,2)--P));
     \end{asy}
 \end{center}
 
-\item One dimension of a cube is increased by $1$, another is decreased by $1$, and the third is left unchanged. The volume of the new rectangular solid is $5$ less than that of the cube. What was the volume of the cube?
+\item (AMC 10A 2009/11) One dimension of a cube is increased by $1$, another is decreased by $1$, and the third is left unchanged. The volume of the new rectangular solid is $5$ less than that of the cube. What was the volume of the cube?
 
-\item What is the volume of a cube whose surface area is twice that of a cube with volume 1?
+\item (AMC 12A 2008/8) What is the volume of a cube whose surface area is twice that of a cube with volume 1?
 \end{enumerate}
 
 \subsection{Problems}

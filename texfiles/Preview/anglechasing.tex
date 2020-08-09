@@ -106,6 +106,27 @@ Consider parallel lines $AB$ and $CD.$ Then for $X$ on segment $AB$ and $Y$ on s
     \end{asy}
 \end{center}
 
+\begin{exam}[180 Degrees in a Triangle]
+Prove that the angles of a triangle sum to $180$ degrees.
+\end{exam}
+
+\begin{sol}
+Draw line $\ell$ through $C$ parallel to $AB,$ and let $A',B'$ lie on $\ell$ such that $\angle ACA'=\angle CAB$ and $\angle BCB'=\angle CBA.$ Then note
+\[\angle A+\angle B+\angle C=\angle A'CA+\angle ACB+\angle BCB'=180^{\circ}.\]
+\begin{center}
+\begin{asy}
+size(4cm);
+dot("$A$",(0,0),SW);
+dot("$B$",(3,0),SE);
+dot("$C$",(1,2),N);
+dot("$A'$",(0,2),N);
+dot("$B'$",(3,2),N);
+draw((0,0)--(3,0)--(1,2)--cycle);
+draw((0,2)--(3,2));
+\end{asy}
+\end{center}
+\end{sol}
+
 \section{Angle Chasing in Circles}
 We begin with some definitions.
 
@@ -428,6 +449,114 @@ dot("$Q$", Q, N);
 \end{center}
 \end{sol}
 
+The motivation is just drawing the diagram -- as soon as you figure out that $Q$ lies on $BE$ and $CF,$ the problem solves itself from there.
+
+Here's a slightly harder example.
+
+\begin{exam}[KJMO 2015/1]
+In an acute, scalene triangle $\triangle ABC$, let $O$ be the circumcenter. Let $M$ be the midpoint of $AC$. Let the perpendicular from $A$ to $BC$ be $D$. Let the circumcircle of $\triangle OAM$ hit $DM$ at $P\neq M$. Prove that $B, O, P$ are colinear.
+\end{exam}
+
+\begin{sol}
+Instead we show that the intersection of $MD$ and $BO,$ which we will call $P',$ lies on $(MAO).$ The central claim is that $PABD$ is cyclic.
+
+Note $\angle PDA=\angle MDA=90^{\circ}-\angle C,$ and also note that $\angle PAD=\angle PAB-\angle DAB.$ Note that $\angle PAB=\angle C$ since $\angle APB=90^{\circ}$ and $\angle ABP=\angle ABO=90^{\circ}-\angle C$ and $\angle BAD=90^{\circ}-\angle B.$ Thus $\angle PAD=\angle B+\angle C-90^{\circ}.$
+
+Now consider $\triangle PAD.$ Note $\angle DPA=180^{\circ}-(\angle PDA+\angle PAD)=180^{\circ}-\angle B.$ Thus $PABD$ is cyclic.
+
+This implies that $\angle APO=\angle APB=\angle ADB=90^{\circ}.$ Since $\angle AMO=90^{\circ}$ as well, we are done.
+\begin{center}
+\begin{asy}
+size(6cm);
+pair A = dir(110);
+pair B = dir(-40);
+pair C = dir(220);
+pair O = circumcenter(A,B,C);
+pair M;
+M=(A+C)/2;
+pair D;
+D=foot(A,B,C);
+pair P=extension(D,M,B,O);
+
+draw(A--B--C--cycle);
+draw(D--P);
+draw(P--B,dotted);
+draw(circumcircle(P,A,B),blue);
+draw(circumcircle(A,B,C));
+draw(circumcircle(O,A,M));
+
+dot("$A$",A,N);
+dot("$B$",B,SE);
+dot("$C$",C,SW);
+dot("$D$",D,S);
+dot("$M$",M,W);
+dot("$O$",O,S);
+dot("$P$",P,dir(190));
+\end{asy}
+\end{center}
+\end{sol}
+
+This final example demonstrates the power of wishful thinking.
+
+\begin{exam}[ISL 2010/G1]
+Let $ABC$ be an acute triangle with $D, E, F$ the feet of the altitudes lying on $BC, CA, AB$ respectively. One of the intersection points of the line $EF$ and the circumcircle is $P.$ The lines $BP$ and $DF$ meet at point $Q.$ Prove that $AP = AQ.$
+\end{exam}
+
+\begin{sol}
+We work in directed angles because there are plenty of configuration issues. (If you don't know what directed angles are, consult the chapter on them.)
+
+Note that $AFPQ$ is cyclic, as
+\[\measuredangle AFQ=\measuredangle BFD=\measuredangle ACB=\measuredangle APB=\measuredangle APQ.\]
+
+Now note that
+\[\measuredangle APQ=\measuredangle AFQ=\measuredangle BFD=\measuredangle ACB\]
+\[\measuredangle PQA=\measuredangle PFA=\measuredangle EFA=\measuredangle ACB,\]
+implying that $\angle APQ=\angle PQA,$ or that $AP=AQ.$
+
+\begin{center}
+\begin{asy}
+size(6cm);
+pair C=origin,
+A=(5,12),
+B=(14,0),
+D=foot(A,B,C),
+E=foot(B,A,C),
+F=foot(C,A,B),
+H=orthocenter(A,B,C),
+om=extension(E,F,C,B),
+nom=extension(E,F,D,(9,3));
+path circ = circumcircle(A,B,C);
+pair P1=intersectionpoint(F--om, circ),
+P2=intersectionpoint(E--nom, circ),
+Q1=intersectionpoint(D--F, B--P1),
+Q2=extension(B,P2,D,F),
+Ep=reflect(A,B)*E,
+Cp=reflect(A,B)*C,
+Hp=reflect(A,B)*H,
+Dp=reflect(A,B)*D;
+draw(A--B--C--cycle);
+draw(D--F);
+draw(P1--F);
+draw(P1--B);
+dot(A^^B^^C^^D^^E^^F^^Q1^^P1);
+draw(circumcircle(A,P1,Q1),dotted);
+draw(circ);
+label("$A$", A, N);
+label("$B$", B, SE);
+label("$C$", C, SW);
+label("$D$", D, S);
+label("$E$", E, NW);
+label("$F$", F, dir(60));
+label("$P$", P1, W);
+label("$Q$", Q1, dir(290));
+\end{asy}
+\end{center}
+\end{sol}
+
+I personally thought this problem was harder than the other two, especially since the cyclic quadrilateral had an asymmetric structure with respect to the whole diagram.\footnote{This is explain by the entire diagram being asymmetric.} We're inclined to look for cyclic quadrilaterals involving $A,P,Q$ in some way because the problem is essentially equivalent to showing that $\angle AQP=\angle APQ,$ and a little bit of experimentation shows that it's hard to show directly. The motivation for trying to prove $F$ is the point on $(APQ)$ is drawing in the circumcircles for both configurations, and noting that the second intersection point of them is $F.$
+
+The rest of the motivation is quite straightforward -- all you have to do afterwards is try to solve the problem with the assumption that $AFPQ$ is cyclic, and that part is fairly easy if you have any knowledge about the \hyperref[itm:orthicBCEFcyclic]{orthic triangle}.
+
 \subsection{Tangent Angle Criterion}
 When tangent lines are given, you have to pay close attention the the tangent angle criterion.
 
@@ -436,8 +565,15 @@ Two intersecting circles $C_1$ and $C_2$ have a common tangent which touches $C_
 \end{exam}
 
 \begin{sol}
-Note that $\angle RMQ=180-\angle RNQ=180-(\angle PNM+\angle QNM)=180-(\angle QPM+\angle PQM)=\angle PMQ.$
+Note that $\angle RMQ=180^{\circ}-\angle RNQ=180^{\circ}-(\angle PNM+\angle QNM)=180^{\circ}-(\angle QPM+\angle PQM)=\angle PMQ.$
+
+(This actually only takes care of the case where $R$ is in between $P$ and $N.$ Can you show this is true for the other configuration as well?)
 \end{sol}
+Let's expound on the motivation for this. We want to prove that $PQ$ bisects $\angle PMN,$ but it's quite hard to find the supplement of $\angle PMQ$ and $\angle RMQ.$ This then motivates showing that $\angle PMQ=\angle RMQ,$ because those angles seem more workable. We start by manipulating $\angle RMQ$ because it seems more unwieldy, and it feels like there are more ways to get to $\angle PMQ$ than $\angle RMQ.$ (This part is personal preference, but a good rule of thumb is to try to manipulate the least independently defined points into the most independently defined points.\footnote{A heuristic for the independence of a point is how much it would affect the diagram on GeoGebra if it was deleted.})
+
+The cyclic quadrilateral $RMNQ$ is the source of the only useful manipulation we can do with $\angle RMQ,$ so we're pretty much forced into using it. Now looking at $\triangle PNQ$ as a whole motivates $\angle RNQ=180^{\circ}-(\angle PNM+\angle QNM),$ and at this point we want to start manipulating $\angle PMQ.$ We're forced into doing $180^{\circ}-(\angle QPM+\angle PQM)=\angle PMQ,$ because tangent lines have lots of potential for angle chasing and it's the only place to go.
+
+Now the rest of the problem will just come naturally by just trying things.
 
 \subsection{Orthocenter}
 Sometimes a problem will ask you to prove that $AH\perp BC$ for some point $H$ not on $BC.$ This is generally difficult to do directly, and one of the more elementary methods used is to show that $H$ is the orthocenter of $\triangle ABC,$ or $BH\perp CA$ and $CH\perp AB.$
@@ -451,9 +587,9 @@ Let $ABC$ be an acute-angled triangle with $AB> AC$ and orthocenter $H$. Let $D$
 \begin{sol}
 We claim $S$ is the orthocenter of $\triangle DEM.$ To do this, it suffices to show that $SN\perp DM$ and $SM\perp DN.$ Let $H'$ be the second intersection of $AH$ with $(ABC).$
 
-Note that $DM\parallel BH'$ by a homothety about $H,$ $\angle MAE=\angle DAC=90^{\circ}-\angle C,$ and $\angle AMB=\angle C,$ proving $SN\perp DM.$
+Note that $DM\parallel BH'$ by a \hyperref[section:homothety]{homothety} about $H,$ $\angle MAE=\angle DAC=90^{\circ}-\angle C,$ and $\angle AMB=\angle C,$ proving $SN\perp DM.$
 
-Now note that $DN\parallel AC$ by a homothety about $E,$ proving $SM\perp DN.$
+Now note that $DN\parallel AC$ by a \hyperref[section:homothety]{homothety} about $E,$ proving $SM\perp DN.$
 \end{sol}
 
 \section{Summary}
@@ -561,6 +697,13 @@ Now note that $DN\parallel AC$ by a homothety about $E,$ proving $SM\perp DN.$
     {Pick a point. Draw all the diagonals connected to that point.}
     \end{addhint}
     \end{hint}
+
+	\item In $\triangle ABC,$ let the feet of the altitude from $B,C$ to $CA,AB$ be $E,F,$ respectively. Then prove that $(BCEF)$ is cyclic.\label{itm:orthicBCEFcyclic}
+	\begin{solu}
+	\begin{addsol}
+	{Note that $\angle BEC=\angle BFC=90^{\circ}.$}
+	\end{addsol}
+	\end{solu}
 
     \item (Brazil 2004) In the figure, $ABC$ and $DAE$ are isosceles triangles ($AB = AC = AD = DE$) and the angles $BAC$ and $ADE$ have measures $36^{\circ}$.
 \begin{enumerate}
@@ -921,5 +1064,4 @@ and $\angle O_2DA=\angle O_2BA$ if and only if $O_2$ lies on $(ABD),$ or $K_1.$ 
 Let $MN$ intersect $AB$ at $O.$ Note that $AO=BO,$ so $PM=MQ$ by similar triangles.}
 \end{addsol}
 \end{solu}
-
 \end{enumerate}

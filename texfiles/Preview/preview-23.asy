@@ -13,28 +13,28 @@ import olympiad;
 import cse5;
 import geometry;
 
-import olympiad;
+size(6cm);
+pair A = dir(110);
+pair B = dir(-40);
+pair C = dir(220);
+pair O = circumcenter(A,B,C);
+pair M;
+M=(A+C)/2;
+pair D;
+D=foot(A,B,C);
+pair P=extension(D,M,B,O);
 
-size(4cm);
+draw(A--B--C--cycle);
+draw(D--P);
+draw(P--B,dotted);
+draw(circumcircle(P,A,B),blue);
+draw(circumcircle(A,B,C));
+draw(circumcircle(O,A,M));
 
-real r=3;
-pair A=(-3cos(80),-3sin(80));
-pair D=(3cos(80),3sin(80)), C=(-3cos(80),3sin(80));
-pair O=(0,0), E=(-3,0), B=(3,0);
-path outer=Circle(O,r);
-draw(outer);
-draw(E--B);
-draw(E--A);
-draw(B--A);
-draw(E--D);
-draw(C--D);
-draw(B--C);
-
-pair[] ps={A,B,C,D,E,O};
-dot(ps);
-
-label("$A$",A,N);
-label("$B$",B,NE);
-label("$C$",C,S);
-label("$D$",D,S);
-label("$E$",E,NW);
+dot("$A$",A,N);
+dot("$B$",B,SE);
+dot("$C$",C,SW);
+dot("$D$",D,S);
+dot("$M$",M,W);
+dot("$O$",O,S);
+dot("$P$",P,dir(190));

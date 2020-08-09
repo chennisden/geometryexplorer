@@ -13,12 +13,37 @@ import olympiad;
 import cse5;
 import geometry;
 
-size(4cm);
-draw((0,0)--(-14,0)--(2,8)--(0,0)--(-9,2.5)--(-5.5,0)--(-6,4)--cycle);
-draw((-5.5,0)--(2,8));
-label("A", (2,8), NE);
-label("B", (0,0), SE);
-label("C", (-5.5,0), S);
-label("D", (-14,0), SW);
-label("E", (-9,2.5), NNW);
-label("F", (-6,4), NNW);
+size(6cm);
+pair C=origin,
+A=(5,12),
+B=(14,0),
+D=foot(A,B,C),
+E=foot(B,A,C),
+F=foot(C,A,B),
+H=orthocenter(A,B,C),
+om=extension(E,F,C,B),
+nom=extension(E,F,D,(9,3));
+path circ = circumcircle(A,B,C);
+pair P1=intersectionpoint(F--om, circ),
+P2=intersectionpoint(E--nom, circ),
+Q1=intersectionpoint(D--F, B--P1),
+Q2=extension(B,P2,D,F),
+Ep=reflect(A,B)*E,
+Cp=reflect(A,B)*C,
+Hp=reflect(A,B)*H,
+Dp=reflect(A,B)*D;
+draw(A--B--C--cycle);
+draw(D--F);
+draw(P1--F);
+draw(P1--B);
+dot(A^^B^^C^^D^^E^^F^^Q1^^P1);
+draw(circumcircle(A,P1,Q1),dotted);
+draw(circ);
+label("$A$", A, N);
+label("$B$", B, SE);
+label("$C$", C, SW);
+label("$D$", D, S);
+label("$E$", E, NW);
+label("$F$", F, dir(60));
+label("$P$", P1, W);
+label("$Q$", Q1, dir(290));

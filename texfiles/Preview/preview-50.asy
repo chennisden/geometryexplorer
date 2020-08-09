@@ -13,18 +13,22 @@ import olympiad;
 import cse5;
 import geometry;
 
+import olympiad;
 size(4cm);
-draw((0,0)--(1,3)--(4,0)--cycle);
-draw((1,3)--(1,0));
-
-dot((0,0));
-label("$C$",(0,0),SW);
-
-dot((1,0));
-label("$H$",(1,0),S);
-
-dot((4,0));
-label("$A$",(4,0),SE);
-
-dot((1,3));
-label("$B$",(1,3),N);
+pair A=dir(-20), B=dir(110), C=dir(200), D, E, F, G;
+D=(B+C)/2;
+E=(C+A)/2;
+F=(A+B)/2;
+G=(A+B+C)/3;
+draw(A--B--C--A);
+draw(A--D);
+draw(B--E);
+draw(C--F);
+dot(A^^B^^C^^D^^E^^F^^G);
+label("1",A,dir(-20));
+label("1",C,dir(200));
+label("1",B,dir(90));
+label("2",D,dir(140));
+label("2",E,dir(-80));
+label("2",F,dir(40));
+label("3",G,1.3dir(63));

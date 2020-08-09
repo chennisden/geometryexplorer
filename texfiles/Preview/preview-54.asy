@@ -13,18 +13,18 @@ import olympiad;
 import cse5;
 import geometry;
 
-size(5cm);
-import olympiad;
-real r=sqrt(2)/2;
-draw(origin--(8,0)--(8,-1)--(0,-1)--cycle);
-draw(origin--(8,0)--(8+r, r)--(r,r)--cycle);
-filldraw(origin--(-6*r, -6*r)--(8-6*r, -6*r)--(8, 0)--cycle, white, black);
-filldraw(origin--(8,0)--(8,6)--(0,6)--cycle, white, black);
-pair A=(6,0), B=(2,0), C=(2,4), D=(6,4), P=B+1*dir(-65);
-draw(A--P--B--C--D--cycle);
-dot(A^^B^^C^^D^^P);
-label("$A$", A, dir((4,2)--A));
-label("$B$", B, dir((4,2)--B));
-label("$C$", C, dir((4,2)--C));
-label("$D$", D, dir((4,2)--D));
-label("$P$", P, dir((4,2)--P));
+size(4cm);
+draw((0,0)--(1,3)--(4,0)--cycle);
+draw((1,3)--(1,0));
+
+dot((0,0));
+label("$C$",(0,0),SW);
+
+dot((1,0));
+label("$H$",(1,0),S);
+
+dot((4,0));
+label("$A$",(4,0),SE);
+
+dot((1,3));
+label("$B$",(1,3),N);
