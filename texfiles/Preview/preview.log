@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.3)  8 AUG 2020 18:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.3)  8 AUG 2020 18:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1525,16 +1525,13 @@ LaTeX Font Info:    Font shape `T1/Alegreya-LF/m/n' in size <24.88> not availab
 le
 (Font)              Font shape `T1/Alegreya-LF/regular/n' tried instead on inpu
 t line 25.
+ (./preview.toc [2
 
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+])
 \tf@toc=\write11
 \openout11 = `preview.toc'.
 
-[2
-
-]
+ [3]
 LaTeX Font Info:    Font shape `T1/Alegreya-LF/b/n' in size <10> not available
 (Font)              Font shape `T1/Alegreya-LF/bold/n' tried instead on input l
 ine 27.
@@ -1546,7 +1543,7 @@ LaTeX Font Info:    Font shape `T1/Alegreya-LF/b/n' in size <24.88> not availab
 le
 (Font)              Font shape `T1/Alegreya-LF/bold/n' tried instead on input l
 ine 27.
- [3
+ [4
 
 ]
 Chapter 1.
@@ -1564,7 +1561,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 5.
 \openout3 = `preview-2.asy'.
 
-<preview-2.pdf, id=396, 113.81522pt x 58.40822pt>
+<preview-2.pdf, id=483, 113.81522pt x 58.40822pt>
 File: preview-2.pdf Graphic file (type pdf)
 <use preview-2.pdf>
 Package pdftex.def Info: preview-2.pdf  used on input line 19.
@@ -1589,13 +1586,13 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 45.
 \openout3 = `preview-3.asy'.
 
-<preview-3.pdf, id=397, 113.8112pt x 99.11328pt>
+<preview-3.pdf, id=484, 113.8112pt x 99.11328pt>
 File: preview-3.pdf Graphic file (type pdf)
 <use preview-3.pdf>
 Package pdftex.def Info: preview-3.pdf  used on input line 75.
 (pdftex.def)             Requested size: 113.81091pt x 99.11304pt.
 
-[4
+[5
 
  <./preview-2.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
@@ -1612,18 +1609,18 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 106.
 \openout3 = `preview-4.asy'.
 
-<preview-4.pdf, id=417, 142.26349pt x 105.27933pt>
+<preview-4.pdf, id=504, 142.26349pt x 105.27933pt>
 File: preview-4.pdf Graphic file (type pdf)
 <use preview-4.pdf>
 Package pdftex.def Info: preview-4.pdf  used on input line 132.
 (pdftex.def)             Requested size: 142.26312pt x 105.27905pt.
- [5 <./preview-3.pdf>]
+ [6 <./preview-3.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 136.
 \openout3 = `preview-5.asy'.
 
-<preview-5.pdf, id=442, 77.33693pt x 113.8112pt>
+<preview-5.pdf, id=528, 77.33693pt x 113.8112pt>
 File: preview-5.pdf Graphic file (type pdf)
 <use preview-5.pdf>
 Package pdftex.def Info: preview-5.pdf  used on input line 170.
@@ -1639,12 +1636,12 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 188.
 \openout3 = `preview-6.asy'.
 
-<preview-6.pdf, id=443, 113.8112pt x 111.24661pt>
+<preview-6.pdf, id=529, 113.8112pt x 111.24661pt>
 File: preview-6.pdf Graphic file (type pdf)
 <use preview-6.pdf>
 Package pdftex.def Info: preview-6.pdf  used on input line 219.
 (pdftex.def)             Requested size: 113.81091pt x 111.24632pt.
- [6 <./preview-4.pdf> <./preview-5.pdf>]
+ [7 <./preview-4.pdf> <./preview-5.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 227.
@@ -1659,59 +1656,20 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 239.
 \openout3 = `preview-7.asy'.
 
-<preview-7.pdf, id=471, 113.8112pt x 87.8743pt>
+<preview-7.pdf, id=557, 113.8112pt x 87.8743pt>
 File: preview-7.pdf Graphic file (type pdf)
 <use preview-7.pdf>
 Package pdftex.def Info: preview-7.pdf  used on input line 266.
 (pdftex.def)             Requested size: 113.81091pt x 87.87407pt.
- [7 <./preview-6.pdf> <./preview-7.pdf>] [8]
-
-LaTeX Warning: Reference `hint:1' on page 9 undefined on input line 374.
-
+ [8 <./preview-6.pdf> <./preview-7.pdf>] [9]
 \openout3 = `preview-8.asy'.
 
-<preview-8.pdf, id=512, 92.72743pt x 113.8112pt>
+<preview-8.pdf, id=599, 92.72743pt x 113.8112pt>
 File: preview-8.pdf Graphic file (type pdf)
 <use preview-8.pdf>
 Package pdftex.def Info: preview-8.pdf  used on input line 397.
 (pdftex.def)             Requested size: 92.72719pt x 113.81091pt.
-
-LaTeX Warning: Reference `sol:1' on page 9 undefined on input line 423.
-
-
-LaTeX Warning: Reference `hint:2' on page 9 undefined on input line 430.
-
-
-LaTeX Warning: Reference `hint:3' on page 9 undefined on input line 433.
-
-
-LaTeX Warning: Reference `hint:4' on page 9 undefined on input line 436.
-
-
-LaTeX Warning: Reference `sol:2' on page 9 undefined on input line 441.
-
-
-LaTeX Warning: Reference `hint:5' on page 9 undefined on input line 447.
-
-
-LaTeX Warning: Reference `hint:6' on page 9 undefined on input line 450.
-
-
-LaTeX Warning: Reference `sol:3' on page 9 undefined on input line 457.
-
-
-LaTeX Warning: Reference `hint:7' on page 9 undefined on input line 464.
-
-
-LaTeX Warning: Reference `hint:8' on page 9 undefined on input line 467.
-
-
-LaTeX Warning: Reference `sol:4' on page 9 undefined on input line 488.
-
-
-LaTeX Warning: Reference `hint:9' on page 9 undefined on input line 503.
-
-) [9 <./preview-8.pdf>]
+) [10 <./preview-8.pdf>]
 Chapter 2.
 (./anglechasing.tex
 Package mdframed Info: mdframed detected package amsthm 
@@ -1719,21 +1677,21 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 7.
 \openout3 = `preview-9.asy'.
 
-<preview-9.pdf, id=541, 99.58505pt x 51.81157pt>
+<preview-9.pdf, id=653, 99.58505pt x 51.81157pt>
 File: preview-9.pdf Graphic file (type pdf)
 <use preview-9.pdf>
 Package pdftex.def Info: preview-9.pdf  used on input line 26.
 (pdftex.def)             Requested size: 99.5848pt x 51.81143pt.
 \openout3 = `preview-10.asy'.
 
-<preview-10.pdf, id=542, 99.58505pt x 53.6113pt>
+<preview-10.pdf, id=654, 99.58505pt x 53.6113pt>
 File: preview-10.pdf Graphic file (type pdf)
 <use preview-10.pdf>
 Package pdftex.def Info: preview-10.pdf  used on input line 49.
 (pdftex.def)             Requested size: 99.5848pt x 53.61116pt.
 \openout3 = `preview-11.asy'.
 
-<preview-11.pdf, id=543, 99.58505pt x 46.4686pt>
+<preview-11.pdf, id=655, 99.58505pt x 46.4686pt>
 File: preview-11.pdf Graphic file (type pdf)
 <use preview-11.pdf>
 Package pdftex.def Info: preview-11.pdf  used on input line 69.
@@ -1741,12 +1699,12 @@ Package pdftex.def Info: preview-11.pdf  used on input line 69.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 74.
- [10
+ [11
 
  <./preview-9.pdf> <./preview-10.pdf> <./preview-11.pdf>]
 \openout3 = `preview-12.asy'.
 
-<preview-12.pdf, id=575, 101.41489pt x 113.8112pt>
+<preview-12.pdf, id=688, 101.41489pt x 113.8112pt>
 File: preview-12.pdf Graphic file (type pdf)
 <use preview-12.pdf>
 Package pdftex.def Info: preview-12.pdf  used on input line 106.
@@ -1756,7 +1714,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 109.
 \openout3 = `preview-13.asy'.
 
-<preview-13.pdf, id=576, 113.8112pt x 84.39832pt>
+<preview-13.pdf, id=689, 113.8112pt x 84.39832pt>
 File: preview-13.pdf Graphic file (type pdf)
 <use preview-13.pdf>
 Package pdftex.def Info: preview-13.pdf  used on input line 126.
@@ -1778,13 +1736,13 @@ LaTeX Font Info:    Calculating math sizes for size <5.99998> on input line 148
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 153.
- [11 <./preview-12.pdf> <./preview-13.pdf>]
+ [12 <./preview-12.pdf> <./preview-13.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 161.
 \openout3 = `preview-14.asy'.
 
-<preview-14.pdf, id=608, 99.55293pt x 113.8112pt>
+<preview-14.pdf, id=720, 99.55293pt x 113.8112pt>
 File: preview-14.pdf Graphic file (type pdf)
 <use preview-14.pdf>
 Package pdftex.def Info: preview-14.pdf  used on input line 186.
@@ -1797,7 +1755,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 194.
 \openout3 = `preview-15.asy'.
 
-<preview-15.pdf, id=609, 113.8112pt x 70.20628pt>
+<preview-15.pdf, id=721, 113.8112pt x 70.20628pt>
 File: preview-15.pdf Graphic file (type pdf)
 <use preview-15.pdf>
 Package pdftex.def Info: preview-15.pdf  used on input line 207.
@@ -1810,70 +1768,57 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 215.
 \openout3 = `preview-16.asy'.
 
-<preview-16.pdf, id=610, 113.8112pt x 83.8563pt>
+<preview-16.pdf, id=722, 113.8112pt x 83.8563pt>
 File: preview-16.pdf Graphic file (type pdf)
 <use preview-16.pdf>
 Package pdftex.def Info: preview-16.pdf  used on input line 231.
 (pdftex.def)             Requested size: 113.81091pt x 83.85608pt.
- [12 <./preview-14.pdf> <./preview-15.pdf> <./preview-16.pdf>]
+ [13 <./preview-14.pdf> <./preview-15.pdf> <./preview-16.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 239.
 \openout3 = `preview-17.asy'.
 
-<preview-17.pdf, id=646, 113.8112pt x 86.94382pt>
+<preview-17.pdf, id=758, 113.8112pt x 86.94382pt>
 File: preview-17.pdf Graphic file (type pdf)
 <use preview-17.pdf>
 Package pdftex.def Info: preview-17.pdf  used on input line 259.
 (pdftex.def)             Requested size: 113.81091pt x 86.94359pt.
-
-
-LaTeX Warning: Reference `hint:10' on page 13 undefined on input line 264.
-
-
-LaTeX Warning: Reference `hint:11' on page 13 undefined on input line 267.
-
-
-LaTeX Warning: Reference `hint:12' on page 13 undefined on input line 270.
-
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 275.
 \openout3 = `preview-18.asy'.
 
-<preview-18.pdf, id=647, 99.58505pt x 85.8678pt>
+<preview-18.pdf, id=762, 99.58505pt x 85.8678pt>
 File: preview-18.pdf Graphic file (type pdf)
 <use preview-18.pdf>
 Package pdftex.def Info: preview-18.pdf  used on input line 296.
 (pdftex.def)             Requested size: 99.5848pt x 85.86757pt.
-
-LaTeX Warning: Reference `hint:13' on page 13 undefined on input line 301.
-
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 310.
 \openout3 = `preview-19.asy'.
 
-<preview-19.pdf, id=648, 99.58505pt x 85.8678pt>
+<preview-19.pdf, id=764, 99.58505pt x 85.8678pt>
 File: preview-19.pdf Graphic file (type pdf)
 <use preview-19.pdf>
 Package pdftex.def Info: preview-19.pdf  used on input line 335.
 (pdftex.def)             Requested size: 99.5848pt x 85.86757pt.
 \openout3 = `preview-20.asy'.
 
-<preview-20.pdf, id=649, 99.58505pt x 85.8678pt>
+<preview-20.pdf, id=765, 99.58505pt x 85.8678pt>
 File: preview-20.pdf Graphic file (type pdf)
 <use preview-20.pdf>
 Package pdftex.def Info: preview-20.pdf  used on input line 359.
 (pdftex.def)             Requested size: 99.5848pt x 85.86757pt.
-[13 <./preview-17.pdf> <./preview-18.pdf> <./preview-19.pdf> <./preview-20.pdf>
-]
+ [14 <./preview-17.pdf> <./preview-18.pdf> <./preview-19.pdf> <./preview-20.pdf
+>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 368.
 \openout3 = `preview-21.asy'.
 
-<preview-21.pdf, id=689, 113.8112pt x 68.59929pt>
+<preview-21.pdf, id=809, 113.8112pt x 68.59929pt>
 File: preview-21.pdf Graphic file (type pdf)
 <use preview-21.pdf>
 Package pdftex.def Info: preview-21.pdf  used on input line 390.
@@ -1886,18 +1831,18 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 406.
 \openout3 = `preview-22.asy'.
 
-<preview-22.pdf, id=690, 167.2669pt x 170.7168pt>
+<preview-22.pdf, id=810, 167.2669pt x 170.7168pt>
 File: preview-22.pdf Graphic file (type pdf)
 <use preview-22.pdf>
 Package pdftex.def Info: preview-22.pdf  used on input line 448.
 (pdftex.def)             Requested size: 167.26648pt x 170.71637pt.
- [14 <./preview-21.pdf> <./preview-22.pdf>]
+ [15 <./preview-21.pdf> <./preview-22.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 456.
 \openout3 = `preview-23.asy'.
 
-<preview-23.pdf, id=712, 170.7168pt x 165.74924pt>
+<preview-23.pdf, id=832, 170.7168pt x 165.74924pt>
 File: preview-23.pdf Graphic file (type pdf)
 <use preview-23.pdf>
 Package pdftex.def Info: preview-23.pdf  used on input line 495.
@@ -1907,187 +1852,62 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 501.
 \openout3 = `preview-24.asy'.
 
-<preview-24.pdf, id=713, 170.7168pt x 164.64713pt>
+<preview-24.pdf, id=833, 170.7168pt x 164.64713pt>
 File: preview-24.pdf Graphic file (type pdf)
 <use preview-24.pdf>
 Package pdftex.def Info: preview-24.pdf  used on input line 552.
 (pdftex.def)             Requested size: 170.71637pt x 164.64671pt.
- [15 <./preview-23.pdf>]
 
-LaTeX Warning: Hyper reference `itm:orthicBCEFcyclic' on page 16 undefined on i
-nput line 558.
-
+[16 <./preview-23.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 563.
-[16 <./preview-24.pdf>]
+ [17 <./preview-24.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 583.
 
 
-LaTeX Warning: Hyper reference `section:homothety' on page 17 undefined on inpu
+LaTeX Warning: Hyper reference `section:homothety' on page 18 undefined on inpu
 t line 590.
 
 
-LaTeX Warning: Hyper reference `section:homothety' on page 17 undefined on inpu
+LaTeX Warning: Hyper reference `section:homothety' on page 18 undefined on inpu
 t line 592.
 
-[17] [18]
-
-LaTeX Warning: Reference `hint:14' on page 19 undefined on input line 687.
-
-
-LaTeX Warning: Reference `hint:15' on page 19 undefined on input line 694.
-
-
-LaTeX Warning: Reference `hint:16' on page 19 undefined on input line 697.
-
-
-LaTeX Warning: Reference `sol:5' on page 19 undefined on input line 704.
-
+[18] [19]
 \openout3 = `preview-25.asy'.
 
-<preview-25.pdf, id=766, 103.2638pt x 113.8112pt>
+<preview-25.pdf, id=892, 103.2638pt x 113.8112pt>
 File: preview-25.pdf Graphic file (type pdf)
 <use preview-25.pdf>
 Package pdftex.def Info: preview-25.pdf  used on input line 728.
 (pdftex.def)             Requested size: 103.26353pt x 113.81091pt.
 \openout3 = `preview-26.asy'.
 
-<preview-26.pdf, id=767, 113.8112pt x 86.89764pt>
+<preview-26.pdf, id=893, 113.8112pt x 86.89764pt>
 File: preview-26.pdf Graphic file (type pdf)
 <use preview-26.pdf>
 Package pdftex.def Info: preview-26.pdf  used on input line 750.
 (pdftex.def)             Requested size: 113.81091pt x 86.89743pt.
-
-LaTeX Warning: Reference `sol:6' on page 19 undefined on input line 767.
-
-
-LaTeX Warning: Reference `hint:17' on page 19 undefined on input line 779.
-
-[19 <./preview-25.pdf> <./preview-26.pdf>]
-
-LaTeX Warning: Reference `hint:18' on page 20 undefined on input line 785.
-
-
-LaTeX Warning: Reference `hint:19' on page 20 undefined on input line 793.
-
-
-LaTeX Warning: Reference `hint:20' on page 20 undefined on input line 801.
-
+ [20 <./preview-25.pdf> <./preview-26.pdf>]
 \openout3 = `preview-27.asy'.
 
-<preview-27.pdf, id=800, 113.8112pt x 112.85663pt>
+<preview-27.pdf, id=935, 113.8112pt x 112.85663pt>
 File: preview-27.pdf Graphic file (type pdf)
 <use preview-27.pdf>
 Package pdftex.def Info: preview-27.pdf  used on input line 834.
 (pdftex.def)             Requested size: 113.81091pt x 112.85634pt.
-
-LaTeX Warning: Reference `sol:7' on page 20 undefined on input line 840.
-
-
-LaTeX Warning: Reference `hint:21' on page 20 undefined on input line 847.
-
-
-LaTeX Warning: Reference `hint:22' on page 20 undefined on input line 850.
-
-
-LaTeX Warning: Reference `hint:23' on page 20 undefined on input line 853.
-
-
-LaTeX Warning: Reference `sol:8' on page 20 undefined on input line 862.
-
-
-LaTeX Warning: Reference `hint:24' on page 20 undefined on input line 869.
-
-
-LaTeX Warning: Reference `sol:9' on page 20 undefined on input line 888.
-
-[20 <./preview-27.pdf>]
-
-LaTeX Warning: Reference `hint:25' on page 21 undefined on input line 905.
-
-
-LaTeX Warning: Reference `hint:26' on page 21 undefined on input line 908.
-
-
-LaTeX Warning: Reference `sol:10' on page 21 undefined on input line 915.
-
+ [21 <./preview-27.pdf>]
 \openout3 = `preview-28.asy'.
 
-<preview-28.pdf, id=824, 113.8112pt x 69.5157pt>
+<preview-28.pdf, id=980, 113.8112pt x 69.5157pt>
 File: preview-28.pdf Graphic file (type pdf)
 <use preview-28.pdf>
 Package pdftex.def Info: preview-28.pdf  used on input line 932.
 (pdftex.def)             Requested size: 113.81091pt x 69.51552pt.
-
-LaTeX Warning: Reference `hint:27' on page 21 undefined on input line 937.
-
-
-LaTeX Warning: Reference `hint:28' on page 21 undefined on input line 940.
-
-
-LaTeX Warning: Reference `hint:29' on page 21 undefined on input line 947.
-
-
-LaTeX Warning: Reference `hint:30' on page 21 undefined on input line 950.
-
-
-LaTeX Warning: Reference `sol:11' on page 21 undefined on input line 955.
-
-
-LaTeX Warning: Reference `hint:31' on page 21 undefined on input line 962.
-
-
-LaTeX Warning: Reference `hint:32' on page 21 undefined on input line 965.
-
-
-LaTeX Warning: Reference `hint:33' on page 21 undefined on input line 968.
-
-
-LaTeX Warning: Reference `sol:12' on page 21 undefined on input line 984.
-
-
-LaTeX Warning: Reference `hint:34' on page 21 undefined on input line 991.
-
-
-LaTeX Warning: Reference `hint:35' on page 21 undefined on input line 994.
-
-
-LaTeX Warning: Reference `hint:36' on page 21 undefined on input line 1002.
-
-
-LaTeX Warning: Reference `hint:37' on page 21 undefined on input line 1005.
-
-
-LaTeX Warning: Reference `hint:38' on page 21 undefined on input line 1008.
-
-
-LaTeX Warning: Reference `hint:39' on page 21 undefined on input line 1011.
-
-
-LaTeX Warning: Reference `sol:13' on page 21 undefined on input line 1028.
-
-
-LaTeX Warning: Reference `hint:40' on page 21 undefined on input line 1037.
-
-
-LaTeX Warning: Reference `hint:41' on page 21 undefined on input line 1040.
-
-
-LaTeX Warning: Reference `sol:14' on page 21 undefined on input line 1047.
-
-
-LaTeX Warning: Reference `hint:42' on page 21 undefined on input line 1054.
-
-
-LaTeX Warning: Reference `hint:43' on page 21 undefined on input line 1057.
-
-
-LaTeX Warning: Reference `sol:15' on page 21 undefined on input line 1064.
-
-) [21 <./preview-28.pdf>]
+)
+[22 <./preview-28.pdf>]
 Chapter 3.
 (./powerofapoint.tex
 Package mdframed Info: mdframed detected package amsthm 
@@ -2098,31 +1918,24 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 13.
 \openout3 = `preview-29.asy'.
 
-<preview-29.pdf, id=845, 113.8112pt x 97.95798pt>
+<preview-29.pdf, id=1049, 113.8112pt x 97.95798pt>
 File: preview-29.pdf Graphic file (type pdf)
 <use preview-29.pdf>
 Package pdftex.def Info: preview-29.pdf  used on input line 51.
 (pdftex.def)             Requested size: 113.81091pt x 97.95773pt.
 \openout3 = `preview-30.asy'.
 
-<preview-30.pdf, id=846, 89.98117pt x 113.8112pt>
+<preview-30.pdf, id=1050, 89.98117pt x 113.8112pt>
 File: preview-30.pdf Graphic file (type pdf)
 <use preview-30.pdf>
 Package pdftex.def Info: preview-30.pdf  used on input line 83.
 (pdftex.def)             Requested size: 89.98094pt x 113.81091pt.
- [22
+ [23
 
  <./preview-29.pdf> <./preview-30.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 93.
-
-
-LaTeX Warning: Reference `hint:44' on page 23 undefined on input line 97.
-
-
-LaTeX Warning: Reference `sol:16' on page 23 undefined on input line 110.
-
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 119.
@@ -2131,52 +1944,42 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 123.
 \openout3 = `preview-31.asy'.
 
-<preview-31.pdf, id=867, 170.7168pt x 127.39294pt>
+<preview-31.pdf, id=1074, 170.7168pt x 127.39294pt>
 File: preview-31.pdf Graphic file (type pdf)
 <use preview-31.pdf>
 Package pdftex.def Info: preview-31.pdf  used on input line 141.
 (pdftex.def)             Requested size: 170.71637pt x 127.39262pt.
-[23 <./preview-31.pdf>]
+ [24 <./preview-31.pdf>]
 \openout3 = `preview-32.asy'.
 
-<preview-32.pdf, id=887, 80.20865pt x 85.3579pt>
+<preview-32.pdf, id=1094, 80.20865pt x 85.3579pt>
 File: preview-32.pdf Graphic file (type pdf)
 <use preview-32.pdf>
 Package pdftex.def Info: preview-32.pdf  used on input line 207.
 (pdftex.def)             Requested size: 80.20844pt x 85.35768pt.
 \openout3 = `preview-33.asy'.
 
-<preview-33.pdf, id=888, 85.24849pt x 85.3579pt>
+<preview-33.pdf, id=1095, 85.24849pt x 85.3579pt>
 File: preview-33.pdf Graphic file (type pdf)
 <use preview-33.pdf>
 Package pdftex.def Info: preview-33.pdf  used on input line 241.
 (pdftex.def)             Requested size: 85.24828pt x 85.35768pt.
 \openout3 = `preview-34.asy'.
 
-<preview-34.pdf, id=889, 75.78012pt x 85.3579pt>
+<preview-34.pdf, id=1096, 75.78012pt x 85.3579pt>
 File: preview-34.pdf Graphic file (type pdf)
 <use preview-34.pdf>
 Package pdftex.def Info: preview-34.pdf  used on input line 274.
 (pdftex.def)             Requested size: 75.77992pt x 85.35768pt.
-
-
-LaTeX Warning: Reference `hint:45' on page 24 undefined on input line 280.
-
-
-LaTeX Warning: Reference `hint:46' on page 24 undefined on input line 283.
-
 \openout3 = `preview-35.asy'.
 
-<preview-35.pdf, id=890, 147.24309pt x 187.5025pt>
+<preview-35.pdf, id=1099, 147.24309pt x 187.5025pt>
 File: preview-35.pdf Graphic file (type pdf)
 <use preview-35.pdf>
 Package pdftex.def Info: preview-35.pdf  used on input line 336.
 (pdftex.def)             Requested size: 147.24272pt x 187.50203pt.
-[24 <./preview-32.pdf> <./preview-33.pdf> <./preview-34.pdf>]
-
-LaTeX Warning: Reference `sol:17' on page 25 undefined on input line 358.
-
-) [25 <./preview-35.pdf>]
+ [25 <./preview-32.pdf> <./preview-33.pdf> <./preview-34.pdf>])
+[26 <./preview-35.pdf>]
 Chapter 4.
 (./lengthsareastriangles.tex
 Package mdframed Info: mdframed detected package amsthm 
@@ -2187,7 +1990,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 13.
 \openout3 = `preview-36.asy'.
 
-<preview-36.pdf, id=940, 113.8112pt x 91.78993pt>
+<preview-36.pdf, id=1153, 113.8112pt x 91.78993pt>
 File: preview-36.pdf Graphic file (type pdf)
 <use preview-36.pdf>
 Package pdftex.def Info: preview-36.pdf  used on input line 29.
@@ -2200,12 +2003,12 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 37.
 \openout3 = `preview-37.asy'.
 
-<preview-37.pdf, id=941, 113.8112pt x 91.78993pt>
+<preview-37.pdf, id=1154, 113.8112pt x 91.78993pt>
 File: preview-37.pdf Graphic file (type pdf)
 <use preview-37.pdf>
 Package pdftex.def Info: preview-37.pdf  used on input line 57.
 (pdftex.def)             Requested size: 113.81091pt x 91.78969pt.
- [26
+ [27
 
  <./preview-36.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
@@ -2222,12 +2025,12 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 81.
 \openout3 = `preview-38.asy'.
 
-<preview-38.pdf, id=956, 113.8112pt x 102.64949pt>
+<preview-38.pdf, id=1170, 113.8112pt x 102.64949pt>
 File: preview-38.pdf Graphic file (type pdf)
 <use preview-38.pdf>
 Package pdftex.def Info: preview-38.pdf  used on input line 100.
 (pdftex.def)             Requested size: 113.81091pt x 102.64922pt.
- [27 <./preview-37.pdf>]
+ [28 <./preview-37.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 108.
@@ -2236,7 +2039,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 112.
 \openout3 = `preview-39.asy'.
 
-<preview-39.pdf, id=973, 113.8112pt x 77.48749pt>
+<preview-39.pdf, id=1187, 113.8112pt x 77.48749pt>
 File: preview-39.pdf Graphic file (type pdf)
 <use preview-39.pdf>
 Package pdftex.def Info: preview-39.pdf  used on input line 125.
@@ -2254,7 +2057,7 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 156.
 
-[28 <./preview-38.pdf> <./preview-39.pdf>]
+[29 <./preview-38.pdf> <./preview-39.pdf>]
 Package mdframed Info: Not enough space on this page on input line 158.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2264,7 +2067,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 174.
 \openout3 = `preview-40.asy'.
 
-<preview-40.pdf, id=1003, 113.8112pt x 90.61754pt>
+<preview-40.pdf, id=1217, 113.8112pt x 90.61754pt>
 File: preview-40.pdf Graphic file (type pdf)
 <use preview-40.pdf>
 Package pdftex.def Info: preview-40.pdf  used on input line 193.
@@ -2277,12 +2080,12 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 206.
 \openout3 = `preview-41.asy'.
 
-<preview-41.pdf, id=1004, 113.8112pt x 96.96928pt>
+<preview-41.pdf, id=1218, 113.8112pt x 96.96928pt>
 File: preview-41.pdf Graphic file (type pdf)
 <use preview-41.pdf>
 Package pdftex.def Info: preview-41.pdf  used on input line 236.
 (pdftex.def)             Requested size: 113.81091pt x 96.96904pt.
- [29 <./preview-40.pdf>]
+ [30 <./preview-40.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 240.
@@ -2291,7 +2094,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 245.
 \openout3 = `preview-42.asy'.
 
-<preview-42.pdf, id=1021, 86.31749pt x 113.8112pt>
+<preview-42.pdf, id=1234, 86.31749pt x 113.8112pt>
 File: preview-42.pdf Graphic file (type pdf)
 <use preview-42.pdf>
 Package pdftex.def Info: preview-42.pdf  used on input line 283.
@@ -2304,12 +2107,12 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 294.
 \openout3 = `preview-43.asy'.
 
-<preview-43.pdf, id=1022, 86.31749pt x 113.8112pt>
+<preview-43.pdf, id=1235, 86.31749pt x 113.8112pt>
 File: preview-43.pdf Graphic file (type pdf)
 <use preview-43.pdf>
 Package pdftex.def Info: preview-43.pdf  used on input line 328.
 (pdftex.def)             Requested size: 86.31728pt x 113.81091pt.
- [30 <./preview-41.pdf> <./preview-42.pdf>]
+ [31 <./preview-41.pdf> <./preview-42.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 337.
@@ -2318,7 +2121,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 341.
 \openout3 = `preview-44.asy'.
 
-<preview-44.pdf, id=1050, 113.8112pt x 104.82764pt>
+<preview-44.pdf, id=1263, 113.8112pt x 104.82764pt>
 File: preview-44.pdf Graphic file (type pdf)
 <use preview-44.pdf>
 Package pdftex.def Info: preview-44.pdf  used on input line 375.
@@ -2328,15 +2131,15 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 383.
 \openout3 = `preview-45.asy'.
 
-<preview-45.pdf, id=1051, 113.8112pt x 104.82764pt>
+<preview-45.pdf, id=1264, 113.8112pt x 104.82764pt>
 File: preview-45.pdf Graphic file (type pdf)
 <use preview-45.pdf>
 Package pdftex.def Info: preview-45.pdf  used on input line 413.
 (pdftex.def)             Requested size: 113.81091pt x 104.82738pt.
- [31 <./preview-43.pdf> <./preview-44.pdf>]
+ [32 <./preview-43.pdf> <./preview-44.pdf>]
 \openout3 = `preview-46.asy'.
 
-<preview-46.pdf, id=1074, 113.8112pt x 104.82764pt>
+<preview-46.pdf, id=1288, 113.8112pt x 104.82764pt>
 File: preview-46.pdf Graphic file (type pdf)
 <use preview-46.pdf>
 Package pdftex.def Info: preview-46.pdf  used on input line 445.
@@ -2344,32 +2147,11 @@ Package pdftex.def Info: preview-46.pdf  used on input line 445.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 450.
-
-
-LaTeX Warning: Reference `hint:47' on page 32 undefined on input line 455.
-
-
-LaTeX Warning: Reference `hint:48' on page 32 undefined on input line 458.
-
-
-LaTeX Warning: Reference `hint:49' on page 32 undefined on input line 461.
-
-
-LaTeX Warning: Reference `hint:50' on page 32 undefined on input line 464.
-
-
-LaTeX Warning: Reference `hint:51' on page 32 undefined on input line 467.
-
-
-LaTeX Warning: Reference `hint:52' on page 32 undefined on input line 470.
-
-
-LaTeX Warning: Reference `hint:53' on page 32 undefined on input line 473.
-
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 480.
-[32 <./preview-45.pdf> <./preview-46.pdf>]
+
+[33 <./preview-45.pdf> <./preview-46.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 493.
@@ -2378,7 +2160,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 499.
 \openout3 = `preview-47.asy'.
 
-<preview-47.pdf, id=1095, 113.8112pt x 88.34406pt>
+<preview-47.pdf, id=1323, 113.8112pt x 88.34406pt>
 File: preview-47.pdf Graphic file (type pdf)
 <use preview-47.pdf>
 Package pdftex.def Info: preview-47.pdf  used on input line 520.
@@ -2388,25 +2170,25 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 526.
 \openout3 = `preview-48.asy'.
 
-<preview-48.pdf, id=1096, 113.8112pt x 14.80632pt>
+<preview-48.pdf, id=1324, 113.8112pt x 14.80632pt>
 File: preview-48.pdf Graphic file (type pdf)
 <use preview-48.pdf>
 Package pdftex.def Info: preview-48.pdf  used on input line 536.
 (pdftex.def)             Requested size: 113.81091pt x 14.80627pt.
 \openout3 = `preview-49.asy'.
 
-<preview-49.pdf, id=1097, 113.8112pt x 104.82764pt>
+<preview-49.pdf, id=1325, 113.8112pt x 104.82764pt>
 File: preview-49.pdf Graphic file (type pdf)
 <use preview-49.pdf>
 Package pdftex.def Info: preview-49.pdf  used on input line 572.
 (pdftex.def)             Requested size: 113.81091pt x 104.82738pt.
- [33 <./preview-47.pdf>]
+ [34 <./preview-47.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 578.
 \openout3 = `preview-50.asy'.
 
-<preview-50.pdf, id=1111, 113.8112pt x 88.55684pt>
+<preview-50.pdf, id=1339, 113.8112pt x 88.55684pt>
 File: preview-50.pdf Graphic file (type pdf)
 <use preview-50.pdf>
 Package pdftex.def Info: preview-50.pdf  used on input line 607.
@@ -2424,12 +2206,12 @@ r/m/n/10 Con-sider $\OMS/cmsy/m/n/10 4\OML/cmm/m/it/10 ABC$ \T1/cmr/m/n/10 with
 
 \openout3 = `preview-51.asy'.
 
-<preview-51.pdf, id=1112, 113.8112pt x 104.82764pt>
+<preview-51.pdf, id=1340, 113.8112pt x 104.82764pt>
 File: preview-51.pdf Graphic file (type pdf)
 <use preview-51.pdf>
 Package pdftex.def Info: preview-51.pdf  used on input line 647.
 (pdftex.def)             Requested size: 113.81091pt x 104.82738pt.
-[34 <./preview-48.pdf> <./preview-49.pdf> <./preview-50.pdf> <./preview-51.pdf>
+[35 <./preview-48.pdf> <./preview-49.pdf> <./preview-50.pdf> <./preview-51.pdf>
 ]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2439,7 +2221,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 669.
 \openout3 = `preview-52.asy'.
 
-<preview-52.pdf, id=1152, 113.8112pt x 88.55684pt>
+<preview-52.pdf, id=1380, 113.8112pt x 88.55684pt>
 File: preview-52.pdf Graphic file (type pdf)
 <use preview-52.pdf>
 Package pdftex.def Info: preview-52.pdf  used on input line 697.
@@ -2452,12 +2234,12 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 708.
 \openout3 = `preview-53.asy'.
 
-<preview-53.pdf, id=1153, 85.3589pt x 64.13963pt>
+<preview-53.pdf, id=1381, 85.3589pt x 64.13963pt>
 File: preview-53.pdf Graphic file (type pdf)
 <use preview-53.pdf>
 Package pdftex.def Info: preview-53.pdf  used on input line 716.
 (pdftex.def)             Requested size: 85.35869pt x 64.13947pt.
- [35 <./preview-52.pdf>]
+ [36 <./preview-52.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 720.
@@ -2469,7 +2251,7 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 730.
 \openout3 = `preview-54.asy'.
 
-<preview-54.pdf, id=1169, 113.8112pt x 92.33295pt>
+<preview-54.pdf, id=1396, 113.8112pt x 92.33295pt>
 File: preview-54.pdf Graphic file (type pdf)
 <use preview-54.pdf>
 Package pdftex.def Info: preview-54.pdf  used on input line 749.
@@ -2492,77 +2274,28 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 781.
- [36 <./preview-53.pdf> <./preview-54.pdf>]
+ [37 <./preview-53.pdf> <./preview-54.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 796.
-
-
-LaTeX Warning: Reference `hint:54' on page 37 undefined on input line 801.
-
-[37] [38]
-
-LaTeX Warning: Reference `hint:55' on page 39 undefined on input line 954.
-
-
-LaTeX Warning: Reference `sol:18' on page 39 undefined on input line 959.
-
-
-LaTeX Warning: Reference `hint:56' on page 39 undefined on input line 966.
-
-
-LaTeX Warning: Reference `hint:57' on page 39 undefined on input line 973.
-
+ [38]
+[39]
 \openout3 = `preview-55.asy'.
 
-<preview-55.pdf, id=1218, 142.26349pt x 91.97864pt>
+<preview-55.pdf, id=1452, 142.26349pt x 91.97864pt>
 File: preview-55.pdf Graphic file (type pdf)
 <use preview-55.pdf>
 Package pdftex.def Info: preview-55.pdf  used on input line 1001.
 (pdftex.def)             Requested size: 142.26312pt x 91.97841pt.
-
-LaTeX Warning: Reference `hint:58' on page 39 undefined on input line 1015.
-
-
-LaTeX Warning: Reference `hint:59' on page 39 undefined on input line 1024.
-
-
-LaTeX Warning: Reference `sol:19' on page 39 undefined on input line 1029.
-
-[39 <./preview-55.pdf>]
-
-LaTeX Warning: Reference `hint:60' on page 40 undefined on input line 1051.
-
+ [40 <./preview-55.pdf>]
 \openout3 = `preview-56.asy'.
 
-<preview-56.pdf, id=1248, 64.43373pt x 113.8112pt>
+<preview-56.pdf, id=1492, 64.43373pt x 113.8112pt>
 File: preview-56.pdf Graphic file (type pdf)
 <use preview-56.pdf>
 Package pdftex.def Info: preview-56.pdf  used on input line 1088.
 (pdftex.def)             Requested size: 64.43356pt x 113.81091pt.
-[40]
-
-LaTeX Warning: Reference `hint:61' on page 41 undefined on input line 1094.
-
-
-LaTeX Warning: Reference `hint:62' on page 41 undefined on input line 1107.
-
-
-LaTeX Warning: Reference `hint:63' on page 41 undefined on input line 1110.
-
-
-LaTeX Warning: Reference `hint:64' on page 41 undefined on input line 1113.
-
-
-LaTeX Warning: Reference `hint:65' on page 41 undefined on input line 1116.
-
-
-LaTeX Warning: Reference `sol:20' on page 41 undefined on input line 1190.
-
-
-LaTeX Warning: Reference `hint:66' on page 41 undefined on input line 1199.
-
-) [41 <./preview-56.pdf>]
+ [41]) [42 <./preview-56.pdf>]
 Chapter 5.
 (./3d.tex
 Package mdframed Info: mdframed detected package amsthm 
@@ -2574,7 +2307,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 57.
- [42
+ [43
 
 ]
 Package mdframed Info: mdframed detected package amsthm 
@@ -2598,7 +2331,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 101.
- [43]
+ [44]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 143.
@@ -2620,7 +2353,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 186.
- [44]
+ [45]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 190.
@@ -2651,7 +2384,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 251.
- [45]
+ [46]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 267.
@@ -2667,7 +2400,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 300.
- [46]
+ [47]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 306.
@@ -2688,12 +2421,12 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 365.
 \openout3 = `preview-57.asy'.
 
-<preview-57.pdf, id=1339, 113.8112pt x 113.8112pt>
+<preview-57.pdf, id=1599, 113.8112pt x 113.8112pt>
 File: preview-57.pdf Graphic file (type pdf)
 <use preview-57.pdf>
 Package pdftex.def Info: preview-57.pdf  used on input line 374.
 (pdftex.def)             Requested size: 113.81091pt x 113.81091pt.
- [47]
+ [48]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 387.
@@ -2709,7 +2442,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 418.
- [48 <./preview-57.pdf>]
+ [49 <./preview-57.pdf>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 424.
@@ -2728,7 +2461,7 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 482.
- [49]
+ [50]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 504.
@@ -2741,44 +2474,44 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 526.
- [50]
+ [51]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 562.
 
-[51] [52]
+[52] [53]
 \openout3 = `preview-58.asy'.
 
-<preview-58.pdf, id=1406, 142.26149pt x 106.81908pt>
+<preview-58.pdf, id=1666, 142.26149pt x 106.81908pt>
 File: preview-58.pdf Graphic file (type pdf)
 <use preview-58.pdf>
 Package pdftex.def Info: preview-58.pdf  used on input line 645.
 (pdftex.def)             Requested size: 142.26112pt x 106.8188pt.
 \openout3 = `preview-59.asy'.
 
-<preview-59.pdf, id=1407, 142.26349pt x 112.62878pt>
+<preview-59.pdf, id=1667, 142.26349pt x 112.62878pt>
 File: preview-59.pdf Graphic file (type pdf)
 <use preview-59.pdf>
 Package pdftex.def Info: preview-59.pdf  used on input line 673.
 (pdftex.def)             Requested size: 142.26312pt x 112.6285pt.
- [53 <./preview-58.pdf> <./preview-59.pdf>]
+ [54 <./preview-58.pdf> <./preview-59.pdf>]
 \openout3 = `preview-60.asy'.
 
-<preview-60.pdf, id=1431, 170.7168pt x 125.20677pt>
+<preview-60.pdf, id=1690, 170.7168pt x 125.20677pt>
 File: preview-60.pdf Graphic file (type pdf)
 <use preview-60.pdf>
 Package pdftex.def Info: preview-60.pdf  used on input line 735.
 (pdftex.def)             Requested size: 170.71637pt x 125.20645pt.
- [54 <./preview-60.pdf>])
-[55]
+ [55 <./preview-60.pdf>])
+[56]
 Chapter 6.
-(./hint.tex [56
+(./hint.tex [57
 
-] [57]) [58]
+] [58]) [59]
 Chapter 7.
-(./sol.tex [59
+(./sol.tex [60
 
-] [60] [61]) [62]
+] [61] [62]) [63]
 
 Package catoptions Warning: Undeclared options found in \XExecuteOptions
 (catoptions)                (family,option,value): 
@@ -2804,11 +2537,11 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 37779 strings out of 480682
- 754081 string characters out of 5908554
- 1134748 words of memory out of 5000000
- 52083 multiletter control sequences out of 15000+600000
- 668905 words of font info for 133 fonts, out of 8000000 for 9000
+ 37783 strings out of 480682
+ 754126 string characters out of 5908554
+ 1137345 words of memory out of 5000000
+ 52084 multiletter control sequences out of 15000+600000
+ 669681 words of font info for 134 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,10n,95p,1467b,905s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texl
@@ -2852,10 +2585,10 @@ fsl1728.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pf
 b><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb><c:/texl
 ive/2020/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2020/t
 exmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on preview.pdf (64 pages, 1191897 bytes).
+Output written on preview.pdf (65 pages, 1212094 bytes).
 PDF statistics:
- 1839 PDF objects out of 2073 (max. 8388607)
- 1579 compressed objects within 16 object streams
- 561 named destinations out of 1000 (max. 500000)
+ 2012 PDF objects out of 2073 (max. 8388607)
+ 1749 compressed objects within 18 object streams
+ 562 named destinations out of 1000 (max. 500000)
  1054 words of extra memory for PDF output out of 10000 (max. 10000000)
 
