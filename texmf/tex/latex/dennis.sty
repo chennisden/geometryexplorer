@@ -8,22 +8,26 @@
 \newif\ifmast\mastfalse
 \newif\ifbook\bookfalse
 \newif\ifhint\hintfalse
+\newif\ifdennisasy\dennisasytrue
 
 % Declare options
 
 \DeclareOption{mast}{\dennispointstrue\masttrue} % formatting for MAST Handouts, includes points & logo
 \DeclareOption{book}{\booktrue\hinttrue\mastfalse}
+\DeclareOption{asyfalse}{\dennisasyfalse}
 
 \ProcessOptions\relax
 
 % asy options
 \RequirePackage{asymptote}
+\ifdennisasy
 \begin{asydef}
 size(6cm);
 import olympiad;
 import cse5;
 import geometry;
 \end{asydef}
+\fi
 
 %tikz
 \RequirePackage{tikz}
