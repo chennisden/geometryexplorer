@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.3)  8 AUG 2020 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.3)  10 AUG 2020 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -425,34 +425,34 @@ LaTeX Font Info:    Font shape `OT1/Alegreya-LF/b/n' in size <11> not available
 line 12.
 LaTeX Font Info:    Font shape `OT1/Alegreya-LF/bold/n' will be
 (Font)              scaled to size 11.0pt on input line 12.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 54.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 60.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 54.
+(Font)              size <5> substituted on input line 60.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 54.
+(Font)              size <5> substituted on input line 60.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 54.
+(Font)              size <5> substituted on input line 60.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 54.
+(Font)              <11> on input line 60.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 54.
+(Font)              <7.69997> on input line 60.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 54.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 55.
+(Font)              <5.5> on input line 60.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 61.
 [1
 
 {c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 55.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 61.
  (./cv.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 55.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 55.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 61.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 61.
 Package rerunfilecheck Info: File `cv.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -460,7 +460,7 @@ Package rerunfilecheck Info: File `cv.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 55.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 61.
  ) 
 Here is how much of TeX's memory you used:
  8751 strings out of 480682
@@ -480,7 +480,7 @@ lic/amsfonts/cm/cmss10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmssbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texli
 ve/2020/texmf-dist/fonts/type1/public/marvosym/marvosym.pfb>
-Output written on cv.pdf (1 page, 175914 bytes).
+Output written on cv.pdf (1 page, 175610 bytes).
 PDF statistics:
  54 PDF objects out of 1000 (max. 8388607)
  42 compressed objects within 1 object stream
