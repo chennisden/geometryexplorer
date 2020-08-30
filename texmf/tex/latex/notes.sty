@@ -12,15 +12,17 @@
 
 % Linear Algebra, Chabot College/LADR
 
-\newcommand{\spa}[1]{\text{Span}[#1]}
+%\newcommand{\spa}[1]{\text{Span}[#1]}
+%bring back if mismath dies
 \newcommand{\proj}[2]{\text{proj}_{\vec{#1}}(\vec{#2})}
 \newcommand{\prp}[2]{\text{perp}_{\vec{#1}}(\vec{#2})}
+\usepackage{mismath} % provides \adj \spa \im
 
 % Abstract Algebra, Michael Artin
 
 \newcommand{\nzr}{\mathbb{R}^{\times}} % non-zero reals - must be done in math mode
 \newcommand{\gl}[2]{\text{GL}_{#1}(#2)} % general linear groups
-\newcommand{\im}{\text{im }\phi} % image
+\renewcommand{\im}{\text{im }\phi} % image, renew -> new if mismath dies
 \newcommand{\imN}{\text{im }} % image text, naked
 \newcommand{\ke}{\text{ker }\phi} % kernel. note that \ker is already defined for naked ker text.
 
