@@ -1,33 +1,29 @@
 \ProvidesPackage{contest}
 
-\newif\ifmacsolutions\macsolutionsfalse
+\usepackage{amsmath,amssymb}
 
-\DeclareOption{solutions}{\macsolutionstrue}
-
-\ProcessOptions\relax
-
-\ifmacsolutions
-\else
 \pagenumbering{gobble}
-\fi
 
 \RequirePackage{fancyhdr}
 \pagestyle{fancyplain}
 \renewcommand{\headrulewidth}{0pt} % clear header
 \fancyhead{} % clear line
 
-\fancyfoot[L]{\hspace{-20pt}\raisebox{-7pt}[0pt][0pt]{
+\fancyfoot[L]{
+{\color{black}
+\hspace{-20pt}\raisebox{-63pt}[0pt][0pt]{
 \logo{0.27}}
-\begin{tikzpicture}
+\raisebox{-56pt}[0pt][0pt]{\begin{tikzpicture}
 \draw (0,0) node {{\alegreyafont\fontsize{40}{50}\selectfont MAC}};
-\end{tikzpicture}
+\end{tikzpicture}}
+}
 } % logo!
 
 \usepackage{asymptote}
 
 \setlength{\parindent}{0pt}
 
-\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,includeheadfoot]{geometry}
+\usepackage[letterpaper,top=2cm,bottom=4cm,left=3cm,right=3cm,includeheadfoot]{geometry}
 
 \usepackage{pifont}
 \newcommand*{\Item}{\item[\ding{70}]}
@@ -123,4 +119,9 @@
 \vspace{6mm}
 \noindent{\LARGE{\color{darkmidnightblue}\bfseries \sffamily #1}}
 \vspace{2mm}
+}
+
+\newcommand{\sol}{
+\vspace{\baselineskip}
+{\color{sangria}\bfseries\sffamily Solution:}
 }
