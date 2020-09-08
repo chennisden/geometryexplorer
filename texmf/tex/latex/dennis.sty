@@ -78,9 +78,32 @@ import geometry;
 % faPencil is kind of a big symbol
 
 \newcommand{\minpt}[1]{Minimum is {\color{sangria}[#1\,\faPencil]}. Problems with the {\color{sangria}\faDiamond} symbol are required.
-    \\
+    \vspace{\baselineskip}
 }
 % Specifies minimum amount of points to complete a unit
+
+\usepackage{soul}
+
+\newcommand\ol[1]{{\setul{-0.9em}{}\ul{#1}}}
+
+\newcommand{\psetquote}[2] % BE CAREFUL WITH THIS. must be DIRECTLY after minpt
+{
+\vspace{-\baselineskip}
+\begin{flushright}
+\begin{tikzpicture}
+\draw (0,0) node [right,text width=8.75cm]{
+\begin{mdframed}[linecolor=darkblue,leftline=true,rightline=false,bottomline=false,topline=false,linewidth=3pt,backgroundcolor=thmblue]
+{``#1''}
+
+\vspace{1mm}
+
+\hfill\ol{\textit{#2}}
+\end{mdframed}
+};
+
+\end{tikzpicture}
+\end{flushright}
+}
 \fi
 
 \RequirePackage[letterpaper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm,includeheadfoot]{geometry} % geometry has to be BEFORE fancyhdr for margins to work!
@@ -164,7 +187,7 @@ import geometry;
 
 % hyperref
 
-\usepackage{hyperref}
+\usepackage[hypertexnames=false]{hyperref}
 \hypersetup{
     colorlinks,
     citecolor=black,
