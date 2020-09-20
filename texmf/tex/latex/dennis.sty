@@ -9,12 +9,14 @@
 \newif\ifbook\bookfalse
 \newif\ifhint\hintfalse
 \newif\ifdennisasy\dennisasytrue
+\newif\ifoldsec\oldsecfalse
 
 % Declare options
 
 \DeclareOption{mast}{\dennispointstrue\masttrue} % formatting for MAST Handouts, includes points & logo
-\DeclareOption{book}{\booktrue\hinttrue\mastfalse}
+\DeclareOption{book}{\booktrue\hinttrue\mastfalse\oldsectrue}
 \DeclareOption{asyfalse}{\dennisasyfalse}
+\DeclareOption{oldsec}{\oldsectrue}
 
 \ProcessOptions\relax
 
@@ -284,6 +286,32 @@ import geometry;
 
 \RequirePackage{titlesec}
 
+\ifoldsec % old section
+
+\usepackage{marvosym}
+
+\titleformat{\section}
+{\sffamily\Large\bfseries}{{\color{sangria}\Radioactivity\,\thesection}}{0.8em}{}
+
+% subsections
+\titleformat{\subsection}
+{\sffamily\large\bfseries}{{\color{sangria}\thesubsection}}{0.9em}{}
+
+%subsubsections (just in case!)
+
+\titleformat{\subsubsection}
+{\sffamily\normalsize\bfseries}{{\color{sangria}\thesubsubsection}}{0.9em}{}
+
+\else
+%titling & sectioning from team.sty
+
+\newcommand{\sectioncolor}{sangria} % in case I need to change this for any reason
+
+\titleformat{\section}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}\rule{\linewidth}{0.6mm}]
+\titleformat{\subsection}{\normalfont\large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
+\titleformat{\subsubsection}{\normalfont\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
+\fi
+
 \ifbook
 
 \renewcommand\thepart{\Alph{part}} % make parts A,B,C,...
@@ -302,10 +330,6 @@ import geometry;
 
 % nuclear symbol for chapters and sections; book only
 
-\usepackage{marvosym}
-
-\usepackage{titlesec} % completely redefine subsection/section/etc
-
 \DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
 
 \newsavebox\CBox % lighter bold
@@ -320,18 +344,6 @@ import geometry;
 
 \titleformat{\chapter}[display]
 {\alegreyafont\huge}{\chaptertitlename\ \thechapter}{20pt}{\Huge}[\titlerule]
-
-\titleformat{\section}
-{\sffamily\Large\bfseries}{{\color{sangria}\Radioactivity\,\thesection}}{0.8em}{}
-
-% subsections
-\titleformat{\subsection}
-{\sffamily\large\bfseries}{{\color{sangria}\thesubsection}}{0.9em}{}
-
-%subsubsections (just in case!)
-
-\titleformat{\subsubsection}
-{\sffamily\normalsize\bfseries}{{\color{sangria}\thesubsubsection}}{0.9em}{}
 
 % theorem numberings different
 
@@ -381,14 +393,6 @@ rightline=false,
 leftline=false]{exam}{Example}[chapter]
 
 \else
-
-%titling & sectioning from team.sty
-
-\newcommand{\sectioncolor}{sangria} % in case I need to change this for any reason
-
-\titleformat{\section}{\normalfont\Large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}\rule{\linewidth}{0.6mm}]
-\titleformat{\subsection}{\normalfont\large\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
-\titleformat{\subsubsection}{\normalfont\bfseries\sffamily}{\color{\sectioncolor}{\S\,\thesubsubsection}}{1em}{\color{\sectioncolor}}[\color{\sectioncolor}]
 
 % theorem numbers same
 

@@ -5,6 +5,43 @@
 <link href='https://fonts.googleapis.com/css?family=Barlow&display=swap' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Quattrocento%20Sans' rel='stylesheet' type='text/css'>
 <link type="text/css" rel="stylesheet" href="/css/macstyle.css" />
+<style>
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.colcontent {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+</style>
 </head>
   
 <div class="main">
@@ -24,7 +61,7 @@
 Our team consists of a qualifier for the 2020 USAJMO, two three-time AIME qualifiers, and everyone in the team has qualified for the AIME.</p>
 
 <button class="collapsible">Teacher Bios</button>
-<div class="collapse">
+<div class="colcontent">
   <h2>Dennis Chen <b>(dchenmathcounts)</b></h2>
 <p>
 Dennis Chen is a rising sophomore in the Bay Area. He has qualified for the AIME as an 8th and 9th grader and has achieved a score of 121.5 on the AMC 10B, receiving the Distinguished Honor Roll, and he has qualified for the USAJMO as a 9th grader with a score of 11 on the AIME I.
@@ -66,7 +103,7 @@ Aside from contest math, William also has an interest in competitive programming
 </div>
 <br>
 <button class="collapsible">Non-Profit Statement</button>
-<div class="collapse">
+<div class="colcontent">
 <ol>
   <li>The YEA is a registered 501(c)(3) non-profit organization.</li>
   <li>The students involved in running this program will not earn a single cent from it.</li>
