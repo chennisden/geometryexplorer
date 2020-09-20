@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.3)  17 AUG 2020 15:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.5.3)  19 SEP 2020 17:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -469,7 +469,7 @@ Here is how much of TeX's memory you used:
  24420 multiletter control sequences out of 15000+600000
  577043 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,5n,41p,332b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,5n,41p,351b,332s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2020/tex
 mf-dist/fonts/enc/dvips/alegreya/algr_2vgxay.enc}{c:/texlive/2020/texmf-dist/fo
 nts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/texlive/2020/texmf-dist/fonts/
@@ -480,10 +480,10 @@ lic/amsfonts/cm/cmss10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmssbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texli
 ve/2020/texmf-dist/fonts/type1/public/marvosym/marvosym.pfb>
-Output written on cv.pdf (1 page, 175587 bytes).
+Output written on cv.pdf (1 page, 176015 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  2 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
