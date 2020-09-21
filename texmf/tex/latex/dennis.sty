@@ -4,7 +4,6 @@
 
 % Set booleans
 
-\newif\ifdennispoints\dennispointsfalse
 \newif\ifmast\mastfalse
 \newif\ifbook\bookfalse
 \newif\ifhint\hintfalse
@@ -13,7 +12,7 @@
 
 % Declare options
 
-\DeclareOption{mast}{\dennispointstrue\masttrue} % formatting for MAST Handouts, includes points & logo
+\DeclareOption{mast}{\masttrue} % formatting for MAST Handouts, includes points & logo
 \DeclareOption{book}{\booktrue\hinttrue\mastfalse\oldsectrue}
 \DeclareOption{asyfalse}{\dennisasyfalse}
 \DeclareOption{oldsec}{\oldsectrue}
@@ -61,7 +60,7 @@ import geometry;
 
 \definecolor{solcolor}{RGB}{0,25,0}
 
-\ifdennispoints % Points setup
+% Points setup
 \RequirePackage{fontawesome}
 
 \newcounter{problem}\setcounter{problem}{0} % Problem number counter
@@ -106,7 +105,6 @@ import geometry;
 \end{tikzpicture}
 \end{flushright}
 }
-\fi
 
 \RequirePackage[letterpaper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm,includeheadfoot]{geometry} % geometry has to be BEFORE fancyhdr for margins to work!
 
