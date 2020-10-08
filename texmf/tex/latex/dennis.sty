@@ -9,6 +9,7 @@
 \newif\ifhint\hintfalse
 \newif\ifdennisasy\dennisasytrue
 \newif\ifoldsec\oldsecfalse
+\newif\ifcolorinvert
 
 % Declare options
 
@@ -16,6 +17,7 @@
 \DeclareOption{book}{\booktrue\hinttrue\mastfalse\oldsectrue}
 \DeclareOption{asyfalse}{\dennisasyfalse}
 \DeclareOption{oldsec}{\oldsectrue}
+\DeclareOption{invert}{\colorinverttrue}
 
 \ProcessOptions\relax
 
@@ -39,10 +41,21 @@ import geometry;
 
 \RequirePackage{xcolor}
 
+\ifcolorinvert
+
+\definecolor{darkmidnightblue}{rgb}{0.57,0.0,0.04}
+\definecolor{sangria}{rgb}{0.0, 0.2, 0.4}
+\definecolor{persianblue}{RGB}{128, 0, 0}
+
+\else
+
 \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
 \definecolor{sangria}{rgb}{0.57, 0.0, 0.04}
-\definecolor{titlered}{rgb}{1.0, 0.0, 0.0}
 \definecolor{persianblue}{rgb}{0.11, 0.22, 0.73}
+
+\fi
+
+\definecolor{titlered}{RGB}{128, 0.0, 0.0}
 
 % theorem colors
 
@@ -128,8 +141,8 @@ import geometry;
 \patchcmd{\@maketitle}{\@author}{\sffamily\textit{\@author}}{}{}
 \patchcmd{\@maketitle}{\@date}{\sffamily\@date}{}{}
 \else
-\patchcmd{\@maketitle}{\@title}{\sffamily\color{titlered}\bfseries\@title{}}{}{}
-\patchcmd{\@maketitle}{\@author}{\sffamily\textit{\@author}}{}{}
+\patchcmd{\@maketitle}{\@title}{\sffamily\color{sangria}\bfseries\@title{}}{}{}
+\patchcmd{\@maketitle}{\@author}{\alegreyafont\@author}{}{}
 \patchcmd{\@maketitle}{\@date}{\sffamily\color{persianblue}{\@date}}{}{}
 \fi
 
@@ -172,6 +185,7 @@ import geometry;
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{pifont}
 \RequirePackage[T1]{fontenc}
+\DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
 
 % more generic formatitng
 
@@ -327,8 +341,6 @@ import geometry;
 }
 
 % nuclear symbol for chapters and sections; book only
-
-\DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
 
 \newsavebox\CBox % lighter bold
 \def\lightBold#1{\sbox\CBox{#1}\resizebox{\wd\CBox}{\ht\CBox}{\textbf{#1}}}
