@@ -1,0 +1,38 @@
+\ProvidesPackage{dennis}
+
+\RequirePackage{asymptote}
+\begin{asydef}
+size(6cm);
+import olympiad;
+import cse5;
+import geometry;
+\end{asydef}
+
+\RequirePackage{tikz}
+\usepackage{tkz-euclide}
+\usetikzlibrary{calc}
+
+\usepackage{xcolor}
+
+
+\definecolor{sectioncolor}{RGB}{45,0,90} % dark purple
+
+\usepackage{fontawesome}
+\usepackage{marvosym}
+
+\RequirePackage{titlesec}
+
+\usepackage[sf]{noto} 
+
+
+\titleformat{\section}
+{\sffamily\Large\bfseries}{{\color{sectioncolor}\faGlobe\,\thesection}}{0.8em}{}
+
+% subsections
+\titleformat{\subsection}
+{\sffamily\large\bfseries}{{\color{sectioncolor}\thesubsection}}{0.9em}{}
+
+%subsubsections (just in case!)
+
+\titleformat{\subsubsection}
+{\sffamily\normalsize\bfseries}{{\color{sectioncolor}\thesubsubsection}}{0.9em}{}
