@@ -71,6 +71,9 @@ import geometry;
 \definecolor{proofbrown}{RGB}{100,40,40}
 \definecolor{proofbckg}{HTML}{fffdf5}
 
+\definecolor{darkpurple}{RGB}{45,0,90} % dark purple
+\definecolor{lightpurple}{RGB}{230,230,250}
+
 \definecolor{solcolor}{RGB}{0,25,0}
 
 % Points setup
@@ -275,15 +278,25 @@ import geometry;
   {1.5mm}%                                    % Space after theorem head, ' ', or \newline
   {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%
 
-\newtheoremstyle{dennisproof}%                % Name
-  {}%                                     % Space above
-  {}%                                     % Space below
-  {}%                                     % Body font
-  {}%                                     % Indent amount
-  {\color{proofbrown}\sffamily\bfseries}%                            % Theorem head font
-  {:}%                                    % Punctuation after theorem head
-  {1.5mm}%                                    % Space after theorem head, ' ', or \newline
-  {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}%
+\newtheoremstyle{proof}
+{0pt}
+{0pt}
+{}
+{}
+{\color{darkpurple}\sffamily\bfseries}
+{:}
+{1.5mm}
+{\thmname{#1}\thmnote{ #3}}
+
+\newtheoremstyle{solution}
+{0pt}
+{0pt}
+{}
+{}
+{\color{darkmidnightblue}\sffamily\bfseries}
+{:}
+{1.5mm}
+{\thmname{#1}\thmnote{ #3}}
 
 % theorems
 
@@ -471,25 +484,28 @@ rightline=false,
 leftline=false]{exam}{Example}
 \fi
 
-\theoremstyle{dennisproof}
+\theoremstyle{proof}
 
-\newmdtheoremenv[% settings
-backgroundcolor=proofbckg,
-linecolor=proofbrown,
-linewidth=1.2pt,
+\newmdtheoremenv[
+backgroundcolor=lightpurple,
 nobreak=true,
-innerleftmargin=5pt,
-innerrightmargin=5pt,
-innertopmargin=-5pt,
-skipabove=-5pt,
-topline=true,
-bottomline=true,
+innertopmargin=5pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+linecolor=darkpurple,
+linewidth=3pt,
+topline=false,
+bottomline=false,
 rightline=false,
-leftline=false]{pro}{Proof}
+leftline=true]{pro}{Proof}
 
 \renewcommand{\thepro}{\unskip}
 
 \def\endpro{\hfill$\blacksquare$}
+
+\theoremstyle{solution}
+
+\newtheorem{sol}{Solution}
 
 %\newmdtheoremenv[% settings
 %backgroundcolor=proofbckg,
@@ -509,11 +525,11 @@ leftline=false]{pro}{Proof}
 %
 %\def\endsol{\hfill$\blacksquare$}
 
-\newenvironment{sol}[1][\unskip]
-{
-\begin{adjustwidth}{\parindent}{\parindent}
-\textbf{\sffamily {\color{darkmidnightblue}Solution #1:}}
-}{\hfill$\blacksquare$\end{adjustwidth}}
+%\newenvironment{sol}[1][\unskip]
+%{
+%\begin{adjustwidth}{\parindent}{\parindent}
+%\textbf{\sffamily {\color{darkmidnightblue}Solution #1:}}
+%}{\hfill$\blacksquare$\end{adjustwidth}}
 
 %custom bullet points
 

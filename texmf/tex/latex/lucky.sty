@@ -67,6 +67,8 @@ import geometry;
 
 \RequirePackage{fontawesome}
 \RequirePackage{marvosym}
+\RequirePackage{pifont}
+\RequirePackage{mnsymbol}
 \RequirePackage[skaknew]{skak}
 
 \DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
@@ -99,6 +101,11 @@ import geometry;
 \newcommand{\kingB}[1][1.95ex]{%
 \adjustbox{Trim=2pt 2pt 2pt 0pt,width=#1,raise=-0.06ex,margin=0.13ex 0ex 0.13ex 0ex}{\BlackKingOnWhite}%
 }%
+
+% itemize symbols
+\renewcommand{\labelitemi}{$\filledmedsquare$}
+\renewcommand{\labelitemii}{\ding{70}}
+\renewcommand{\labelitemiii}{$\bullet$}
 
 %%%%%%
 %COLORS%
@@ -255,7 +262,7 @@ import geometry;
 {\color{importantred}\sffamily\bfseries}
 {.}
 {1.5mm}
-{\thmname{#1} \thmnote{(#3)}}
+{\thmname{#1}\thmnote{ (#3)}}
 
 \newtheoremstyle{proof}
 {0pt}
@@ -265,7 +272,17 @@ import geometry;
 {\color{dennispurple}\notofont\bfseries}
 {.}
 {1.5mm}
-{\thmname{#1}}
+{\thmname{#1}\thmnote{ #3}}
+
+\newtheoremstyle{solution}
+{0pt}
+{0pt}
+{}
+{}
+{\color{importantred}\notofont\bfseries}
+{:}
+{1.5mm}
+{\thmname{#1}\thmnote{ #3}}
 
 % theorems
   
@@ -342,12 +359,6 @@ bottomline=false,
 rightline=false,
 leftline=true]{pro}{Proof}
 
-\renewcommand{\thepro}{\unskip} % basically, the default input removes a space (so if there is no input, there is no extraneous space, and if there is one you don't need to add a space). \unskip is the reverse of a space character of horizontal space
+\theoremstyle{solution}
 
-\newenvironment{sol}
-{
-\noindent\textbf{\notofont{\color{importantred}Solution:}}
-}
-{
-\hfill$\blacksquare$
-}
+\newtheorem{sol}{Solution}
