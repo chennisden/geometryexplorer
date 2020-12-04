@@ -1,5 +1,12 @@
 \ProvidesPackage{contest}
 
+\newif\ifpurple\purplefalse
+\newif\iffont\fontfalse
+
+\DeclareOption{lucky}{\purpletrue}
+
+\ProcessOptions\relax
+
 \usepackage{amsmath,amssymb}
 \usepackage{bm}
 
@@ -21,6 +28,13 @@
 } % logo!
 
 \usepackage{asymptote}
+
+\begin{asydef}
+size(6cm);
+import olympiad;
+import cse5;
+import geometry;
+\end{asydef}
 
 \setlength{\parindent}{0pt}
 
@@ -44,7 +58,18 @@
 
 \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
 \definecolor{sangria}{rgb}{0.57, 0.0, 0.04}
+\definecolor{darkpurple}{RGB}{45,0,90} % dark purple
+
+
+\ifpurple
+\newcommand{\sectioncolor}{darkpurple}
+\else
 \newcommand{\sectioncolor}{darkmidnightblue}
+\fi
+
+\iffont
+\usepackage{newpxtext,newpxmath}
+\fi
 
 \DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
 
@@ -118,7 +143,7 @@
 
 \newcommand{\undsec}[1]{
 \vspace{6mm}
-\noindent{\LARGE{\color{darkmidnightblue}\bfseries \sffamily #1}}
+\noindent{\LARGE{\color{\sectioncolor}\bfseries \sffamily #1}}
 \vspace{2mm}
 }
 
@@ -128,4 +153,10 @@
 %{\color{sangria}\bfseries\sffamily Solution:}
 }
 
-\newcommand{\ansbold}[1]{{\color{darkmidnightblue}\bm{#1}}}
+\newcommand{\ansbold}[1]{{\color{\sectioncolor}\bm{#1}}}
+
+\RequirePackage{MnSymbol}
+
+\renewcommand{\labelitemi}{$\filledmedsquare$}
+\renewcommand{\labelitemii}{\ding{70}}
+\renewcommand{\labelitemiii}{$\bullet$}
