@@ -1,0 +1,170 @@
+\ProvidesPackage{shooting}
+
+\RequirePackage[letterpaper,top=2cm,bottom=2cm,left=1.5cm,right=1.5cm,includeheadfoot]{geometry}
+
+\raggedbottom
+
+\DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
+\DeclareRobustCommand{\notofont}{\fontfamily{NotoSans-TLF}\selectfont}
+\DeclareRobustCommand{\merri}{\fontfamily{MerriweatherSans-OsF}\selectfont}
+\DeclareRobustCommand{\robotofont}{\fontfamily{RobotoSlab-TLF}\selectfont}
+\DeclareRobustCommand{\bera}{\fontfamily{fve}\selectfont}
+\DeclareRobustCommand{\bask}{\fontfamily{BaskervilleF-TLF}\selectfont}
+\DeclareRobustCommand{\fell}{\fontfamily{IMFELLEnglish-TLF}\selectfont}
+\DeclareRobustCommand{\cha}{\fontfamily{mdbch}\selectfont}
+
+\usepackage{tikz}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{thmtools}
+\usepackage{mdframed}
+
+\usepackage{xcolor}
+
+\definecolor{bgpurp}{RGB}{250,230,250}
+
+\definecolor{npurp}{RGB}{125,50,125}
+
+\definecolor{dpurp}{RGB}{110,45,110}
+
+\definecolor{darkmidnightblue}{rgb}{0.57,0.0,0.04}
+
+\definecolor{bggray}{RGB}{230,230,230}
+
+\usepackage[hypertexnames=false]{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=darkmidnightblue,
+	urlcolor=darkmidnightblue
+}
+
+%toc setup
+
+\renewcommand*\contentsname{Table of Contents}
+
+\newcommand{\toc}{
+{\hypersetup{
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black}
+\tableofcontents
+\pagebreak}
+}
+
+%section
+
+\usepackage{titlesec}
+\usepackage{fancybox}
+\usepackage{nameref}
+
+\titleformat{\section}{\notofont\Large\bfseries}{}{0em}{%
+\vspace{2mm}
+\begin{picture}(0,0)
+\put(12,5){{\color{dpurp}\circle{28}}}
+\end{picture}\makebox[1.65em][c]{{\color{dpurp}\thesection}}\quad}
+
+%\titleformat{\chapter}{}{}{0pt}{
+%
+%}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0pt}
+
+\renewcommand{\chaptermark}[1]{%
+\markboth{#1}{}}
+
+\fancyhead{}
+
+\fancyfoot[RO] {\scshape{\bfseries\bask Chapter \thechapter}\;\;\leftmark\;\;\;\;\normalsize{\bask \bfseries\thepage}}
+\fancyfoot[LE] {\bask\thepage}
+\fancyfoot[C] {}
+
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyfoot[RO,LE]{\bask\thepage}
+\renewcommand{\headrulewidth}{0pt}
+}
+
+%theorem spam
+
+\newtheoremstyle{dbox}%                % Name
+	{0pt}%                                     % Space above
+	{2pt}%                                     % Space below
+	{}%                                     % Body font
+	{}%                                     % Indent amount
+	{\color{npurp}\cha\bfseries}%                            % Theorem head font
+	{}%                                    % Punctuation after theorem head
+	{\newline}%                                    % Space after theorem head, ' ', or \newline
+	{\vspace{1.5pt}\thmname{#1}\thmnumber{ #2}\thmnote{ --- #3}}%
+
+\theoremstyle{dbox}
+
+\newmdtheoremenv[% settings
+backgroundcolor=bgpurp,
+nobreak=true,
+linecolor=npurp,
+linewidth=0.6pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+topline=true,
+bottomline=true,
+rightline=true,
+leftline=true]{theo}{Theorem}[section]
+
+\newmdtheoremenv[% settings
+backgroundcolor=bggray,
+nobreak=true,
+linecolor=npurp,
+linewidth=2pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=true]{defi}[theo]{Definition}
+
+\newmdtheoremenv[% settings
+backgroundcolor=bggray,
+nobreak=true,
+linecolor=npurp,
+linewidth=2pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=true]{fact}[theo]{Fact}
+
+\newmdtheoremenv[% settings
+backgroundcolor=white,
+nobreak=true,
+linecolor=npurp,
+linewidth=0.6pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+topline=true,
+bottomline=true,
+rightline=true,
+leftline=true]{exam}[theo]{Example}
+
+\newmdtheoremenv[% settings
+backgroundcolor=white,
+nobreak=true,
+linecolor=dpurp,
+linewidth=0.6pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+topline=true,
+bottomline=true,
+rightline=true,
+leftline=true]{exer}[theo]{Exercise}
