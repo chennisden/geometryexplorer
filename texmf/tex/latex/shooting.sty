@@ -1,0 +1,273 @@
+\ProvidesPackage{shooting}
+
+\newif\iftwocol\twocoltrue
+\newif\ifpurp\purptrue
+
+\DeclareOption{onecol}{\twocolfalse}
+\DeclareOption{blue}{\purpfalse}
+
+\ProcessOptions\relax
+
+\iftwocol
+\newcommand\dist{0}
+\newcommand\dist{0.5}
+\fi
+
+\RequirePackage[letterpaper,top=2cm,bottom=2cm,left=1.5cm,right=1.5cm,includeheadfoot]{geometry}
+
+\raggedbottom
+
+\setlength{\columnsep}{30pt}
+
+\DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
+\DeclareRobustCommand{\notofont}{\fontfamily{NotoSans-TLF}\selectfont}
+\DeclareRobustCommand{\merri}{\fontfamily{MerriweatherSans-OsF}\selectfont}
+\DeclareRobustCommand{\robotofont}{\fontfamily{RobotoSlab-TLF}\selectfont}
+\DeclareRobustCommand{\bera}{\fontfamily{fve}\selectfont}
+\DeclareRobustCommand{\bask}{\fontfamily{BaskervilleF-TLF}\selectfont}
+\DeclareRobustCommand{\fell}{\fontfamily{IMFELLEnglish-TLF}\selectfont}
+\DeclareRobustCommand{\cha}{\fontfamily{mdbch}\selectfont}
+\DeclareRobustCommand{\arimofont}{\fontfamily{Arimo-TLF}\selectfont}
+\DeclareRobustCommand{\tlffont}{\fontfamily{STEP-TLF}\selectfont}
+\DeclareRobustCommand{\deffont}{\fontfamily{cmr}\selectfont}
+
+\usepackage{step}
+
+\usepackage{babel}
+
+\usepackage{tikz}
+
+\usepackage{asymptote}
+
+\begin{asydef}
+size(6cm);
+import olympiad;
+import cse5;
+import geometry;
+\end{asydef}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{thmtools}
+\usepackage{mdframed}
+
+\usepackage{xcolor}
+
+\ifpurp
+
+\definecolor{headpurp}{RGB}{240,230,250}
+
+\definecolor{bgpurp}{RGB}{250,230,250}
+
+\definecolor{npurp}{RGB}{125,50,125}
+
+\definecolor{dpurp}{RGB}{110,45,110}
+\else % blue
+
+\definecolor{headpurp}{RGB}{200,230,255}
+
+\definecolor{bgpurp}{RGB}{210,240,255}
+
+\definecolor{npurp}{RGB}{0,40,150}
+
+\definecolor{dpurp}{RGB}{0, 25, 100}
+\fi
+
+\definecolor{emred}{rgb}{0.57,0.0,0.04}
+
+\definecolor{bggray}{RGB}{230,230,230}
+
+\usepackage[hypertexnames=false]{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=emred,
+	urlcolor=emred
+}
+
+\newcommand{\dbold}[1]{{\bfseries\color{emred}#1}}
+
+%toc setup
+
+\renewcommand*\contentsname{Table of Contents}
+
+\newcommand{\toc}{
+{\hypersetup{
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black}
+\tableofcontents
+\pagebreak}
+}
+
+%section
+
+\usepackage[explicit]{titlesec}
+\usepackage{fancybox}
+\usepackage{nameref}
+
+\usepackage{circledsteps}
+
+\pgfkeys{/csteps/inner ysep=8pt}
+\pgfkeys{/csteps/inner xsep=8pt}
+
+\titleformat{\section}{\notofont\Large\bfseries}{}{0em}{
+\hspace{-4pt}{\color{npurp}\Circled{\thesection}}\hspace{0.5em}#1
+}
+
+%\titleformat{\section}{\notofont\Large\bfseries}{}{0em}{%
+%\vspace{2mm}
+%\begin{picture}(0,0)
+%\put(12,5){{\color{dpurp}\circle{28}}}
+%\end{picture}\makebox[1.65em][c]{{\color{dpurp}\thesection}}\quad}
+
+\newcommand{\chsize}{\fontsize{30}{36}\selectfont}
+
+\titleformat{\chapter}[display]{}
+{
+\begin{tikzpicture}[remember picture,overlay,anchor = north west]
+\path (current page.north west) node[below right,fill=headpurp,minimum width=\paperwidth, minimum height=4cm] (box){};
+\coordinate (ur) at (\paperwidth-55,1.8+\dist);
+\path (ur) node[below left,fill=dpurp,minimum width=3cm, minimum height = 3cm](box){
+\scalebox{2}{\deffont\Huge\color{white}\bfseries\thechapter}
+};
+\coordinate (ch) at (\paperwidth-300,0.9+\dist);
+\path (ch) node(box){\scalebox{1.5}{\bask\Huge\bfseries\scshape{\chaptername}}};
+\end{tikzpicture}
+}{0pt}{
+\begin{tikzpicture}[remember picture, overlay, anchor=south west]
+\node (chtext) at (0,1.65+\dist) {
+\parbox{15cm}{\begin{flushleft}\begin{hyphenrules}{nohyphenation}\robotofont\Huge#1\end{hyphenrules}\end{flushleft}}
+};
+\end{tikzpicture}
+}[\vspace{3em}]
+
+%\newcommand{\chapterquote}[2] % meh dont think this is any good
+%{
+%\begin{tikzpicture}[remember picture,overlay,anchor=north west]
+%\coordinate (chq) at (4.2,5.5);
+%\node (quo) at (chq) [left,text width=9.1cm,anchor=north]{
+%\begin{mdframed}[linecolor=dpurp,leftline=true,rightline=false,bottomline=false,topline=false,linewidth=3pt,backgroundcolor=bgpurp]
+%{\bask``#1''}
+%
+%\vspace{1mm}
+%
+%\hfill\color{emred}\fell#2
+%\end{mdframed}
+%};
+%
+%\end{tikzpicture}
+%}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyhead{}
+
+\fancyfoot[RO] {\scshape{\bfseries\bask \chaptername\;\thechapter}\;\;\leftmark\;\;\;\;\normalsize{\bask \bfseries\thepage}}
+\fancyfoot[LE] {\bask\thepage}
+\fancyfoot[C] {}
+
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyfoot[RO,LE]{\bask\thepage}
+\renewcommand{\headrulewidth}{0pt}
+}
+
+%theorem spam
+
+\newtheoremstyle{dbox}%                % Name
+	{0pt}%                                     % Space above
+	{2pt}%                                     % Space below
+	{}%                                     % Body font
+	{}%                                     % Indent amount
+	{\color{npurp}\cha\bfseries}%                            % Theorem head font
+	{}%                                    % Punctuation after theorem head
+	{\newline}%                                    % Space after theorem head, ' ', or \newline
+	{\vspace{1.5pt}\thmname{#1}\thmnumber{ #2}\thmnote{ --- #3}}%
+
+\newtheoremstyle{proof}
+{0pt}
+{0pt}
+{}
+{}
+{\color{emred}\sffamily\bfseries}
+{\hspace{4pt}---}
+{4pt}
+{\thmname{#1}\thmnote{ #3}}
+
+\theoremstyle{dbox}
+
+\newmdtheoremenv[% settings
+backgroundcolor=bgpurp,
+nobreak=true,
+linecolor=npurp,
+linewidth=0.6pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+topline=true,
+bottomline=true,
+rightline=true,
+leftline=true]{theo}{Theorem}[section]
+
+\newmdtheoremenv[% settings
+backgroundcolor=bggray,
+nobreak=true,
+linecolor=npurp,
+linewidth=2pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=true]{defi}[theo]{Definition}
+
+\newmdtheoremenv[% settings
+backgroundcolor=bggray,
+nobreak=true,
+linecolor=npurp,
+linewidth=2pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=true]{fact}[theo]{Fact}
+
+\newmdtheoremenv[% settings
+backgroundcolor=white,
+nobreak=true,
+linecolor=npurp,
+linewidth=0.6pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+topline=true,
+bottomline=true,
+rightline=true,
+leftline=true]{exam}[theo]{Example}
+
+\newmdtheoremenv[% settings
+backgroundcolor=white,
+nobreak=true,
+linecolor=dpurp,
+linewidth=0.6pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
+topline=true,
+bottomline=true,
+rightline=true,
+leftline=true]{exer}[theo]{Exercise}
+
+\theoremstyle{proof}
+
+\newtheorem{pro}{Proof}
+
+\newtheorem{sol}{Solution}
