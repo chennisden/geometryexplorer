@@ -190,27 +190,32 @@ import geometry;
 \pgfkeys{/csteps/inner color=dpurp}
 \pgfkeys{/csteps/fill color =bgpurp}
 
+\newlength{\mylen}
+
 \iftwocol
 \titleformat{\section}{\notofont\Large\bfseries}{}{0em}{
-\hspace{-10pt}
+\hspace{-12pt}
+\settowidth{\mylen}{\thesection}
 \begin{tikzpicture}[ anchor = south west]
 \node at (0,0) {\color{npurp}\Circled{\thesection}};
-\node at (1.54,0.86) [text width = 8cm,anchor=north west]{
+\node at (\mylen+1,0.86) [text width = 8cm,anchor=north west]{
 {#1}
 };
 \end{tikzpicture}
 }[\vspace{-0.9cm}]
 \else
-\titleformat{\section}{\notofont\Large\bfseries}{}{0em}{
-\hspace{-10pt}
+\titleformat{\section}{\notofont\Large\bfseries}{}{-0.9em}{
+\settowidth{\mylen}{\thesection}
 \begin{tikzpicture}[ anchor = south west]
 \node at (0,0) {\color{npurp}\Circled{\thesection}};
-\node at (1.54,0.86) [text width=17cm, anchor=north west]{
+\node at (\mylen*1.1+12,0.86) [text width=17cm, anchor=north west]{
 {#1}
 };
 \end{tikzpicture}
-}[\vspace{-0.9cm}]
+}[\vspace{-0.45cm}]
 \fi
+
+\titleformat{name=\section,numberless}{\notofont\Large\bfseries}{}{0em}{#1}
 
 %\titleformat{\section}{\notofont\Large\bfseries}{}{0em}{%
 %\vspace{2mm}
@@ -219,6 +224,8 @@ import geometry;
 %\end{picture}\makebox[1.65em][c]{{\color{dpurp}\thesection}}\quad}
 
 \newcommand{\chsize}{\fontsize{28}{34}\selectfont}
+
+\usepackage{nameref}
 
 \titleformat{\chapter}[display]{}
 {
@@ -238,7 +245,7 @@ import geometry;
 \parbox{15cm}{\begin{flushleft}\begin{hyphenrules}{nohyphenation}\biofont\chsize#1\end{hyphenrules}\end{flushleft}}
 };
 \end{tikzpicture}
-}[\vspace{3em}]
+}[\vspace{3em}\label{\thechapter}]
 
 %\newcommand{\chapterquote}[2] % meh dont think this is any good
 %{
@@ -264,7 +271,13 @@ import geometry;
 
 \fancyhead{}
 
-\fancyfoot[RO] {\scshape{\bfseries\bask \chaptername\;\thechapter}\;\;\leftmark\;\;\;\;\normalsize{\bask \bfseries\thepage}}
+\fancyfoot[RO] {\ifnum\value{chapter}>0\relax\scshape{\bfseries\bask \chaptername\;\thechapter}\;\;{\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}\nameref{\thechapter}}\;\;\;\;\fi\normalsize{\bask \bfseries\thepage}}
 \fancyfoot[LE] {\bask\thepage}
 \fancyfoot[C] {}
 
@@ -367,7 +380,11 @@ leftline=true]{exer}[theo]{Exercise}
 
 \newtheorem{pro}{Proof}
 
+\def\endpro{\hfill$\blacksquare$}
+
 \newtheorem{sol}{Solution}
+
+\def\endsol{\hfill$\blacksquare$}
 
 % compatibility with dennis sty
 
