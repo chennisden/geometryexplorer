@@ -116,6 +116,7 @@ import geometry;
 \pgfkeys{/csteps/inner color=dpurp}
 \pgfkeys{/csteps/fill color =bgpurp}
 
+\iftwocol
 \titleformat{\section}{\notofont\Large\bfseries}{}{0em}{
 \hspace{-10pt}
 \begin{tikzpicture}[ anchor = south west]
@@ -125,6 +126,17 @@ import geometry;
 };
 \end{tikzpicture}
 }[\vspace{-0.9cm}]
+\else
+\titleformat{\section}{\notofont\Large\bfseries}{}{0em}{
+\hspace{-10pt}
+\begin{tikzpicture}[ anchor = south west]
+\node at (0,0) {\color{npurp}\Circled{\thesection}};
+\node at (1.54,0.86) [text width=17cm, anchor=north west]{
+{#1}
+};
+\end{tikzpicture}
+}[\vspace{-0.9cm}]
+\fi
 
 %\titleformat{\section}{\notofont\Large\bfseries}{}{0em}{%
 %\vspace{2mm}
