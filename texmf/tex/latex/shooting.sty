@@ -33,7 +33,8 @@
 \DeclareRobustCommand{\deffont}{\fontfamily{cmr}\selectfont}
 \DeclareRobustCommand{\biofont}{\fontfamily{LinuxBiolinumT-TLF}\selectfont}
 
-\usepackage{step}
+%\usepackage{step} :| i like newpx
+\usepackage{newpxtext}
 
 \usepackage{babel}
 
@@ -54,13 +55,20 @@ import geometry;
 \usepackage{thmtools}
 \usepackage{mdframed}
 
-\RequirePackage{newpxtext,newpxmath}
-
 \RequirePackage{fontawesome}
 \RequirePackage{marvosym}
 \RequirePackage{pifont}
 \RequirePackage{MnSymbol}
 \RequirePackage[skaknew]{skak}
+
+% useful operators
+
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ord}{ord}
+\newcommand{\pow}{\mathcal{P}}
+\newcommand{\cyc}{\sum\limits_{\text{cyc}}}
+\newcommand{\sym}{\sum\limits_{\text{sym}}}
 
 \usepackage{xcolor}
 
@@ -105,16 +113,18 @@ import geometry;
 
 %toc setup
 
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\scshape\bfseries\Huge}
+\renewcommand{\cftpartfont}{\hypersetup{linkcolor=dpurp}\notofont\bfseries\large\color{dpurp}}
+\renewcommand{\cftchapfont}{\tlffont}
+
 \renewcommand*\contentsname{Table of Contents}
 
 \newcommand{\toc}{
-{\hypersetup{
-	citecolor=black,
-	filecolor=black,
-	linkcolor=black,
-	urlcolor=black}
+{\hypersetup{linkcolor=black}
 \tableofcontents
-\pagebreak}
+\pagebreak
+}
 }
 
 % chess font black magic i do not care to understand
@@ -143,14 +153,14 @@ import geometry;
 \newcommand{\probSymb}{\pawnB}
 \newcommand{\reqSymb}{\knightB}
 
-\newcommand{\minpt}[1]{Minimum is {\color{dennispurple}[#1\,\probSymb]}. Problems denoted with {\color{importantred}\reqSymb} are required. (They still count towards the point total.)}
+\newcommand{\minpt}[1]{Minimum is {\color{dpurp}[#1\,\probSymb]}. Problems denoted with {\color{importantred}\reqSymb} are required. (They still count towards the point total.)}
 
 \newcommand{\psetquote}[2] % BE CAREFUL WITH THIS. must be DIRECTLY after minpt
 {
 \begin{flushright}
 \begin{tikzpicture}
 \draw (0,0) node [right,text width=8.75cm]{
-\begin{mdframed}[linecolor=dennispurple,leftline=true,rightline=false,bottomline=false,topline=false,linewidth=3pt,backgroundcolor=lightpurple]
+\begin{mdframed}[linecolor=dpurp,leftline=true,rightline=false,bottomline=false,topline=false,linewidth=3pt,backgroundcolor=bgpurp]
 {\alegreyafont``#1''}
 
 \vspace{1mm}
@@ -165,7 +175,7 @@ import geometry;
 
 \newcommand{\prob}[3]{
 {\parindent=0pt
-{\robotofont\color{dennispurple}[#1\,\probSymb]\textbf{\if\relax\detokenize{#2}\else\hspace{3pt}(#2)\fi}}{\hspace{3pt}#3}
+{\robotofont\color{dpurp}[#1\,\probSymb]\textbf{\if\relax\detokenize{#2}\else\hspace{3pt}(#2)\fi}}{\hspace{3pt}#3}
 \vspace{0.2cm}
 }
 }
@@ -190,6 +200,52 @@ import geometry;
 \pgfkeys{/csteps/inner color=dpurp}
 \pgfkeys{/csteps/fill color =bgpurp}
 
+% all units in cm, since overlay
+
+\newcommand{\partsize}{\fontsize{50}{60}\selectfont}
+\newcommand{\smallpartsize}{\fontsize{28}{33.6}\selectfont}
+
+\newcommand\pl{10} % length of rectangle (cm)
+\newcommand\pw{6} % width of rectangle
+\newcommand\pshift{0.2} % distance of box lines from each other
+\newcommand\vs{2} % vertical shift
+
+\usepackage{etoolbox}
+\patchcmd{\part}{\thispagestyle{plain}}{\thispagestyle{empty}}
+  {}{\errmessage{Cannot patch \string\part}}
+
+\titleformat{\part}{}{}{0em}{
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+\coordinate (A) at ($(current page.center)+(0-\pl*1/2-\pshift,\vs+\pw*1/2-\pshift)$);
+\coordinate (B) at ($(current page.center)+(0-\pl*1/2-\pshift,\vs-\pw*1/2-2*\pshift)$);
+\coordinate (C) at ($(current page.center)+(\pl*1/2-\pshift,\vs-\pw*1/2-\pshift)$);
+%
+\coordinate (L) at ($(current page.center)+(0-\pl*1/2-2*\pshift,\vs+\pw*1/2-2*\pshift)$);
+\coordinate (M) at ($(current page.center)+(0-\pl*1/2-2*\pshift,\vs-\pw*1/2-\pshift)$);
+\coordinate (N) at ($(current page.center)+(\pl*1/2-2*\pshift,\vs-\pw*1/2-2*\pshift)$);
+%
+\draw (A)--(B)--(N);
+\draw (L)--(M)--(C);
+%
+\coordinate (D) at ($(current page.center)+(0-\pl*1/2+\pshift,\vs+\pw*1/2+\pshift)$);
+\coordinate (E) at ($(current page.center)+(\pl*1/2+\pshift,\vs+\pw*1/2+2*\pshift)$);
+\coordinate (F) at ($(current page.center)+(\pl*1/2+\pshift,\vs-\pw*1/2+\pshift)$);
+%
+\coordinate (P) at ($(current page.center)+(0-\pl*1/2+2*\pshift,\vs+\pw*1/2+2*\pshift)$);
+\coordinate (Q) at ($(current page.center)+(\pl*1/2+2*\pshift,\vs+\pw*1/2+\pshift)$);
+\coordinate (R) at ($(current page.center)+(\pl*1/2+2*\pshift,\vs-\pw*1/2+2*\pshift)$);
+%
+\draw (P)--(E)--(F);
+\draw (D)--(Q)--(R);
+\node at ($(current page.center)+(0,\vs)$)[align=center]{
+\\[1\baselineskip]
+{\partsize\partname\;\thepart}\\[2.5\baselineskip]
+{\smallpartsize#1}
+};
+\end{tikzpicture}%
+}
+
 \newlength{\mylen}
 
 \iftwocol
@@ -198,7 +254,7 @@ import geometry;
 \settowidth{\mylen}{\thesection}
 \begin{tikzpicture}[ anchor = south west]
 \node at (0,0) {\color{npurp}\Circled{\thesection}};
-\node at (\mylen+1,0.86) [text width = 8cm,anchor=north west]{
+\node at (\mylen*1.1+12,0.86) [text width = 8cm,anchor=north west]{
 {#1}
 };
 \end{tikzpicture}
@@ -300,12 +356,12 @@ import geometry;
 	{\vspace{1.5pt}\thmname{#1}\thmnumber{ #2}\thmnote{ --- #3}}%
 
 \newtheoremstyle{proof}
-{0pt}
-{0pt}
+{4pt}
+{4pt}
 {}
 {}
 {\color{emred}\sffamily\bfseries}
-{\hspace{4pt}---}
+{:}
 {4pt}
 {\thmname{#1}\thmnote{ #3}}
 
@@ -378,13 +434,69 @@ leftline=true]{exer}[theo]{Exercise}
 
 \theoremstyle{proof}
 
-\newtheorem{pro}{Proof}
+\newmdtheoremenv[
+backgroundcolor=white,
+nobreak=false,
+linecolor=emred,
+linewidth=1pt,
+leftline=true,
+rightline=false,
+topline=false,
+bottomline=false,
+innertopmargin=0pt,
+innerbottommargin=2pt,
+innerleftmargin=4pt
+]{pro}{Proof}
 
 \def\endpro{\hfill$\blacksquare$}
 
-\newtheorem{sol}{Solution}
+\newmdtheoremenv[
+backgroundcolor=white,
+nobreak=false,
+linecolor=emred,
+linewidth=1pt,
+leftline=true,
+rightline=false,
+topline=false,
+bottomline=false,
+innertopmargin=0pt,
+innerbottommargin=2pt,
+innerleftmargin=4pt
+]{sol}{Solution}
 
-\def\endsol{\hfill$\blacksquare$}
+%hints and solutions
+
+\RequirePackage{ifthen}
+\RequirePackage{answers}
+% Setup counters
+\newcounter{hindex}\setcounter{hindex}{0}
+\newcounter{hintcounter}\setcounter{hintcounter}{0}
+\newcounter{sindex}\setcounter{sindex}{0}
+\newcounter{solcounter}\setcounter{solcounter}{0}
+% Define \addhint and \gethint
+% \addhint is used as \begin{addhint}{type in your hint}\end{addhint}
+% \gethint is not used manually.
+\newcommand\addhint[1]{%
+\stepcounter{hintcounter}%
+\ref{hint:\thehintcounter}%
+\expandafter\gdef\csname hintlist\thehintcounter\endcsname{#1}%
+}
+\newcommand\gethint[1]{%
+\item \csname hintlist#1\endcsname \label{hint:#1}
+}
+\newcommand\addsol[1]{%
+\stepcounter{solcounter}%
+\ref{sol:\thesolcounter}%
+\expandafter\gdef\csname sollist\thesolcounter\endcsname{#1}%
+}
+\newcommand\getsol[1]{%
+\item \csname sollist#1\endcsname \label{sol:#1}
+}
+% You put (typically) \begin{hint}All of your \begin{addhint}..\end{addhint} here\end{hint} so it looks like Hint: # # #
+\newenvironment{hint}{\mbox\bgroup\footnotesize\normalfont\textbf{Hints}:}{\hspace{-0.5ex}\egroup}
+\newenvironment{hintone}{\mbox\bgroup\footnotesize\normalfont\textbf{Hint}:}{\hspace{-0.5ex}\egroup}
+\newenvironment{solu}{\mbox\bgroup\footnotesize\normalfont\textbf{Solution}:}{\hspace{-0.5ex}\egroup}
+\RequirePackage{changepage}
 
 % compatibility with dennis sty
 
@@ -393,3 +505,9 @@ leftline=true]{exer}[theo]{Exercise}
 \newcommand{\Item}{\item}
 
 \newcommand{\overarc}{\widehat} % overarc is so ugly anyways
+
+\definecolor{sangria}{rgb}{0.57, 0.0, 0.04} % EEG Cover
+
+\RequirePackage{tcolorbox} % EEG cover
+
+\RequirePackage{enumitem}
