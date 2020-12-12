@@ -10,6 +10,7 @@
 
 \iftwocol
 \newcommand\dist{0}
+\else
 \newcommand\dist{0.5}
 \fi
 
@@ -30,6 +31,7 @@
 \DeclareRobustCommand{\arimofont}{\fontfamily{Arimo-TLF}\selectfont}
 \DeclareRobustCommand{\tlffont}{\fontfamily{STEP-TLF}\selectfont}
 \DeclareRobustCommand{\deffont}{\fontfamily{cmr}\selectfont}
+\DeclareRobustCommand{\biofont}{\fontfamily{LinuxBiolinumT-TLF}\selectfont}
 
 \usepackage{step}
 
@@ -111,10 +113,18 @@ import geometry;
 
 \pgfkeys{/csteps/inner ysep=8pt}
 \pgfkeys{/csteps/inner xsep=8pt}
+\pgfkeys{/csteps/inner color=dpurp}
+\pgfkeys{/csteps/fill color =bgpurp}
 
 \titleformat{\section}{\notofont\Large\bfseries}{}{0em}{
-\hspace{-4pt}{\color{npurp}\Circled{\thesection}}\hspace{0.5em}#1
-}
+\hspace{-10pt}
+\begin{tikzpicture}[ anchor = south west]
+\node at (0,0) {\color{npurp}\Circled{\thesection}};
+\node at (1.54,0.86) [text width = 8cm,anchor=north west]{
+{#1}
+};
+\end{tikzpicture}
+}[\vspace{-0.9cm}]
 
 %\titleformat{\section}{\notofont\Large\bfseries}{}{0em}{%
 %\vspace{2mm}
@@ -122,12 +132,13 @@ import geometry;
 %\put(12,5){{\color{dpurp}\circle{28}}}
 %\end{picture}\makebox[1.65em][c]{{\color{dpurp}\thesection}}\quad}
 
-\newcommand{\chsize}{\fontsize{30}{36}\selectfont}
+\newcommand{\chsize}{\fontsize{28}{34}\selectfont}
 
 \titleformat{\chapter}[display]{}
 {
 \begin{tikzpicture}[remember picture,overlay,anchor = north west]
 \path (current page.north west) node[below right,fill=headpurp,minimum width=\paperwidth, minimum height=4cm] (box){};
+\path (current page.north west) node[below right,fill=dpurp,minimum width=\paperwidth, minimum height=0.4cm] (box){};
 \coordinate (ur) at (\paperwidth-55,1.8+\dist);
 \path (ur) node[below left,fill=dpurp,minimum width=3cm, minimum height = 3cm](box){
 \scalebox{2}{\deffont\Huge\color{white}\bfseries\thechapter}
@@ -138,7 +149,7 @@ import geometry;
 }{0pt}{
 \begin{tikzpicture}[remember picture, overlay, anchor=south west]
 \node (chtext) at (0,1.65+\dist) {
-\parbox{15cm}{\begin{flushleft}\begin{hyphenrules}{nohyphenation}\robotofont\Huge#1\end{hyphenrules}\end{flushleft}}
+\parbox{15cm}{\begin{flushleft}\begin{hyphenrules}{nohyphenation}\biofont\chsize#1\end{hyphenrules}\end{flushleft}}
 };
 \end{tikzpicture}
 }[\vspace{3em}]
