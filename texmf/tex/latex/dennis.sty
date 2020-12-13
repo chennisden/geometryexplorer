@@ -413,6 +413,15 @@ bottomline=false,
 rightline=false,
 leftline=false]{exam}{Example}[chapter]
 
+\newmdtheoremenv[% settings
+backgroundcolor=thmred,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{exer}{Exercise}[chapter]
+
 \else
 
 % theorem numbers same
@@ -482,6 +491,16 @@ topline=false,
 bottomline=false,
 rightline=false,
 leftline=false]{exam}{Example}
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmred,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{exer}{Exercise}
 \fi
 
 \theoremstyle{proof}
@@ -534,3 +553,5 @@ leftline=true]{pro}{Proof}
 %custom bullet points
 
 \newcommand*{\Item}{\item[\ding{70}]}
+
+\newcommand{\dbold}[1]{{\color{sangria}\bfseries#1}}
