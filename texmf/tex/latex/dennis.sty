@@ -145,7 +145,7 @@ import geometry;
 \patchcmd{\@maketitle}{\@date}{\sffamily\@date}{}{}
 \else
 \patchcmd{\@maketitle}{\@title}{\sffamily\color{sangria}\bfseries\@title{}}{}{}
-\patchcmd{\@maketitle}{\@author}{\alegreyafont\@author}{}{}
+\patchcmd{\@maketitle}{\@author}{\sffamily\@author}{}{}
 \patchcmd{\@maketitle}{\@date}{\sffamily\color{persianblue}{\@date}}{}{}
 \fi
 
@@ -233,18 +233,22 @@ import geometry;
 \newcommand{\cyc}{\sum\limits_{\text{cyc}}}
 \newcommand{\sym}{\sum\limits_{\text{sym}}}
 
-% arcs
+% YOU BROKEN PIECE OF SHIT
 
-\RequirePackage{xwatermark}
-\RequirePackage{arcs}
+%% arcs
+%
+%\RequirePackage{xwatermark}
+%\RequirePackage{arcs}
+%
+%\makeatletter 
+%\providecommand\@gobblethree[3]{}
+%\patchcmd{\over@under@arc}
+% {\@gobbletwo}
+% {\@gobblethree}
+% {}{}
+%\makeatother
 
-\makeatletter 
-\providecommand\@gobblethree[3]{}
-\patchcmd{\over@under@arc}
- {\@gobbletwo}
- {\@gobblethree}
- {}{}
-\makeatother
+\newcommand{\overarc}{\widehat} % overarc is so ugly anyways, also fixes arc being completely broken /shrug
 
 % theorem styles
 
@@ -448,6 +452,16 @@ bottomline=false,
 rightline=false,
 leftline=false]{lemma}{Lemma}
 
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{corollary}{Corollary}
+
 \theoremstyle{def}
 
 \newmdtheoremenv[% settings
@@ -555,3 +569,5 @@ leftline=true]{pro}{Proof}
 \newcommand*{\Item}{\item[\ding{70}]}
 
 \newcommand{\dbold}[1]{{\color{sangria}\bfseries#1}}
+
+\newcommand{\db}{\dbold}
