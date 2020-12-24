@@ -3,7 +3,6 @@
 \RequirePackage[letterpaper,top=1.5cm,bottom=1.5cm,left=2cm,right=2cm]{geometry} % adjust marhins
 \RequirePackage{nopageno} % no page counter
 \RequirePackage{changepage} % adjust margins
-\RequirePackage[hidelinks]{hyperref}
 
 % colors
 
@@ -13,6 +12,15 @@
 \definecolor{wildcolor}{RGB}{90,15,10} % wildcard color for quotes and anything else that comes up
 \definecolor{bodycolor}{RGB}{0,0,0} % body color. used for act and desc
 \definecolor{refcolor}{RGB}{150, 150, 150} % color used for references.
+
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=topcolor
+}
 
 % fonts
 \RequirePackage{Alegreya} % used for certain things
@@ -25,7 +33,14 @@
 
 \newcommand{\name}[1]{
 \begin{center}
+{\hypersetup{
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=refcolor
+}
 {\color{topcolor}\huge\bfseries\sffamily #1}
+}
 \end{center}
 } % name of person
 
