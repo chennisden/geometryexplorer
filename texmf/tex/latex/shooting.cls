@@ -1,4 +1,5 @@
-\ProvidesPackage{shooting}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{shooting}
 
 \newif\iftwocol\twocoltrue
 \newif\ifpurp\purptrue
@@ -10,8 +11,10 @@
 
 \iftwocol
 \newcommand\dist{0}
+\LoadClass[twocolumn,openany]{book}
 \else
 \newcommand\dist{0.5}
+\LoadClass[openany]{book}
 \fi
 
 \RequirePackage[letterpaper,top=2cm,bottom=2cm,left=1.5cm,right=1.5cm,includeheadfoot]{geometry}

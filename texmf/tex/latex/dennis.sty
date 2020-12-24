@@ -114,7 +114,7 @@ import geometry;
 
 \vspace{1mm}
 
-\hfill\ol{\textit{#2}}
+\hfill\color{sangria}\fell#2
 \end{mdframed}
 };
 
@@ -189,6 +189,7 @@ import geometry;
 \RequirePackage{pifont}
 \RequirePackage[T1]{fontenc}
 \DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
+\DeclareRobustCommand{\fell}{\fontfamily{IMFELLEnglish-TLF}\selectfont}
 
 % more generic formatitng
 
@@ -229,6 +230,11 @@ import geometry;
 \DeclareMathOperator{\cis}{cis}
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\ord}{ord}
+
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+
 \newcommand{\pow}{\mathcal{P}}
 \newcommand{\cyc}{\sum\limits_{\text{cyc}}}
 \newcommand{\sym}{\sum\limits_{\text{sym}}}
@@ -572,4 +578,6 @@ leftline=true]{pro}{Proof}
 
 \newcommand{\db}{\dbold}
 
-\newcommand{\ansbold}[1]{{\color{\sectioncolor}\bm{#1}}}
+\usepackage{bm}
+
+\newcommand{\ansbold}[1]{{\color{darkmidnightblue}\bm{#1}}}

@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage{lucky}
+
+\title{Sample Document for lucky.sty}
+\author{Dennis Chen}
+\date{Winter 2020}
+
+\begin{document}
+\maketitle
+
+In this sample document we display the features of lucky.sty.
+
+\section{Graphics}
+
+\subsection{Theorem environments}
+
+There are several theorem environments; notably, they are theo, defi, exam, exer. The proof and solution environments are pro and sol.
+
+\begin{theo}[Using the Theorem Environments]
+To use the theorem environments, simply type
+\begin{verbatim}
+\begin{env}[Optional argument]
+Theorem text
+\end{env}
+\end{verbatim}
+where one of theo, defi, exam, exer are substituted into `env.'
+\end{theo}
+
+\begin{pro}
+To insert a proof of a theorem, use
+\begin{verbatim}
+\begin{pro}
+Proof of theorem.
+\end{pro}
+\end{verbatim}
+\end{pro}
+
+\begin{defi}[Definitions]
+Definitions (and facts) follow similarly.
+\end{defi}
+
+\begin{exam}[Solution Environment]
+Here's an example of the solution environment.
+\end{exam}
+
+\begin{sol}
+To use the solution environment, type
+\begin{verbatim}
+\begin{sol}
+Solution
+\end{sol}
+\end{verbatim}
+If you want to label the solution, include the label in optional brackets as such:
+\begin{verbatim}
+\begin{sol}[Label]
+Solution
+\end{sol}
+\end{verbatim}
+Parentheses are not included in the label, as the most common use is to enumerate multiple solutions to a problem. It is advised not to label solutions with a summary, as the solution structure itself should be concise and organized enough on its own. Labeling is identical for the proof environment.
+\end{sol}
+
+\begin{exer}
+Did you notice that the example and exercise environments are very similar?
+\end{exer}
+
+\subsection{Miscellany}
+
+The section and subsection displays have been modified as can be seen above, and the fonts have also been changed. Most notably, the default text font is newpxtext and the default math font is newpxmath.
+
+The command
+
+\begin{verbatim}
+\db{argument}
+\end{verbatim}
+
+bolds the text and makes it dark purple, \db{like such}.
+
+\begin{itemize}
+\item The itemize command has also been customized.
+\begin{itemize}
+\item Changes have been made down to three levels of nesting.
+\begin{itemize}
+\item This is probably the deepest level of nesting one should reasonably need.
+\end{itemize}
+\end{itemize}
+\item Several math operators are defined. The output is just the text of the command.
+\begin{itemize}
+\item Complex numbers: \verb|\cis|
+\item Number theory: Along with the standard gcd command, \verb|\lcm, \ord| are also provided.
+\item Trigonometric functions: \begin{verbatim}
+\arccsc, \arcsec, \arccot
+\end{verbatim}
+\item Cyclic and symmetric sums: \verb|\cyc, \sym| display $\cyc, \sym.$
+\end{itemize}
+\end{itemize}
+
+The table of contents command is \verb|\toc,| which is provided to allow hyperlinking without changing the color of the contents.
+
+\pagebreak\section{Problem-sets}
+
+\minpt{20}
+
+\psetquote{We show off the problem environments in what follows.}{lucky.sty}
+
+\prob{2}{Sourced problem}{To create a problem, simply input}
+\vspace{-0.2cm}
+\begin{verbatim}
+\prob{Point value}{Source}{Problem text}
+\end{verbatim}
+
+\noindent to get a problem. Parentheses should not be included around the source; the package will do that for you.
+\vspace{0.2cm}
+
+\prob{3}{}{If you leave the `Source' argument empty, the parentheses will not appear.}
+
+\req{6}{}{Using the command}
+\vspace{-0.2cm}
+\verb|\req|
+will do the same thing as the problem command, though the problem source and point value will be displayed differently to highlight that the problem is required.
+\vspace{0.2cm}
+
+\req{13}{Quotes}{Problem-set quotes, as we displayed earlier, can be created with the following command:}
+\vspace{-0.2cm}
+\begin{verbatim}
+\psetquote{Quote}{Source}
+\end{verbatim}
+\end{document}
