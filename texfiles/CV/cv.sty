@@ -33,14 +33,7 @@
 
 \newcommand{\name}[1]{
 \begin{center}
-{\hypersetup{
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=refcolor
-}
 {\color{topcolor}\huge\bfseries\sffamily #1}
-}
 \end{center}
 } % name of person
 
@@ -51,7 +44,12 @@
 
 \newcommand{\sociallist}[1]{
 \begin{center}
-{\color{refcolor}\sffamily#1}
+{\hypersetup{
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=refcolor
+}\color{refcolor}\sffamily#1}
 \end{center}
 } % linkedin and whatnot
 
