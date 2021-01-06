@@ -76,6 +76,8 @@ import geometry;
 
 \definecolor{solcolor}{RGB}{0,25,0}
 
+\definecolor{remcolor}{RGB}{220,220,220}
+
 % Points setup
 \RequirePackage{fontawesome}
 
@@ -294,6 +296,16 @@ import geometry;
 {}
 {}
 {\color{darkpurple}\sffamily\bfseries}
+{:}
+{1.5mm}
+{\thmname{#1}\thmnote{ #3}}
+
+\newtheoremstyle{remark}
+{0pt}
+{0pt}
+{}
+{}
+{\color{black}\sffamily\bfseries}
 {:}
 {1.5mm}
 {\thmname{#1}\thmnote{ #3}}
@@ -537,6 +549,21 @@ topline=false,
 bottomline=false,
 rightline=false,
 leftline=true]{pro}{Proof}
+
+\theoremstyle{remark}
+
+\newmdtheoremenv[
+backgroundcolor=remcolor,
+nobreak=true,
+innertopmargin=5pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+linecolor=black,
+linewidth=3pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=true]{remark}{Remark}
 
 \renewcommand{\thepro}{\unskip}
 
