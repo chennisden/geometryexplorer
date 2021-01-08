@@ -69,15 +69,49 @@ import geometry;
 \DeclareMathOperator{\cis}{cis}
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\ord}{ord}
+
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+
 \newcommand{\pow}{\mathcal{P}}
 \newcommand{\cyc}{\sum\limits_{\text{cyc}}}
 \newcommand{\sym}{\sum\limits_{\text{sym}}}
 
 \usepackage{xcolor}
 
+% dennis.sty colors for compatibility
+
+\definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+\definecolor{sangria}{rgb}{0.57, 0.0, 0.04}
+\definecolor{persianblue}{rgb}{0.11, 0.22, 0.73}
+
 \definecolor{dennispurple}{RGB}{45,0,90} % dark purple
 \definecolor{lightpurple}{RGB}{230,230,250}
 \definecolor{importantred}{RGB}{100,15,15}
+
+\definecolor{titlered}{RGB}{128, 0.0, 0.0}
+
+% theorem colors
+
+\definecolor{thmblue}{rgb}{0.88, 0.95, 0.98}
+\definecolor{darkblue}{RGB}{36,57,108}
+
+\definecolor{thmgreen}{RGB}{207,241,208}
+\definecolor{darkgreen}{RGB}{30,70,30}
+
+\definecolor{thmred}{RGB}{240, 200, 200}
+\definecolor{darkred}{RGB}{120, 30, 20}
+
+\definecolor{proofbrown}{RGB}{100,40,40}
+\definecolor{proofbckg}{HTML}{fffdf5}
+
+\definecolor{darkpurple}{RGB}{45,0,90} % dark purple
+\definecolor{lightpurple}{RGB}{230,230,250}
+
+\definecolor{solcolor}{RGB}{0,25,0}
+
+\definecolor{remcolor}{RGB}{220,220,220}
 
 \ifpurp
 
