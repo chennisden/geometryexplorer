@@ -285,6 +285,8 @@ import geometry;
 
 \newlength{\mylen}
 
+\usepackage{xstring,xifthen}
+
 \iftwocol
 \titleformat{\section}{\notofont\Large\bfseries}{}{0em}{
 \hspace{-12pt}
@@ -305,6 +307,9 @@ import geometry;
 {#1}
 };
 \end{tikzpicture}
+\def\secstring{\thesection}
+\StrLen{\secstring}[\seclength]
+\ifthenelse{\seclength > 3}{\vspace{-0.65cm}}{}
 }[\vspace{-0.45cm}]
 \fi
 
@@ -398,6 +403,26 @@ import geometry;
 {4pt}
 {\thmname{#1}\thmnote{ #3}}
 
+\newtheoremstyle{walk}
+{4pt}
+{4pt}
+{}
+{}
+{\color{emred}\sffamily\bfseries}
+{:}
+{0pt}
+{\thmname{#1}\thmnote{ #3}}
+
+\newtheoremstyle{remark}
+{0pt}
+{0pt}
+{}
+{}
+{\color{emred}\sffamily\bfseries}
+{:}
+{1.5mm}
+{\thmname{#1}\thmnote{ #3}}
+
 \theoremstyle{dbox}
 
 \newmdtheoremenv[% settings
@@ -465,6 +490,26 @@ bottomline=true,
 rightline=true,
 leftline=true]{exer}[theo]{Exercise}
 
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{lemma}[theo]{Lemma}
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{corollary}[theo]{Corollary}
+
 \theoremstyle{proof}
 
 \newmdtheoremenv[
@@ -496,6 +541,39 @@ innertopmargin=0pt,
 innerbottommargin=2pt,
 innerleftmargin=4pt
 ]{sol}{Solution}
+
+\theoremstyle{remark}
+
+\newmdtheoremenv[
+backgroundcolor=remcolor,
+nobreak=true,
+innertopmargin=5pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+linecolor=black,
+linewidth=2pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=true]{remark}{Remark}
+
+\theoremstyle{walk}
+
+\newmdtheoremenv[
+backgroundcolor=white,
+nobreak=false,
+linecolor=emred,
+linewidth=1pt,
+leftline=true,
+rightline=false,
+topline=false,
+bottomline=false,
+innertopmargin=0pt,
+innerbottommargin=2pt,
+innerleftmargin=4pt
+]{walk}{Walkthrough}
+
+\renewcommand{\walk}{{\color{emred}\bfseries Walkthrough:~}}
 
 %hints and solutions
 
