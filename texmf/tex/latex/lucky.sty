@@ -297,6 +297,16 @@ import geometry;
 {1.5mm}
 {\thmname{#1}\thmnote{ #3}}
 
+\newtheoremstyle{remark}
+{0pt}
+{0pt}
+{}
+{}
+{\color{black}\sffamily\bfseries}
+{:}
+{1.5mm}
+{\thmname{#1}\thmnote{ #3}}
+
 % theorems
   
 \theoremstyle{theo}
@@ -375,3 +385,18 @@ leftline=true]{pro}{Proof}
 \theoremstyle{solution}
 
 \newtheorem{sol}{Solution}
+
+\theoremstyle{remark}
+
+\newmdtheoremenv[
+backgroundcolor=remcolor,
+nobreak=true,
+innertopmargin=5pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+linecolor=black,
+linewidth=3pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=true]{remark}{Remark}
