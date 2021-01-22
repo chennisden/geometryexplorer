@@ -287,6 +287,7 @@ import geometry;
 \newlength{\mylen}
 
 \usepackage{xstring,xifthen}
+\usepackage{ragged2e}
 
 \iftwocol
 \titleformat{\section}{\notofont\Large\bfseries}{}{0em}{
