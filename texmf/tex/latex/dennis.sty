@@ -237,6 +237,9 @@ import geometry;
 \DeclareMathOperator{\arcsec}{arcsec}
 \DeclareMathOperator{\arccot}{arccot}
 
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
 \newcommand{\pow}{\mathcal{P}}
 \newcommand{\cyc}{\sum\limits_{\text{cyc}}}
 \newcommand{\sym}{\sum\limits_{\text{sym}}}
@@ -401,6 +404,26 @@ topline=false,
 bottomline=false,
 rightline=false,
 leftline=false]{theo}{Theorem}[chapter]
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{lemma}{Lemma}[chapter]
+
+\newmdtheoremenv[% settings
+backgroundcolor=thmblue,
+nobreak=true,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+topline=false,
+bottomline=false,
+rightline=false,
+leftline=false]{corollary}{Corollary}[chapter]
 
 \theoremstyle{def}
 
