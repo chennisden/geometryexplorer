@@ -35,6 +35,7 @@
 \DeclareRobustCommand{\tlffont}{\fontfamily{STEP-TLF}\selectfont}
 \DeclareRobustCommand{\deffont}{\fontfamily{cmr}\selectfont}
 \DeclareRobustCommand{\biofont}{\fontfamily{LinuxBiolinumT-TLF}\selectfont}
+\DeclareRobustCommand{\cabinfont}{\fontfamily{zpltlf}\selectfont}
 
 %\usepackage{step} :| i like newpx
 \usepackage{newpxtext}
@@ -286,6 +287,7 @@ import geometry;
 \newlength{\mylen}
 
 \usepackage{xstring,xifthen}
+\usepackage{ragged2e}
 
 \iftwocol
 \titleformat{\section}{\notofont\Large\bfseries}{}{0em}{
@@ -336,7 +338,7 @@ import geometry;
 }{0pt}{
 \begin{tikzpicture}[remember picture, overlay, anchor=south west]
 \node (chtext) at (0,1.65+\dist) {
-\parbox{15cm}{\begin{flushleft}\begin{hyphenrules}{nohyphenation}\biofont\chsize#1\end{hyphenrules}\end{flushleft}}
+\parbox{15cm}{\begin{flushleft}\begin{hyphenrules}{nohyphenation}\cabinfont\chsize#1\end{hyphenrules}\end{flushleft}}
 };
 \end{tikzpicture}
 }[\vspace{3em}\label{\thechapter}]
