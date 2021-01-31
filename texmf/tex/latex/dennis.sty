@@ -190,8 +190,8 @@ import geometry;
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{pifont}
 \RequirePackage[T1]{fontenc}
-\DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
-\DeclareRobustCommand{\fell}{\fontfamily{IMFELLEnglish-TLF}\selectfont}
+
+\input{fonts}
 
 % more generic formatitng
 
@@ -229,22 +229,7 @@ import geometry;
 
 % useful operators
 
-\DeclareMathOperator{\cis}{cis}
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\ord}{ord}
-
-\DeclareMathOperator{\arccsc}{arccsc}
-\DeclareMathOperator{\arcsec}{arcsec}
-\DeclareMathOperator{\arccot}{arccot}
-
-\renewcommand{\Re}{\operatorname{Re}}
-\renewcommand{\Im}{\operatorname{Im}}
-
-\newcommand{\pow}{\mathcal{P}}
-\newcommand{\cyc}{\sum\limits_{\text{cyc}}}
-\newcommand{\sym}{\sum\limits_{\text{sym}}}
-
-\newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
+\input{mathOperators}
 
 % YOU BROKEN PIECE OF SHIT
 
@@ -641,3 +626,5 @@ leftline=true]{remark}{Remark}
 \usepackage{bm}
 
 \newcommand{\ansbold}[1]{{\color{darkmidnightblue}\bm{#1}}}
+
+\input{tikzMacros}

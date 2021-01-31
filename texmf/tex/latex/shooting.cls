@@ -23,19 +23,7 @@
 
 \setlength{\columnsep}{30pt}
 
-\DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
-\DeclareRobustCommand{\notofont}{\fontfamily{NotoSans-TLF}\selectfont}
-\DeclareRobustCommand{\merri}{\fontfamily{MerriwthrSans-OsF}\selectfont}
-\DeclareRobustCommand{\robotofont}{\fontfamily{RobotoSlab-TLF}\selectfont}
-\DeclareRobustCommand{\bera}{\fontfamily{fve}\selectfont}
-\DeclareRobustCommand{\bask}{\fontfamily{BaskervilleF-TLF}\selectfont}
-\DeclareRobustCommand{\fell}{\fontfamily{IMFELLEnglish-TLF}\selectfont}
-\DeclareRobustCommand{\cha}{\fontfamily{mdbch}\selectfont}
-\DeclareRobustCommand{\arimofont}{\fontfamily{Arimo-TLF}\selectfont}
-\DeclareRobustCommand{\tlffont}{\fontfamily{STEP-TLF}\selectfont}
-\DeclareRobustCommand{\deffont}{\fontfamily{cmr}\selectfont}
-\DeclareRobustCommand{\biofont}{\fontfamily{LinuxBiolinumT-TLF}\selectfont}
-\DeclareRobustCommand{\cabinfont}{\fontfamily{zpltlf}\selectfont}
+\input{fonts}
 
 %\usepackage{step} :| i like newpx
 \usepackage{newpxtext}
@@ -67,17 +55,7 @@ import geometry;
 
 % useful operators
 
-\DeclareMathOperator{\cis}{cis}
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\ord}{ord}
-
-\DeclareMathOperator{\arccsc}{arccsc}
-\DeclareMathOperator{\arcsec}{arcsec}
-\DeclareMathOperator{\arccot}{arccot}
-
-\newcommand{\pow}{\mathcal{P}}
-\newcommand{\cyc}{\sum\limits_{\text{cyc}}}
-\newcommand{\sym}{\sum\limits_{\text{sym}}}
+\input{mathOperators}
 
 \usepackage{xcolor}
 
@@ -628,3 +606,5 @@ innerleftmargin=4pt
 % compatibility with lucky sty
 
 \newcommand{\db}{\dbold}
+
+\input{tikzMacros}

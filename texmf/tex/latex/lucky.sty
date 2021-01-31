@@ -24,19 +24,7 @@ import geometry;
 
 % useful operators
 
-\DeclareMathOperator{\cis}{cis}
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\ord}{ord}
-
-\DeclareMathOperator{\arccsc}{arccsc}
-\DeclareMathOperator{\arcsec}{arcsec}
-\DeclareMathOperator{\arccot}{arccot}
-
-\newcommand{\pow}{\mathcal{P}}
-\newcommand{\cyc}{\sum\limits_{\text{cyc}}}
-\newcommand{\sym}{\sum\limits_{\text{sym}}}
-
-\newcommand*\Eval[3]{#1 \Big|_{#2}^{#3}}
+\input{mathOperators}
 
 % hyperref
 
@@ -78,13 +66,7 @@ import geometry;
 \RequirePackage{MnSymbol}
 \RequirePackage[skaknew]{skak}
 
-\DeclareRobustCommand{\alegreyafont}{\fontfamily{Alegreya-LF}\selectfont} % defines alegreya
-\DeclareRobustCommand{\notofont}{\fontfamily{NotoSans-TLF}\selectfont}
-\DeclareRobustCommand{\merri}{\fontfamily{MerriwthrSans-OsF}\selectfont}
-\DeclareRobustCommand{\robotofont}{\fontfamily{RobotoSlab-TLF}\selectfont}
-\DeclareRobustCommand{\bera}{\fontfamily{fve}\selectfont}
-\DeclareRobustCommand{\bask}{\fontfamily{BaskervilleF-TLF}\selectfont}
-\DeclareRobustCommand{\fell}{\fontfamily{IMFELLEnglish-TLF}\selectfont}
+\input{fonts}
 
 % chess font black bagic i do not care to understand
 
@@ -389,6 +371,8 @@ leftline=true]{pro}{Proof}
 \theoremstyle{solution}
 
 \newtheorem{sol}{Solution}
+
+\input{tikzMacros}
 
 \theoremstyle{remark}
 
