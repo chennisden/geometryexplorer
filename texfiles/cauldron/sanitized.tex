@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage{lucky}
+
+\title{The Problem Cauldron}
+\author{Dennis Chen}
+\date{Unabridged}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+This is a compendium of some of the best problems I've written over the years. For a collection of the best problems I've written, see the unabridged version. For any problems included on competitions or application sets (mostly 2020 and after), year sorting is based on when it appeared, not when it was written. Anything I wrote before was probably before then, and I don't remember whether it was 2018 vs. 2019. Any problems that have not appeared are timestamped by the year it was written in.\footnote{This quite significantly deviates from the date written for the earlier problems; for instance, the entirety of MAST Diagnostic S1 was written in 2019.} \db{Problems in each year are not ordered by any particular criteria.}\footnote{This isn't entirely true; I've grouped problems up roughly by contest and chronological order at the time of writing, but no promises the organization will make sense forever.}
+
+\pagebreak
+
+\section{Pre-2020}
+
+\begin{enumerate}
+\item Consider the set of integers $\{1,2,3,\ldots, 12, 13\}.$ It is possible to achieve $S$ distinct sums by adding together $N$ distinct elements. Find the sum of all values of $N$ that maximize $S.$
+
+\item A \db{tweenie} is a natural number that is the mean of two distinct powers of two. Find the tenth smallest \db{tweenie}.
+
+\item There are $3$ six-sided dice, one red, one white, and one blue. How many ways can the sum of the $15$ faces showing on the three die equal $56,$ if two rolls are considered unique if and only if the sum of the faces showing on one die differs across the two rolls?
+
+\item (QIDb AMC 10C 2018/22) The Angry Tomatoes are practicing by splitting their $6$-player team into $2$ teams of $3$ players each and letting their $3$-player teams play against each other. The players have skill levels of $1,$ $2,$ $3,$ $4,$ $5,$ and $6,$ with $1$ being the least skillful and $6$ being the most skillful. Team captains Tony and Rosa take turns choosing players for their team, with Tony choosing first. However, the captains are humans and they can make mistakes. Each time a captain chooses a player, there is a $\frac{1}{3}$ probability that the captain underestimates a player’s skill level by $1$ and a $\frac13$ probability that the captain overestimates a player’s skill level by $1.$ The captains will always choose the player that they perceive as most skillful, and if there is a tie, the captains will choose the player that is actually more skillful. If the team with a higher total skill level wins, what is the probability that Rosa’s team wins?
+
+\item (Memorial Day Mock AMC 10 2018/21) In the following diagram, $\angle BAC=\angle BFC=40^{\circ}$, $\angle ABF=80^{\circ}$, and $\angle FEB=2\angle DBE=2\angle FBE$. What is $\angle ADB$?
+
+    \begin{center}
+        \begin{asy}
+        import olympiad;
+        size(4cm);
+    draw((0,0)--(-14,0)--(2,8)--(0,0)--(-9,2.5)--(-5.5,0)--(-6,4)--cycle);
+    draw((-5.5,0)--(2,8));
+    label("A", (2,8), NE);
+    label("B", (0,0), SE);
+    label("C", (-5.5,0), S);
+    label("D", (-14,0), SW);
+    label("E", (-9,2.5), NNW);
+    label("F", (-6,4), NNW);
+        \end{asy}
+    \end{center}
+    
+\item Prove that $31\mid 5^{31}+5^{17}+1.$\footnote{This problem served as inspiration for JMC 10 2020/22.}
+
+\item Consider a number line with a drunkard at $0,$ and two cops at $-2019$ and $1000.$ Each second, the drunkard will randomly move to an adjacent integer with equal probability. The cops must move to an adjacent integer of their choice every second as well, and the movements of the cops and drunkard happen simultaneously. If the goal of the cops is to occupy the same number as the drunkard, what is the expected amount of seconds it will take the cops to occupy the same space as the drunkard? Assume optimal movement from the cops.
+
+\item (e-dchen Mock MATHCOUNTS 2020/S1) The area and perimeter of a regular hexagon are numerically equal. What is its area?
+
+\item (e-dchen Mock MATHCOUNTS 2020/S2) Alex uses the formula $F=\frac{9}{5}C+32$ to convert from Celsius to Fahrenheit, where $F$ and $C$ denote the temperature in Fahrenheit and Celsius, respectively. Alex then remarks that $F=C+28.$ Find $F+C.$
+
+\item (e-dchen Mock MATHCOUNTS 2020/S7) In the game of rock-paper-scissors, rock defeats scissors, scissors defeats paper, and paper defeats rock. Al, Bob, and Carl each randomly choose either rock, paper, or scissors in a three-way rock-paper-scissors. A complete tie is achieved if for each player, the number of players he defeats is the same. What is the probability of a complete tie?
+
+\item (e-dchen Mock MATHCOUNTS 2020/S13) Consider a circle centered at $O$ and chord $AB.$ Let $P$ be a point on segment $AB$ such that $AP=2$ and $BP=8.$ If $\angle APO=150^{\circ},$ what is the area of the circle?
+
+\item (e-dchen Mock MATHCOUNTS 2020/S18) Mark takes the first $3n$ non-negative integers and adds them up. Kathy then takes the first $n$ perfect cubes and adds them up. If Mark and Kathy get the same sum, what is $n?$
+
+\item (e-dchen Mock MATHCOUNTS 2020/S21) Bill has 7 rods, with lengths $1,2,3,\dots,7.$ He repeatedly takes two rods of length $a,b,$ and makes them the legs of a right triangle. He gets a new rod with the length of the hypotenuse of the right triangle and uses it to replace the rods of length $a$ and $b.$ At the end, when he only has two rods left, he forms the right triangle with those two rods as legs. What is the maximum possible area of this right triangle?
+
+\item (e-dchen Mock MATHCOUNTS 2020/S22) Consider polynomial $f(x)=(x-1)(x-2)\dots(x-8).$ Let $a,b$ be integers such that $a\neq b,$ $a,b$ are not roots of $f(x),$ and the remainder of $f(x)$ when divided by $x-a$ and $x-b$ are equal. What is $a+b?$
+
+\item (e-dchen Mock MATHCOUNTS 2020/S30) Find the sum of all odd $n$ such that $\frac{1}{n}$ expressed in base $8$ is a repeating decimal with period $4.$
+
+\item (Quite Easily Done J6, S4) Let $f(x)=x^2-12x+36.$ In terms of $k$, for $k\geq 2,$ find the sum of all real $n$ such that $f^{k-1}(n)=f^k(n).$
+\end{enumerate}
+
+\section{2020}
+
+\begin{enumerate}
+\item (MAST S1/C1) How many integer values of $1\leq x\leq 100$ makes $x^2+8x+5$ divisible by $10?$
+
+\item (MAST S1/C3) Consider parallelogram $ABCD$ with $AB=7,$ $BC=6.$ Let the angle bisector of $\angle DAB$ intersect $BC$ at $X$ and $CD$ at $Y.$ Let the line through $X$ parallel to $BD$ intersect $AD$ at $Q.$ If $QY=6,$ find $\cos\angle DAB.$
+
+\item (MAST S1/C4) Consider unit circle $O$ with diameter $AB.$ Let $T$ be on the circle such that $TA<TB.$ Let the tangent line through $T$ intersect $AB$ at $X$ and intersect the tangent line through $B$ at $Y.$ Let $M$ be the midpoint of $YB,$ and let $XM$ intersect circle $O$ at $P$ and $Q.$ If $XP=MQ,$ find $AT.$
+
+\item (MAST S1/C5) A secret spy organization needs to spread some secret knowledge to all of its members. In the beginning, only $1$ member is \textit{informed}. Every informed spy will call an uninformed spy such that every informed spy is calling a different uninformed spy. After being called, an uninformed spy becomes informed. The call takes $1$ minute, but since the spies are running low on time, they call the next spy directly afterward. However, to avoid being caught, after the third call an informed spy makes, the spy stops calling. How many minutes will it take for every spy to be informed, provided that the organization has $600$ spies?
+
+\item (MAST S1/C6) Andy the unicorn is on a number line from $1$ to $2019.$ He starts on $1.$ Each step, he randomly and uniformly picks an integer greater than the integer he is currently on, and goes to it. He stops when he reaches $2019.$ What is the probability he is ever on $1984?$\footnote{This inspired NARML 2020/8.}
+
+\item (MAST S1/C7) Find \[\sum\limits_{a=1}^{\infty}\frac{32a}{16a^4+24a^2+25}.\]
+
+\item (MAST S1/C9) Santa Claus is putting $n$ identical toy trains into a red stocking, a green stocking, and a white stocking such that the amount of trains in the green stocking is divisible by $3$ and the amount of trains in the white stocking is even. Mrs. Claus is putting $n$ identical elves into a red stocking, a green stocking, and a white stocking such that the amount of elves in the green stocking is divisible by $3$ and the amount of elves in the white stocking is odd. Find, in terms of $n,$ the positive difference between the amount of ways Santa Claus can put his trains in the stockings and the amount of ways Mrs. Claus can put her elves in the stockings.
+
+\item (MAST S1/C10) Find the maximum value of $k$ such that $(x+1)^4\geq kx^3$ for all $x.$
+
+\item (MAST S1/P1) Consider $\triangle ABC,$ and let the feet of the $B$ and $C$ altitudes of the triangle be $X,Y.$ Let $XY$ intersect $BC$ at $P.$ Then prove that the circumcircles of $\triangle PBY$ and $\triangle PCX$ concur with $AP.$
+
+\item (MAST S1/P2) Consider $\triangle ABC$ with $D$ on line $BC.$ Let the circumcenters of $\triangle ABD$ and $\triangle ACD$ be $M,N,$ respectively. Let the circumcircle of $\triangle MND$ intersect the circumcircle of $\triangle ACD$ again at $H\neq D.$ Prove that $A,M,H$ are collinear.
+
+\item (MAST S1/P4) Consider scalene $\triangle ABC$ with incenter $I.$ Let the $A$ excircle of $\triangle ABC$ intersect the circumcircle of $\triangle ABC$ at $X,Y.$ Let $XY$ intersect $BC$ at $Z.$ Then choose $M,N$ on the $A$ excircle of $\triangle ABC$ such that $ZM,ZN$ are tangent to the $A$ excircle of $\triangle ABC.$ Prove $I,M,N$ are collinear.
+
+\item (MAST S2/3) What is the smallest positive integer $k$ such that there is no integer solution $n$ to $\lfloor \frac{n^2}{36}\rfloor=k?$
+
+\item (MAST S2/6) Consider $\triangle ABC$ with $AB=5,$ $BC=7,$ and $CA=4\sqrt{2}.$ Let $H$ be the foot of the altitude from $A$ to $BC.$ If $P$ is a point on $AC,$ find the minimum value of $BP+HP.$
+
+\item (MAST S2/7) Find the remainder of $(1^3)(1^3+2^3)(1^3+2^3+3^3)\dots(1^3+2^3+3^3\dots+99^3)$ when divided by $101.$
+
+\item (MAST S2/12) In $\triangle ABC,$ let the foot of $B$ to $AC$ be $E$ and the foot of $C$ to $AB$ be $F.$ Suppose that the circle through $F$ centered at $B$ is externally tangent to the circle through $E$ centered at $C$ at some point $D.$ Let $G$ be the midpoint of $EF.$ Prove that $DG$ is perpendicular to $BC.$
+
+\item (JMC 10 2020/5) Five years ago, the average of Albert and Bessy's ages was the same as Bessy's current age. If Albert is 20 years old, how old is Bessy?
+
+\item (JMC 10 2020/6) Cars A and B, travelling at constant, different speeds, are headed directly from Austin to Boston and from Boston to Austin respectively. Car A leaves at $9\text{:}00$ AM, and Car B leaves an hour later. If the two cars meet when Car A is $\frac{2}{3}$ of the way to Boston, and Car A arrives at Boston at $3\text{:}00$ PM, when does Car B reach Austin?
+
+\item (JMC 10 2020/21) What is the base-$10$ sum of all positive integers such that, when expressed in binary, have $7$ digits and have no two consecutive $1$'s?
+
+\item (JMC 10 2020/22) What is the units digit of the remainder when $17^7+17^2+1$ is divided by $307^2$?
+
+\item (DeuX MO 2020/J5) Call an ordered pair of distinct integers $(a,b)$ \textbf{lovely} if $a\mid b$ and $f(a)\mid f(b)$ and \textbf{funny} if $a\mid b$ but $f(a)\nmid f(b),$ where $f$ is a polynomial with integer coefficients. Determine all polynomials $f$ with integer coefficients such that there exists infinitely many \textbf{lovely} and \textbf{funny} pairs of distinct integers.
+
+\item (NARML 2020/3) Determine all values of $a$ such that the equation\[ax^2-(a+4)x+\frac{9}{2}=0\]only has one real solution over $x.$
+
+\item (NARML 2020/5) Let $a_1,a_2,a_3,\ldots$ be a sequence that satisfies $a_1=a_2=1$ and $4a_n=9a_{n-2}-a_{n-1}.$ Compute
+\[\sum_{n=1}^{\infty}a_n\cdot \left(\frac{2}{3}\right)^n.\]
+
+\item (NARML 2020/6) Consider a $3\times 5$ rectangle colored in a checkerboard pattern, with its corner squares being black. Rocks of different colors are put on each black square. A valid move consists of taking a stack of rocks and placing it over a diagonally adjacent square with at least one rock on it. If all of the rocks end up in the same stack, how many ways can the rocks in the stack be ordered?
+
+\begin{center}
+	\begin{asy}    
+            size(4cm);
+            fill((0,0)--(1,0)--(1,1)--(0,1)--cycle, lightgray);
+            fill((0,2)--(1,2)--(1,3)--(0,3)--cycle, lightgray);
+            fill((1,1)--(2,1)--(2,2)--(1,2)--cycle, lightgray);
+            fill((2,0)--(3,0)--(3,1)--(2,1)--cycle, lightgray);
+            fill((2,2)--(3,2)--(3,3)--(2,3)--cycle, lightgray);
+            fill((3,1)--(4,1)--(4,2)--(3,2)--cycle, lightgray);
+            fill((4,0)--(5,0)--(5,1)--(4,1)--cycle, lightgray);
+            fill((4,2)--(5,2)--(5,3)--(4,3)--cycle, lightgray);
+            draw((0,0)--(5,0)--(5,3)--(0,3)--(0,0), linewidth(2));
+            for (int i=0;i<5;++i){
+            for (int j=0;j<3;++j){
+            if ((i+j)%2==0)
+            {
+            fill(circle((i+0.5,j+0.5),0.25));
+            }
+            }
+            }
+            draw((0.5,0.5)--(1.5,1.5)--(0.5,2.5), dashed);
+            draw((1.5,1.5)--(2.5,2.5)--(3.5,1.5)--(2.5,0.5)--(1.5,1.5), dashed);
+            draw((4.5,0.5)--(3.5,1.5)--(4.5,2.5), dashed);
+	\end{asy}
+\end{center}
+
+\item (NARML 2020/8) The mad scientist Kyouma is traveling on a number line from $1$ to $2020,$ subject to the following rules:
+\begin{itemize}
+\item He starts at $1.$
+\item Each move, he randomly and uniformly picks a number greater than his current number to go to.
+\item If he reaches $2020$, he is instantly teleported back to $1.$
+\item There is a time machine on $199.$
+\item A foreign government is waiting to ambush him on $1729.$
+\end{itemize}
+What is the probability that he gets to the time machine before being ambushed?
+
+\end{enumerate}
+\end{document}
