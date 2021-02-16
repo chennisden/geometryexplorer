@@ -607,4 +607,7 @@ innerleftmargin=4pt
 
 \newcommand{\db}{\dbold}
 
+\usepackage{bm}
+\newcommand{\ansbold}[1]{{\color{dpurp}\bm{#1}}}
+
 \input{tikzMacros}
