@@ -32,7 +32,6 @@
 
 \usepackage{tikz}
 \RequirePackage{tkz-euclide}
-\usetikzlibrary{calc}
 
 \usepackage{asymptote}
 
@@ -301,8 +300,11 @@ import geometry;
 
 \usepackage{nameref}
 
+\newcounter{chapterid}\setcounter{chapterid}{0} % gives each chapter a unique id even if you change the numbering for sols or wtv
+
 \titleformat{\chapter}[display]{}
 {
+\stepcounter{chapterid}
 \begin{tikzpicture}[remember picture,overlay,anchor = north west]
 \path (current page.north west) node[below right,fill=headpurp,minimum width=\paperwidth, minimum height=4cm] (box){};
 \path (current page.north west) node[below right,fill=dpurp,minimum width=\paperwidth, minimum height=0.4cm] (box){};
@@ -316,10 +318,10 @@ import geometry;
 }{0pt}{
 \begin{tikzpicture}[remember picture, overlay, anchor=south west]
 \node (chtext) at (0,1.65+\dist) {
-\parbox{15cm}{\begin{flushleft}\begin{hyphenrules}{nohyphenation}\cabinfont\chsize#1\end{hyphenrules}\end{flushleft}}
+\parbox{15cm}{\begin{flushleft}\begin{hyphenrules}{nohyphenation}\newpx\chsize#1\end{hyphenrules}\end{flushleft}}
 };
 \end{tikzpicture}
-}[\vspace{3em}\label{\thechapter}]
+}[\vspace{3em}\label{\thechapterid}]
 
 %\newcommand{\chapterquote}[2] % meh dont think this is any good
 %{
@@ -351,7 +353,7 @@ import geometry;
 	filecolor=black,
 	linkcolor=black,
 	urlcolor=black
-}\nameref{\thechapter}}\;\;\;\;\fi\normalsize{\bask \bfseries\thepage}}
+}\nameref{\thechapterid}}\;\;\;\;\fi\normalsize{\bask \bfseries\thepage}}
 \fancyfoot[LE] {\bask\thepage}
 \fancyfoot[C] {}
 
