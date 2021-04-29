@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.1.18)  5 APR 2021 09:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.7)  28 APR 2021 18:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **cv.tex
 (./cv.tex
-LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-01-09> xparse <2020-03-03>
+LaTeX2e <2020-10-01> patch level 2
+L3 programming layer <2020-12-05> xparse <2020-03-03>
 (c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
 (c:/texlive/2020/texmf-dist/tex/latex/base/size10.clo
@@ -280,7 +280,7 @@ LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2021-01-09 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count267
 \l__pdf_internal_box=\box48
 ) (./cv.aux)
@@ -408,6 +408,11 @@ LaTeX Font Info:    Font shape `OT1/Alegreya-LF/m/n' in size <10> not available
 ut line 8.
 LaTeX Font Info:    Font shape `OT1/Alegreya-LF/regular/n' will be
 (Font)              scaled to size 10.0pt on input line 8.
+
+Overfull \hbox (2.1489pt too wide) in paragraph at lines 8--8
+[]\OT1/Alegreya-LF/regular/n/10 Improving your-self daily means in-creas-
+ []
+
 LaTeX Font Info:    Font shape `OT1/Alegreya-LF/m/sl' in size <10> not availabl
 e
 (Font)              Font shape `OT1/Alegreya-LF/regular/sl' tried instead on in
@@ -432,7 +437,6 @@ LaTeX Font Info:    Font shape `OT1/Alegreya-LF/bold/n' will be
 (Font)              scaled to size 11.0pt on input line 12.
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 72.
 
-
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
 (Font)              size <5> substituted on input line 72.
 
@@ -453,21 +457,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./cv.aux)
+Package rerunfilecheck Info: File `cv.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-Package rerunfilecheck Info: File `cv.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 8759 strings out of 479304
- 131311 string characters out of 5871219
- 445860 words of memory out of 5000000
- 25800 multiletter control sequences out of 15000+600000
+ 8709 strings out of 479383
+ 130530 string characters out of 5873326
+ 440895 words of memory out of 5000000
+ 25671 multiletter control sequences out of 15000+600000
  448435 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,5n,88p,359b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 80i,5n,85p,359b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2020/tex
 mf-dist/fonts/enc/dvips/alegreya/algr_2vgxay.enc}{c:/texlive/2020/texmf-dist/fo
 nts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/texlive/2020/texmf-dist/fonts/
@@ -479,7 +484,7 @@ nts/cm/cmss8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 sbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2020/te
 xmf-dist/fonts/type1/public/marvosym/marvosym.pfb>
-Output written on cv.pdf (1 page, 184705 bytes).
+Output written on cv.pdf (1 page, 184517 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  49 compressed objects within 1 object stream

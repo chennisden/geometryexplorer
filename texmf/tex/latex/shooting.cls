@@ -25,8 +25,9 @@
 
 \input{fonts}
 
-%\usepackage{step} :| i like newpx
 \usepackage{newpxtext}
+\usepackage{newpxmath}
+\let\openbox\relax % This is here because newpxmath and amsthm both define it, prevents conflict
 
 \usepackage{babel}
 
@@ -609,7 +610,8 @@ innerleftmargin=4pt
 
 \newcommand{\db}{\dbold}
 
-\usepackage{bm}
-\newcommand{\ansbold}[1]{{\color{dpurp}\bm{#1}}}
+\newcommand{\ansbold}[1]{{\color{dpurp}\mathbf{#1}}}
 
 \input{tikzMacros}
+
+\newcommand{\problems}{\pagebreak\section{Problems}}
