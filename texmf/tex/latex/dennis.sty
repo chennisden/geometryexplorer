@@ -85,16 +85,37 @@ import geometry;
 
 \newcounter{problem}\setcounter{problem}{0} % Problem number counter
 
-\newcommand{\prob}[3]{
-{\parindent=0pt
-\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\if\relax\detokenize{#2}\relax\else\hspace{3pt}(#2)\fi}{\hspace{3.5pt}#3}}
+% pls use this in the future
+
+\newenvironment{prob}[2][]
+{\parindent=0pt % before
+\stepcounter{problem}{\color{darkmidnightblue}[#2\,\faPencil]} \textbf{Problem \theproblem}{\if\relax\detokenize{#1}\relax\else\hspace{3pt}(#1)\fi}\hspace{-3pt}
+}
+{ % after
 \vspace{0.2cm}
 }
-\newcommand{\req}[3]{
-{\parindent=0pt
-\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\if\relax\detokenize{#2}\relax\else\hspace{3.5pt}(#2)\fi}}}{\hspace{3pt}#3}}
+
+\newenvironment{req}[2][]
+{\parindent=0pt % before
+\stepcounter{problem}{\color{darkmidnightblue}[#2\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\if\relax\detokenize{#1}\relax\else\hspace{3pt}(#1)\fi}}}\hspace{-3pt}
+}
+{ % after
 \vspace{0.2cm}
 }
+
+% legacy code
+
+%\newcommand{\prob}[3]{
+%{\parindent=0pt
+%\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faPencil]} \textbf{Problem \theproblem}{\if\relax\detokenize{#2}\relax\else\hspace{3pt}(#2)\fi}{\hspace{3.5pt}#3}}
+%\vspace{0.2cm}
+%}
+%\newcommand{\req}[3]{
+%{\parindent=0pt
+%\stepcounter{problem}{\color{darkmidnightblue}[#1\,\faDiamond]} \textbf{{\color{sangria}Problem \theproblem}}{\textbf{{\color{sangria}\if\relax\detokenize{#2}\relax\else\hspace{3.5pt}(#2)\fi}}}{\hspace{3pt}#3}}
+%\vspace{0.2cm}
+%}
+
 % advances counter, takes in point value and problem statement as inputs
 % faPencil is kind of a big symbol
 
