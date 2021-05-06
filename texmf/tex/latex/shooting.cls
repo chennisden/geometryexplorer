@@ -386,6 +386,16 @@ import geometry;
 {4pt}
 {\thmname{#1}\thmnote{ #3}}
 
+\newtheoremstyle{remark}
+{0pt}
+{0pt}
+{}
+{}
+{\color{dpurp}\sffamily\bfseries}
+{:}
+{4pt}
+{\thmname{#1}\thmnote{ #3}}
+
 \newtheoremstyle{walk}
 {0pt}
 {0pt}
@@ -394,16 +404,6 @@ import geometry;
 {\color{emred}\sffamily\bfseries}
 {:}
 {0pt}
-{\thmname{#1}\thmnote{ #3}}
-
-\newtheoremstyle{remark}
-{0pt}
-{0pt}
-{}
-{}
-{\color{dpurp}\sffamily\bfseries}
-{:}
-{1.5mm}
 {\thmname{#1}\thmnote{ #3}}
 
 \theoremstyle{dbox}
@@ -527,15 +527,16 @@ innerleftmargin=4pt
 
 \newmdtheoremenv[
 nobreak=false,
-innertopmargin=3pt,
-innerbottommargin=3.5pt,
-innerleftmargin=4pt,
 linecolor=dpurp,
 linewidth=1pt,
+leftline=true,
+rightline=false,
 topline=false,
 bottomline=false,
-rightline=false,
-leftline=true]{remark}{Remark}
+innertopmargin=3pt,
+innerbottommargin=3.5pt,
+innerleftmargin=4pt
+]{remark}{Remark}
 
 \theoremstyle{walk}
 
