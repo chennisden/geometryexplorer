@@ -189,19 +189,39 @@ import geometry;
 \end{flushright}
 }
 
-\newcommand{\prob}[3]{
+\newenvironment{prob}[2][]
 {\parindent=0pt
-{\robotofont\color{dpurp}[#1\,\probSymb]\textbf{\if\relax\detokenize{#2}\else\hspace{3pt}(#2)\fi}}{\hspace{3pt}#3}
-\vspace{0.2cm}
+\stepcounter{problem}
+{\robotofont\color{dpurp}[#2~\probSymb]\;\textbf{Problem \theproblem\if\relax\detokenize{#1}\relax\else\hspace{3pt}(#1)\fi}}\hspace{-2pt}
 }
+{
+\vspace{0.2cm}
 }
 
-\newcommand{\req}[3]{
+\newenvironment{req}[2][]
 {\parindent=0pt
-{\robotofont\color{importantred}[#1\,\reqSymb]\textbf{\if\relax\detokenize{#2}\else\hspace{3pt}(#2)\fi}}{\hspace{3pt}#3}
+\stepcounter{problem}
+{\robotofont\color{importantred}[#2~\reqSymb]\;\textbf{Problem \theproblem\if\relax\detokenize{#1}\relax\else\hspace{3pt}(#1)\fi}}\hspace{-2pt}
+}
+{
 \vspace{0.2cm}
 }
-}
+
+% legacyyyy code
+
+%\newcommand{\prob}[3]{
+%{\parindent=0pt
+%{\robotofont\color{dpurp}[#1\,\probSymb]\textbf{\if\relax\detokenize{#2}\else\hspace{3pt}(#2)\fi}}{\hspace{3pt}#3}
+%\vspace{0.2cm}
+%}
+%}
+%
+%\newcommand{\req}[3]{
+%{\parindent=0pt
+%{\robotofont\color{importantred}[#1\,\reqSymb]\textbf{\if\relax\detokenize{#2}\else\hspace{3pt}(#2)\fi}}{\hspace{3pt}#3}
+%\vspace{0.2cm}
+%}
+%}
 
 %section
 
@@ -476,8 +496,9 @@ leftline=true]{exer}[theo]{Exercise}
 \newmdtheoremenv[% settings
 backgroundcolor=thmblue,
 nobreak=true,
-innerleftmargin=5pt,
-innerrightmargin=5pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
 topline=false,
 bottomline=false,
 rightline=false,
@@ -486,8 +507,9 @@ leftline=false]{lemma}[theo]{Lemma}
 \newmdtheoremenv[% settings
 backgroundcolor=thmblue,
 nobreak=true,
-innerleftmargin=5pt,
-innerrightmargin=5pt,
+innerleftmargin=7pt,
+innerrightmargin=7pt,
+innertopmargin=7pt,
 topline=false,
 bottomline=false,
 rightline=false,
