@@ -552,7 +552,7 @@ innerbottommargin=4pt,
 innerleftmargin=4pt
 ]{walk}{Walkthrough}
 
-\renewcommand{\walk}{\sffamily{\color{emred}\bfseries Walkthrough:~}\defaultfont}
+\renewcommand{\walk}{{\sffamily\color{emred}\bfseries Walkthrough:~}}
 
 %hints and solutions
 
