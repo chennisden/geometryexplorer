@@ -483,7 +483,7 @@ leftline=true]{exam}[theo]{Example}
 \newmdtheoremenv[% settings
 backgroundcolor=white,
 nobreak=true,
-linecolor=dpurp,
+linecolor=npurp,
 linewidth=0.6pt,
 innerleftmargin=7pt,
 innerrightmargin=7pt,
