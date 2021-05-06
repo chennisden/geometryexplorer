@@ -377,8 +377,8 @@ import geometry;
 	{\vspace{1.5pt}\thmname{#1}\thmnumber{ #2}\thmnote{ --- #3}}%
 
 \newtheoremstyle{proof}
-{4pt}
-{4pt}
+{0pt}
+{0pt}
 {}
 {}
 {\color{emred}\sffamily\bfseries}
@@ -387,8 +387,8 @@ import geometry;
 {\thmname{#1}\thmnote{ #3}}
 
 \newtheoremstyle{walk}
-{4pt}
-{4pt}
+{0pt}
+{0pt}
 {}
 {}
 {\color{emred}\sffamily\bfseries}
@@ -401,7 +401,7 @@ import geometry;
 {0pt}
 {}
 {}
-{\color{emred}\sffamily\bfseries}
+{\color{dpurp}\sffamily\bfseries}
 {:}
 {1.5mm}
 {\thmname{#1}\thmnote{ #3}}
@@ -496,7 +496,6 @@ leftline=false]{corollary}[theo]{Corollary}
 \theoremstyle{proof}
 
 \newmdtheoremenv[
-backgroundcolor=white,
 nobreak=false,
 linecolor=emred,
 linewidth=1pt,
@@ -504,15 +503,14 @@ leftline=true,
 rightline=false,
 topline=false,
 bottomline=false,
-innertopmargin=0pt,
-innerbottommargin=2pt,
+innertopmargin=3pt,
+innerbottommargin=3.5pt,
 innerleftmargin=4pt
 ]{pro}{Proof}
 
 \def\endpro{\hfill$\blacksquare$}
 
 \newmdtheoremenv[
-backgroundcolor=white,
 nobreak=false,
 linecolor=emred,
 linewidth=1pt,
@@ -520,21 +518,20 @@ leftline=true,
 rightline=false,
 topline=false,
 bottomline=false,
-innertopmargin=0pt,
-innerbottommargin=2pt,
+innertopmargin=3pt,
+innerbottommargin=3.5pt,
 innerleftmargin=4pt
 ]{sol}{Solution}
 
 \theoremstyle{remark}
 
 \newmdtheoremenv[
-backgroundcolor=remcolor,
-nobreak=true,
-innertopmargin=5pt,
-innerleftmargin=7pt,
-innerrightmargin=7pt,
-linecolor=black,
-linewidth=2pt,
+nobreak=false,
+innertopmargin=3pt,
+innerbottommargin=3.5pt,
+innerleftmargin=4pt,
+linecolor=dpurp,
+linewidth=1pt,
 topline=false,
 bottomline=false,
 rightline=false,
@@ -543,7 +540,6 @@ leftline=true]{remark}{Remark}
 \theoremstyle{walk}
 
 \newmdtheoremenv[
-backgroundcolor=white,
 nobreak=false,
 linecolor=emred,
 linewidth=1pt,
@@ -551,12 +547,12 @@ leftline=true,
 rightline=false,
 topline=false,
 bottomline=false,
-innertopmargin=0pt,
-innerbottommargin=2pt,
+innertopmargin=2pt,
+innerbottommargin=4pt,
 innerleftmargin=4pt
 ]{walk}{Walkthrough}
 
-\renewcommand{\walk}{{\color{emred}\bfseries Walkthrough:~}}
+\renewcommand{\walk}{\sffamily{\color{emred}\bfseries Walkthrough:~}}
 
 %hints and solutions
 
