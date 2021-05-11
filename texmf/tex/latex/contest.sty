@@ -2,15 +2,13 @@
 
 \newif\ifpurple\purplefalse
 \newif\iffont\fontfalse
+\newif\ifmat\matfalse
 
-\DeclareOption{lucky}{\purpletrue}
+\DeclareOption{mat}{\purpletrue\fonttrue\mattrue}
 
 \ProcessOptions\relax
 
 \usepackage{amsmath,amssymb}
-
-\usepackage{newpxtext}
-\usepackage{newpxmath}
 
 \pagenumbering{gobble}
 
@@ -19,6 +17,17 @@
 \renewcommand{\headrulewidth}{0pt} % clear header
 \fancyhead{} % clear line
 
+\ifmat
+\fancyfoot[L]{
+{\color{black}
+\raisebox{-60pt}[0pt][0pt]{
+\includegraphics[width=2cm]{mountain.png}}
+\raisebox{-56pt}[0pt][0pt]{\begin{tikzpicture}
+\draw (0,0) node {{\alegreyafont\fontsize{40}{50}\selectfont MAT}};
+\end{tikzpicture}}
+}
+}
+\else
 \fancyfoot[L]{
 {\color{black}
 \hspace{-20pt}\raisebox{-63pt}[0pt][0pt]{
@@ -27,7 +36,8 @@
 \draw (0,0) node {{\alegreyafont\fontsize{40}{50}\selectfont MAC}};
 \end{tikzpicture}}
 }
-} % logo!
+}
+\fi
 
 \usepackage{asymptote}
 
@@ -127,6 +137,15 @@ import geometry;
     \end{tikzpicture}
 }
 
+\ifmat
+\newcommand{\titulate}[1]{
+\begin{center}
+{\Huge{\alegreyafont #1}}
+\\[1\baselineskip]
+\includegraphics[width=4cm]{mountain.png}
+\end{center}
+}
+\else
 \newcommand{\titulate}[1]{
 \begin{center}
 {\Huge{\alegreyafont #1}}
@@ -134,6 +153,7 @@ import geometry;
 \logo{0.4}
 \end{center}
 }
+\fi
 
 \newcommand{\roundheader}[1]{
 \pagebreak
