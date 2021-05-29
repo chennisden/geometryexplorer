@@ -1,5 +1,6 @@
-\documentclass{article}
-\usepackage{lucky}
+\documentclass{lucky}
+\usepackage{verbatim}
+\usepackage{listings}
 
 \title{Sample Document for lucky.sty}
 \author{Dennis Chen}
@@ -102,26 +103,32 @@ The table of contents command is \verb|\toc,| which is provided to allow hyperli
 
 \psetquote{We show off the problem environments in what follows.}{lucky.sty}
 
-\prob{2}{Sourced problem}{To create a problem, simply input}
-\vspace{-0.2cm}
-\begin{verbatim}
-\prob{Point value}{Source}{Problem text}
-\end{verbatim}
+\begin{prob}[Sourced problem]{2}
+To create a problem, simply input
 
-\noindent to get a problem. Parentheses should not be included around the source; the package will do that for you.
-\vspace{0.2cm}
+\textbackslash begin\{prob\}[Source]\{Point Value\}
 
-\prob{3}{}{If you leave the `Source' argument empty, the parentheses will not appear.}
+Problem text
 
-\req{6}{}{Using the command}
-\vspace{-0.2cm}
-\verb|\req|
+\textbackslash end\{prob\}
+
+\noindent to get a problem. Parentheses should not be included around the source; the class will do that for you.
+\end{prob}
+
+\begin{prob}{3}
+If you do not provide an optional `Source' argument or leave it empty, the parentheses will not appear.
+\end{prob}
+
+\begin{req}{6}
+Using the environment
+\texttt{req}
 will do the same thing as the problem command, though the problem source and point value will be displayed differently to highlight that the problem is required.
-\vspace{0.2cm}
+\end{req}
 
-\req{13}{Quotes}{Problem-set quotes, as we displayed earlier, can be created with the following command:}
-\vspace{-0.2cm}
-\begin{verbatim}
-\psetquote{Quote}{Source}
-\end{verbatim}
+\begin{req}[Quotes]{13}
+Problem-set quotes, as we displayed earlier, can be created with the following command:
+
+\texttt{\textbackslash psetquote\{Quote\}\{Source\}}
+
+\end{req}
 \end{document}
