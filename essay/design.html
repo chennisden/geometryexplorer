@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>The Handicap Principle</title>
+<title>Design</title>
 <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Quattrocento%20Sans' rel='stylesheet' type='text/css'>
 <link type="text/css" rel="stylesheet" href="/css/macstyle.css" />
@@ -12,9 +12,23 @@
 <h1>Design</h1>
 <p><em>Originally published May 3, 2021.</em></p>
 
-<p>Anyone who's been on my website for long enough will have seen <a href = "/texfiles/CV/cv.pdf">some</a> <a href = "/texfiles/cauldron/sanitized.pdf">of</a> <a href = "/pdfs/AQU-TelescopingNew.pdf">my</a> <a href = "https://mac.geometryexplorer.xyz/pdfs/narml.pdf">design.</a> [1] (Styles can all be found in my <a href = "https://github.com/chennisden/texmf">GitHub</a> under texfiles and texmf.)</p>
+<p>Anyone who's been on my website for long enough will have seen <a href = "/texfiles/CV/cv.pdf">some</a> <a href = "/texfiles/cauldron/sanitized.pdf">of</a> <a href = "/pdfs/AQU-TelescopingNew.pdf">my</a> <a href = "https://mac.geometryexplorer.xyz/pdfs/narml.pdf">design.</a> [1] (Classes can all be found in my <a href = "https://github.com/chennisden/texmf">GitHub</a> under texmf.)</p>
 
-<p>I want to talk about a couple of design principles and pay homage to several other stylists.</p>
+<p>I want to talk about a couple of design principles and pay homage to several other stylists. At the same time, I want to warn of some common bad coding practices that I've been seeing quite often.</p>
+	
+<h2>Bad Code</h2>
+
+<p>I've seen some truly atrocious samples of code from people, including my past self. Most of that code has been blindly copied from Stack Exchange (in fact, that's the source of many of these mistakes). I strongly recommend that you take the time to understand what you are doing as you use <i>ideas</i> from Stack Exchange.</p>
+
+<p>Besides blindly copying Stack Exchange, here are a couple of other bad habits that you should avoid.</p>
+	
+<ol>
+	<li><b>Makeatletter and makeatother</b>. This is the worst one. \makeatletter doesn't do anything in a sty or cls file</li>
+	<li><b>Choosing the wrong file format</b>. Notice that my designs are all in cls files and all my dependencies are in sty files. The reason is because if I had design1 and design2 as classes, I could only load one of them. But if I made them packages, I could theoretically load both. While conflicts would probably cause an error to be thrown, it's still a bad idea to make a design a package. At the same time, because dependencies can be reused, they should be sty files (packages). Just because someone made his file a package instead of a class does not mean you should blindly copy it.
+	<li><b>Incorrectly formatting your GitHub repository</b>. Your repository should be of the format (reponame)/texmf/tex/latex. Nothing else. (You can actually skip reponame if you don't intend on including an examples folder under it, though I would just include it anyways.) If you want an organization to (semi)-professionally use your design, you need to correctly format it. This is because as you make changes, you want people to be able to pull them conveniently.
+	<li><b>Copying a sty/cls file into every directory</b>. This is more common with users rather than developers. Please stop, it's driving all of us crazy. When we actually try to edit our code and then wonder why none of the changes are being reflected in the PDF output, it's a waste of our time. It also unnecessarily bloats the repository. If you don't know how to correctly point TEXMFHOME to a custom repository or group of repositories, watch videos 2-5 of <a href = "https://www.youtube.com/watch?v=x3f-hQyHjrE&list=PLfmfyozr1I93wlbTNW9OzwpRHKgOVW5vQ&index=2">this playlist</a>.
+	<li><b>Using Overleaf</b>. People who use Overleaf tend to have a habit of overlooking errors because it decides to force compile. (I've actually spoken to a person who <i>preferred</i> Overleaf for this reason, which is the perfect example of how Overleaf introduces and normalizes bad habits.) Also, you won't know what packages require \write18, so you'll be more inclined to blindly load in packages without considering the requirements and issues they can present.
+</ol>
 
 <h2>Principles</h2>
 
@@ -22,7 +36,7 @@
 
 <p>The first is in terms of width: everything is page width minus margin widths. This may sound a bit obvious, but this isn't actually a hard rule. <b>Knowing this rule is what'll help you break it.</b> Campbell's Biology, which I think is a great example of document design, fills in their chapter headers with a rectangle the width of the entire page, <i>including the margins</i>. So does shooting.cls (which I do not have an example document of). But even in breaking the rule, designers adhere to it: the chapter title is aligned with the margins.</p>
 
-<p>A useful way to gauge how much skill you have is how many degrees of freedom you can identify in design. Here are a couple, off the top of my head:</p>
+<p>A useful way to gauge how much skill you have is how many degrees of freedom you can identify in design. Here are a couple, off the top of my head.</p>
 <ol>
 	<li><b>Colors</b>. This is the main way you can easily change the output of a style, and there are a large number of color themes you can choose from/create. My favorites are red + blue, red + blue + green, and purple + blue + green. [2] A really good color theme nobody has used yet is forest green, so I encourage any prospective stylists to start there.</li>
 	<li><b>Box styles</b>. Do you fill in the box? Add extra decorations? A bit more technical savvy is needed here.</li>
@@ -39,7 +53,7 @@
 
 <p>For what it's worth, I think this is the first time a community of non-professionals have been making document styles. (Though it's admittedly pretty small, or the next paragraph would be a lot longer.) I hope this group of designers will continue to grow, and I am very excited for the future. Everyone on my list plus myself either didn't do design or was bad at it a year ago. [4] But people get good fast, and as more styles become open sourced, the barrier for entry only gets lower.</p>
 
-<p>If you're looking for bright and colorful documents, why not try Dylan <a href = "https://github.com/Yu-Dylan/tex/blob/master/dylanadi/dylanadi_sty.pdf">dylanadi.sty</a>? I also really enjoy <a href = "https://github.com/SpacedInnOut/pdfs-and-stuff/blob/main/school/History_Notes.pdf">spaced.sty</a>. I'm sure there are other great styles, but many are not open source and I don't know all the high-school stylists.</p>
+<p>If you're looking for bright and colorful documents, why not try Dylan Yu's <a href = "https://github.com/Yu-Dylan/tex/blob/master/dylanadi/dylanadi_sty.pdf">dylanadi.sty</a>? [5] I also really enjoy <a href = "https://github.com/SpacedInnOut/pdfs-and-stuff/blob/main/school/History_Notes.pdf">spaced.sty</a>. I'm sure there are other great styles, but many are not open source and I don't know all the high-school stylists.</p>
 
 <h2>Footnotes</h2>
 
@@ -52,5 +66,6 @@
 <br>
 A note to the designers: it's probably a good idea to try other people's styles, or at least look at them. I've been meaning to try out other people's styles, but I haven't really gotten the chance to.</p>
 <p>[4] "A year ago" means a year from the original publishing date, not a year from whenever you're reading.</p>
+<p>[5] If you look at the actual source code, you will see that it is very poorly written. The design principles are still solid, however, and if you're a user you probably won't notice as much.</p>
 </body>
 </html>
